@@ -7,7 +7,8 @@ Open `index.html` in a browser. Math renders via MathJax from a CDN, so an inter
 
 Tabs:
 
-- **Plan** – hour-by-hour schedule for the 1½ study days, with checkboxes that persist in the browser.
+- **Plan** – hour-by-hour schedule for the 1½ study days, drill-first, with checkboxes that persist in the browser.
+- **Drills** – 17 problem generators (equilibrium, automation, Cobb–Douglas, CES, NPV, ability bias, signaling, Wald/IV, compensating differentials, VSL, sorting, DiD, RD) with random numbers, answer checking, worked steps, and streak tracking.
 - **L2–L5** – each lecture's facts, model, derivations, comparative statics, graphs, and common traps.
 - **Research designs** – RCT, IV, RD, DiD: what each estimates, key assumptions, how to check them.
 - **11 Papers** – setting / design + assumptions / findings + model, in the study guide's format.

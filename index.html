@@ -158,6 +158,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],proc
 </div></header>
 <nav class="tabs" aria-label="Sections"><div class="wrap" role="tablist">
     <button role="tab" data-tab="plan" aria-selected="true">Plan</button>
+    <button role="tab" data-tab="drills">Drills</button>
     <button role="tab" data-tab="eqm">L2 Equilibrium</button>
     <button role="tab" data-tab="tech">L3 Tech change</button>
     <button role="tab" data-tab="edu">L4 Education</button>
@@ -173,41 +174,52 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],proc
 <!-- ============ PLAN ============ -->
 <section class="panel" id="tab-plan" data-panel="plan">
 <h2>Your 1½-day plan</h2>
-<p class="lede">Wednesday is for learning and deriving. Thursday is for testing yourself and locking in the papers. Nothing new after noon Thursday. Tick blocks off as you go; the page remembers.</p>
+<p class="lede">Built for learning by doing. Each block is: skim the topic page for 10 minutes, then drill the same problem type with fresh numbers until you get three in a row without looking. Tick blocks off as you go; the page remembers.</p>
+
+<div class="key"><strong>How every block works.</strong>
+<ol style="margin:6px 0 0">
+<li><strong>Skim</strong> the topic tab for the one model in that block. Just read the equations and the "Traps" box. 10 minutes max.</li>
+<li><strong>Drill</strong> on the Drills tab. Work on paper, type your answers, Check. Wrong? Open the steps, find the exact line you diverged, close the steps, hit <em>New numbers</em>, redo.</li>
+<li><strong>Three correct in a row</strong> turns the drill green. Move on. If you're stuck after 25 minutes on one drill, read the Problem sets version of it, then come back.</li>
+<li>Papers and designs are drilled with flashcards and the paper cards' three questions, spoken out loud.</li>
+</ol></div>
 
 <div class="callout"><span class="eyebrow">What the exam actually tests</span>
 <p style="margin:4px 0 0">The study guide is unusually explicit. Five things: (1) everything in both problem sets, (2) the "facts" slides at the start of L3, L4, L5, (3) for each of 11 papers: setting, design + assumptions + plausibility, findings + which model they fit, (4) working the four models (equilibrium, tech change/automation, human capital/signaling, compensating differentials), (5) the four research designs (RCT, IV, RD, DiD). Every block below maps to one of these.</p></div>
 
 <h3>Wednesday, Oct 7 · 9:00am – 10:00pm</h3>
 <div class="sched" id="sched-wed">
-  <div class="block"><span class="time">9:00–9:30</span><label><input type="checkbox" data-block="w1"><span><span class="what">Orient.</span><div class="how">Read the Cheat sheet tab once, fast. Rate yourself 1–3 on each of the four models and the 11 papers. Note the weakest two; you'll give them extra time at 8:45pm.</div></span></label></div>
-  <div class="block"><span class="time">9:30–11:00</span><label><input type="checkbox" data-block="w2"><span><span class="what">L2 Equilibrium: the model, by hand.</span><div class="how">L2 tab. Derive the reservation wage, labor supply \(L^s = N\,P[w^r_i\le w]\), labor demand \(w = p\,y'(L)\), and the unearned-income comparative static. Then redo HW1 Q2 (the log-linear equilibrium) on paper without looking, and check against the Problem sets tab.</div></span></label></div>
-  <div class="block break"><span class="time">11:00–11:15</span><label><input type="checkbox" data-block="w3"><span><span class="what">Break</span></span></label></div>
-  <div class="block"><span class="time">11:15–12:45</span><label><input type="checkbox" data-block="w4"><span><span class="what">RCTs + the three L2 papers.</span><div class="how">Research designs tab (RCT section), then Papers: Paycheck Plus, OpenResearch, Dustmann–Schönberg–Stuhler. For each, write the three study-guide answers in your own words (setting / design &amp; assumptions / findings &amp; model). Compute the Paycheck Plus elasticity (0.125) and the Alaska pipeline elasticity (≈3.7) yourself and explain why they differ.</div></span></label></div>
-  <div class="block break"><span class="time">12:45–1:30</span><label><input type="checkbox" data-block="w5"><span><span class="what">Lunch</span></span></label></div>
-  <div class="block"><span class="time">1:30–3:00</span><label><input type="checkbox" data-block="w6"><span><span class="what">L3 Tech change: two models + HW1 Q1.</span><div class="how">L3 tab. Derive labor-augmenting change (\(A\uparrow\) shifts \(\gamma A^\gamma L^{\gamma-1}\) up) and automation (\(w^D=\min\{rA,\gamma A^\gamma L^{\gamma-1}\}\): a maximum wage). Fill in the ↑/↓ table from memory. Then HW1 Q1: do Cobb–Douglas and perfect substitutes fully; skim Leontief. Know the short-run vs long-run elasticity comparison for each.</div></span></label></div>
-  <div class="block break"><span class="time">3:00–3:15</span><label><input type="checkbox" data-block="w7"><span><span class="what">Break</span></span></label></div>
-  <div class="block"><span class="time">3:15–4:30</span><label><input type="checkbox" data-block="w8"><span><span class="what">IV + the three L3 papers.</span><div class="how">Research designs (IV: four assumptions, \(\beta=\delta/\pi\), LATE). Papers: Caunedo–Kala, Acemoglu–Restrepo, Gaggl–Wright (HW1 Q3). Practice applying the four IV assumptions to "European robots instrument US robots" out loud.</div></span></label></div>
-  <div class="block break"><span class="time">4:30–5:00</span><label><input type="checkbox" data-block="w9"><span><span class="what">Walk / real break</span></span></label></div>
-  <div class="block"><span class="time">5:00–6:30</span><label><input type="checkbox" data-block="w10"><span><span class="what">L4 Education: human capital, signaling, HW2 Q1.</span><div class="how">L4 tab. NPV decision, \(y'(S)/y(S)\approx r\), the two ability-bias models (\(\alpha_i\) vs \(\beta_i\)), separating/pooling conditions. Then HW2 Q1 (the CES skill-biased tech-change model): derive the wage-premium ratio and the equilibrium \(w_e/w_m = (A_e/A_m)^{\rho/(1-a(\rho-1))}\).</div></span></label></div>
-  <div class="block break"><span class="time">6:30–7:15</span><label><input type="checkbox" data-block="w11"><span><span class="what">Dinner</span></span></label></div>
-  <div class="block"><span class="time">7:15–8:30</span><label><input type="checkbox" data-block="w12"><span><span class="what">RD + the two L4 papers.</span><div class="how">Research designs (RD: continuity assumption, the limit derivation, fuzzy RD = IV). Papers: Angrist–Krueger (why IV ≥ OLS matters), Clark–Martorell (why a zero is the result). Be able to say what each would look like under human capital vs signaling vs selection.</div></span></label></div>
-  <div class="block break"><span class="time">8:30–8:45</span><label><input type="checkbox" data-block="w13"><span><span class="what">Break</span></span></label></div>
-  <div class="block"><span class="time">8:45–10:00</span><label><input type="checkbox" data-block="w14"><span><span class="what">L5 Comp. differentials + DiD + three papers; then weakest topic.</span><div class="how">L5 tab: the two-industry model, both comparative statics (\(A_G\uparrow\), \(r_G\uparrow\)), HW2 Q2 (why \(\gamma&lt;0\) fits the facts), VSL. DiD section. Papers: Lavetti, Lee–Taylor, Mas–Pallais. Last 20 minutes: flashcards on your two weakest items from 9am.</div></span></label></div>
+  <div class="block"><span class="time">9:00–9:20</span><label><input type="checkbox" data-block="w1"><span><span class="what">Warm-up: the one move everything uses.</span><div class="how">L2 tab §1–2 (supply and demand equations only). Then Drills → <em>Labor demand from a production function</em>. Goal: take a FOC, solve for L, take logs, read off the elasticity. Three in a row.</div></span></label></div>
+  <div class="block"><span class="time">9:20–10:30</span><label><input type="checkbox" data-block="w2"><span><span class="what">L2 drills: reservation wage → supply → equilibrium.</span><div class="how">Drills: <em>Reservation wage and labor supply</em>, then <em>Solve the equilibrium, then shock it</em>. The equilibrium drill is the single most exam-like thing on this site (HW1 Q2 with new numbers). Expect it to take several rounds; that's the point.</div></span></label></div>
+  <div class="block break"><span class="time">10:30–10:45</span><label><input type="checkbox" data-block="w3"><span><span class="what">Break</span></span></label></div>
+  <div class="block"><span class="time">10:45–11:30</span><label><input type="checkbox" data-block="w4"><span><span class="what">Elasticities from papers + RCT logic.</span><div class="how">Drill: <em>Elasticity from paper-style numbers</em> (3 in a row). Then Research designs tab, RCT section (5 min). Then Papers tab: read Paycheck Plus, OpenResearch, Czech commuters once each and say the three answers out loud for each.</div></span></label></div>
+  <div class="block"><span class="time">11:30–12:45</span><label><input type="checkbox" data-block="w5"><span><span class="what">L3 drills: automation.</span><div class="how">L3 tab §2–5 skim (the min{rA, …} curve and the ↑/↓ table). Drill: <em>Automation: does the machine bind</em> until green. Then <em>Cobb–Douglas SR vs LR</em> until green. Both are HW1 Q1 in disguise.</div></span></label></div>
+  <div class="block break"><span class="time">12:45–1:30</span><label><input type="checkbox" data-block="w6"><span><span class="what">Lunch</span></span></label></div>
+  <div class="block"><span class="time">1:30–2:15</span><label><input type="checkbox" data-block="w7"><span><span class="what">IV + L3 papers.</span><div class="how">Drill: <em>IV mechanics</em> until green (it's quick). Research designs tab, IV section: say the four assumptions from memory. Papers: Karnataka, Robots, UK ICT, three answers out loud each. Fill in the theory table from memory on paper.</div></span></label></div>
+  <div class="block"><span class="time">2:15–3:30</span><label><input type="checkbox" data-block="w8"><span><span class="what">L4 drills: human capital.</span><div class="how">L4 tab §2–3 skim. Drills: <em>Two-period NPV</em> (fast, get green), then <em>Optimal schooling and ability bias</em> until green. Then <em>Skill-biased technical change</em> (HW2 Q1 numbers) until green.</div></span></label></div>
+  <div class="block break"><span class="time">3:30–3:45</span><label><input type="checkbox" data-block="w9"><span><span class="what">Break</span></span></label></div>
+  <div class="block"><span class="time">3:45–4:45</span><label><input type="checkbox" data-block="w10"><span><span class="what">L4 drills: signaling + IV/RD papers.</span><div class="how">L4 tab §5 skim. Drill: <em>Signaling: which equilibria exist</em> until green. Then <em>Wald estimate</em> and <em>Regression discontinuity</em> drills until green. Papers: Angrist–Krueger, Clark–Martorell out loud.</div></span></label></div>
+  <div class="block break"><span class="time">4:45–5:15</span><label><input type="checkbox" data-block="w11"><span><span class="what">Walk / real break</span></span></label></div>
+  <div class="block"><span class="time">5:15–6:30</span><label><input type="checkbox" data-block="w12"><span><span class="what">L5 drills: compensating differentials.</span><div class="how">L5 tab §2–3 skim. Drill: <em>Compensating differential: solve and shock</em> until green. Then <em>Productivity sorting</em> (HW2 Q2) and <em>VSL</em> until green.</div></span></label></div>
+  <div class="block break"><span class="time">6:30–7:15</span><label><input type="checkbox" data-block="w13"><span><span class="what">Dinner</span></span></label></div>
+  <div class="block"><span class="time">7:15–8:00</span><label><input type="checkbox" data-block="w14"><span><span class="what">DiD + L5 papers.</span><div class="how">Drill: <em>Difference-in-differences</em> until green. Research designs, DiD section. Papers: Lavetti, Lee–Taylor, Mas–Pallais out loud.</div></span></label></div>
+  <div class="block"><span class="time">8:00–9:15</span><label><input type="checkbox" data-block="w15"><span><span class="what">Random drill mode.</span><div class="how">Drills tab, hit <em>Random drill</em> repeatedly. You don't know what's coming, like the exam. Any drill you miss, do twice more with new numbers before moving on.</div></span></label></div>
+  <div class="block"><span class="time">9:15–10:00</span><label><input type="checkbox" data-block="w16"><span><span class="what">Flashcards: papers and designs, then stop.</span><div class="how">Flashcards tab, filter Papers, shuffle. Then Designs. Then close the laptop.</div></span></label></div>
 </div>
 
 <h3>Thursday, Oct 8 · 9:00am – 2:00pm (exam 3:30pm)</h3>
 <div class="sched" id="sched-thu">
-  <div class="block"><span class="time">9:00–10:30</span><label><input type="checkbox" data-block="t1"><span><span class="what">Timed practice exam, closed notes.</span><div class="how">Practice exam tab. Paper and pen, 90 minutes, solutions hidden. Skip and return rather than stall.</div></span></label></div>
-  <div class="block break"><span class="time">10:30–10:45</span><label><input type="checkbox" data-block="t2"><span><span class="what">Break</span></span></label></div>
-  <div class="block"><span class="time">10:45–11:45</span><label><input type="checkbox" data-block="t3"><span><span class="what">Grade and patch.</span><div class="how">Open the solutions. For anything you missed, re-derive it from the topic tab, then redo that question cold.</div></span></label></div>
-  <div class="block"><span class="time">11:45–12:30</span><label><input type="checkbox" data-block="t4"><span><span class="what">Papers rapid-fire.</span><div class="how">Flashcards tab, filter to Papers and Designs. Shuffle. Go until you get a full pass. Tick the "I can answer the 3 questions" box on each paper card.</div></span></label></div>
-  <div class="block break"><span class="time">12:30–1:15</span><label><input type="checkbox" data-block="t5"><span><span class="what">Lunch (eat properly)</span></span></label></div>
-  <div class="block"><span class="time">1:15–2:00</span><label><input type="checkbox" data-block="t6"><span><span class="what">Cheat sheet read-through and six graphs from memory.</span><div class="how">Draw: supply–demand shifts (demand shock, supply shock), automation kink, MRR = r, comp. differential (both shifts), RD jump, DiD. Then stop. Walk, eat something, arrive early.</div></span></label></div>
+  <div class="block"><span class="time">9:00–9:30</span><label><input type="checkbox" data-block="t0"><span><span class="what">Wake-up drills.</span><div class="how">Random drill mode for 30 minutes. Not to learn anything, just to get hands moving.</div></span></label></div>
+  <div class="block"><span class="time">9:30–11:00</span><label><input type="checkbox" data-block="t1"><span><span class="what">Timed practice exam, closed notes.</span><div class="how">Practice exam tab. Paper and pen, 90 minutes, solutions hidden. Skip and return rather than stall.</div></span></label></div>
+  <div class="block break"><span class="time">11:00–11:15</span><label><input type="checkbox" data-block="t2"><span><span class="what">Break</span></span></label></div>
+  <div class="block"><span class="time">11:15–12:15</span><label><input type="checkbox" data-block="t3"><span><span class="what">Grade and patch with drills.</span><div class="how">Open the solutions. For every part you missed, find the matching drill and get three in a row with new numbers. That is the patch.</div></span></label></div>
+  <div class="block"><span class="time">12:15–12:45</span><label><input type="checkbox" data-block="t4"><span><span class="what">Papers rapid-fire.</span><div class="how">Flashcards, Papers + Designs, shuffled, until one clean pass. Tick the box on each paper card.</div></span></label></div>
+  <div class="block break"><span class="time">12:45–1:30</span><label><input type="checkbox" data-block="t5"><span><span class="what">Lunch (eat properly)</span></span></label></div>
+  <div class="block"><span class="time">1:30–2:00</span><label><input type="checkbox" data-block="t6"><span><span class="what">Cheat sheet read-through and six graphs from memory.</span><div class="how">Draw: supply–demand shifts (demand shock, supply shock), automation kink, MRR = r, comp. differential (both shifts), RD jump, DiD. Then stop. Walk, eat something, arrive early.</div></span></label></div>
 </div>
 
-<h3>How to use the problem sets</h3>
-<p>The study guide says you should be "comfortable with all the material in both problem sets." The midterm will almost certainly reuse their structure: a model setup, "take logs and differentiate" for an elasticity, a comparative static with a sign condition, and one paper question. The Problem sets tab has every part restated as a question with the solution hidden, so you can attempt first. The Practice exam tab has fresh problems built the same way.</p>
+<h3>If you fall behind</h3>
+<p>Protect these five drills above everything else; they are the problem sets with new numbers: <em>Solve the equilibrium, then shock it</em>; <em>Automation</em>; <em>Skill-biased technical change</em>; <em>Signaling</em>; <em>Compensating differential: solve and shock</em>. Then the papers out loud. Everything else is bonus.</p>
 
 <div class="trap"><span class="eyebrow">Highest-value habits</span>
 <ul style="margin:6px 0 0">
@@ -957,6 +969,311 @@ The denominator is negative, so \(\partial\log w^*/\partial\log A=\frac{\gamma}{
 </ol>
 </div></details></div>
 </section>
+<!-- ============ DRILLS ============ -->
+<section class="panel" id="tab-drills" data-panel="drills" hidden>
+<h2>Drills</h2>
+<p class="lede">Same question, new numbers, until it's automatic. Pick a drill, work it on paper, type your answers, check, then read every step with your numbers. Three correct in a row and the drill turns green.</p>
+<div class="drill-layout">
+  <aside class="drill-list" id="drill-list" aria-label="Drill types"></aside>
+  <div class="drill-main">
+    <div class="card" id="drill-card">
+      <div class="drill-top"><span class="eyebrow" id="drill-topic"></span><span class="streak" id="drill-streak"></span></div>
+      <h3 id="drill-title" style="margin-top:4px"></h3>
+      <div id="drill-q"></div>
+      <div id="drill-answers" class="answers"></div>
+      <div class="drill-actions">
+        <button class="btn" id="drill-check" type="button">Check</button>
+        <button class="btn ghost" id="drill-steps" type="button">Show steps</button>
+        <button class="btn ghost" id="drill-new" type="button">New numbers</button>
+        <button class="btn ghost" id="drill-random" type="button">Random drill</button>
+      </div>
+      <div id="drill-feedback" class="feedback" hidden></div>
+      <div id="drill-sol" class="solution" hidden></div>
+    </div>
+    <p class="small">Tolerance: within 2% of the exact answer (or ±0.01 for small numbers). Round at the end, not in the middle. Elasticities and logs are natural logs.</p>
+  </div>
+</div>
+</section>
+<style>
+.drill-layout{display:grid;grid-template-columns:260px 1fr;gap:18px;align-items:start}
+@media (max-width:820px){.drill-layout{grid-template-columns:1fr}}
+.drill-list{display:flex;flex-direction:column;gap:4px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 56px)}
+@media (max-width:820px){.drill-list{position:static;flex-direction:row;flex-wrap:wrap}}
+.drill-list .grp{font-family:var(--font-ui);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600;margin:10px 0 2px}
+@media (max-width:820px){.drill-list .grp{width:100%}}
+.drill-list button{font-family:var(--font-ui);font-size:.88rem;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:7px 10px;cursor:pointer;color:var(--fg);display:flex;justify-content:space-between;gap:8px;align-items:center}
+.drill-list button[aria-current="true"]{border-color:var(--accent);box-shadow:inset 3px 0 0 var(--accent)}
+.drill-list button .dot{width:9px;height:9px;border-radius:50%;background:var(--line);flex-shrink:0}
+.drill-list button.ready .dot{background:var(--ok)}
+.drill-list button:focus-visible{outline:2px solid var(--accent)}
+.drill-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.streak{font-family:var(--font-ui);font-size:.85rem;color:var(--muted)}
+.streak.ok{color:var(--ok);font-weight:600}
+.answers{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:14px 0}
+.answers label{display:flex;flex-direction:column;gap:4px;font-family:var(--font-ui);font-size:.9rem}
+.answers input,.answers select{font-family:var(--font-mono);font-size:.95rem;padding:7px 9px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);width:100%}
+.answers .right input,.answers .right select{border-color:var(--ok);background:var(--ok-bg)}
+.answers .wrong input,.answers .wrong select{border-color:var(--warn);background:var(--warn-bg)}
+.answers .exp{font-size:.8rem;color:var(--muted);min-height:1em}
+.drill-actions{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 10px}
+.feedback{font-family:var(--font-ui);padding:10px 12px;border-radius:6px;margin-bottom:10px}
+.feedback.ok{background:var(--ok-bg);color:var(--ok)}
+.feedback.bad{background:var(--warn-bg);color:var(--warn)}
+.solution{border-top:1px solid var(--line);padding-top:10px}
+.solution ol{padding-left:1.2em}
+.solution li{margin-bottom:8px;max-width:none}
+.solution .why{color:var(--muted);font-size:.93rem}
+#drill-q p{max-width:none}
+.drill-main,.drill-main .card,#drill-q,#drill-sol,.solution li,.solution ol{min-width:0;max-width:100%}
+#drill-sol li,#drill-q li,#drill-q p{overflow-x:auto;overflow-y:hidden}
+#drill-sol mjx-container,#drill-q mjx-container{display:inline-block;max-width:100%;overflow-x:auto;overflow-y:hidden;vertical-align:middle}
+.drill-layout{min-width:0}
+.drill-layout>*{min-width:0}
+</style>
+<script>
+(function(){
+  var R=String.raw;
+  function pick(a){return a[Math.floor(Math.random()*a.length)];}
+  function rnd(lo,hi,step){var n=Math.round((hi-lo)/step);return lo+step*Math.floor(Math.random()*(n+1));}
+  function f(x,d){if(d===undefined)d=3;if(!isFinite(x))return '—';var s=(+x).toFixed(d);if(s.indexOf('.')>=0){s=s.replace(/0+$/,'').replace(/\.$/,'');}return s;}
+  function money(x){return '$'+Math.round(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+  function pct(x,d){return f(100*x,d===undefined?1:d)+'%';}
+  var ln=Math.log, exp=Math.exp, pow=Math.pow;
+  function num(key,label,val,hint){return {t:'num',key:key,label:label,val:val,hint:hint||''};}
+  function choice(key,label,opts,val){return {t:'choice',key:key,label:label,opts:opts,val:val};}
+
+  var DRILLS=[
+  /* ---------- L2 ---------- */
+  {id:'resv',grp:'L2 Equilibrium',title:'Reservation wage and labor supply (log utility)',
+   gen:function(){
+     var b=pick([5,8,10,12,20]), v=pick([0.2,0.3,0.4,0.5,0.7]), lam=pick([0.5,1]), a=pick([0.05,0.1]), N=pick([100,200,500,1000]);
+     var wr=b*exp(v); var w=Math.round(wr*pick([1.2,1.5])*10)/10;
+     var Ls=N*a*exp(lam*(ln(w)-ln(b)));
+     return {q:R`<p>Workers have utility \(u_i=\log C-e\,v_i\). If employed they consume their wage, \(C=w\); if not, they consume a benefit \(C=b=${b}\). Disutilities satisfy \(P[v_i&lt;x]=${a}\,e^{${lam}x}\) (valid over the relevant range) and there are \(N=${N}\) workers.</p><ol type="a"><li>What is the reservation wage of a worker with \(v_i=${v}\)?</li><li>At a market wage \(w=${w}\), what is total labor supply \(L^s\)?</li><li>What is the labor supply elasticity?</li></ol>`,
+       ans:[num('wr','(a) Reservation wage',wr),num('Ls','(b) Labor supply L^s',Ls),num('el','(c) Supply elasticity',lam)],
+       sol:R`<ol><li>Work iff utility from working ≥ utility from not working: \(\log w-v_i\ge\log b\).</li><li>Reservation wage solves \(\log w^r-v_i=\log b\Rightarrow w^r=b\,e^{v_i}=${b}\cdot e^{${v}}=${f(wr)}\).</li><li>A worker works iff \(w^r_i\le w\iff v_i\le\log w-\log b=\log ${w}-\log ${b}=${f(ln(w)-ln(b),4)}\).</li><li>\(L^s=N\,P[v_i\le\log w-\log b]=${N}\cdot ${a}\cdot e^{${lam}\times ${f(ln(w)-ln(b),4)}}=${N}\cdot${a}\cdot${f(exp(lam*(ln(w)-ln(b))),4)}=${f(Ls)}\).</li><li>Take logs: \(\log L^s=\log(aN)+${lam}(\log w-\log b)\). Differentiate w.r.t. \(\log w\): elasticity \(=\lambda=${lam}\). <span class="why">The elasticity is the coefficient on \(\log w\) once everything is in logs.</span></li></ol>`};
+   }},
+  {id:'demand',grp:'L2 Equilibrium',title:'Labor demand from a production function',
+   gen:function(){
+     var p=pick([1,2,3,4,5]), g=pick([0.5,0.6,0.75,0.8]), A=pick([1,1,2,3]), L=pick([16,25,36,49,64,100]), w=pick([1,2,3,4,6]);
+     var wD=p*g*pow(A,g)*pow(L,g-1); var LD=pow(w/(p*g*pow(A,g)),1/(g-1)); var el=1/(g-1);
+     return {q:R`<p>A price-taking firm produces \(y=(AL)^{${g}}\) with \(A=${A}\) and sells at price \(p=${p}\).</p><ol type="a"><li>What wage would make the firm hire exactly \(L=${L}\) workers? (The inverse demand curve at \(L=${L}\).)</li><li>How many workers does it hire at wage \(w=${w}\)?</li><li>What is the elasticity of labor demand?</li></ol>`,
+       ans:[num('wD','(a) w^D(L)',wD),num('LD','(b) L^D(w)',LD),num('el','(c) Demand elasticity',el)],
+       sol:R`<ol><li>Profit \(\pi=p(AL)^{${g}}-wL\). FOC: \(p\cdot ${g}\cdot A^{${g}}L^{${g}-1}=w\). Wage equals marginal revenue product.</li><li>Inverse demand: \(w^D(L)=p\gamma A^\gamma L^{\gamma-1}=${p}\cdot${g}\cdot${A}^{${g}}\cdot ${L}^{${f(g-1,2)}}\). Compute \(${A}^{${g}}=${f(pow(A,g),4)}\), \(${L}^{${f(g-1,2)}}=${f(pow(L,g-1),4)}\). So \(w^D=${f(wD)}\).</li><li>Solve the FOC for \(L\): \(L^{\gamma-1}=\frac{w}{p\gamma A^\gamma}\Rightarrow L^D=\Big(\frac{w}{p\gamma A^\gamma}\Big)^{1/(\gamma-1)}=\Big(\frac{${w}}{${f(p*g*pow(A,g),4)}}\Big)^{${f(1/(g-1),3)}}=${f(LD)}\).</li><li>Logs: \(\log L^D=\frac{1}{\gamma-1}\log w-\frac{1}{\gamma-1}\log(p\gamma A^\gamma)\). Elasticity \(=\frac{1}{\gamma-1}=\frac{1}{${g}-1}=${f(el)}\). <span class="why">Negative, as demand slopes down. Smaller \(\gamma\) (stronger decreasing returns) means less elastic demand.</span></li></ol>`};
+   }},
+  {id:'eqm',grp:'L2 Equilibrium',title:'Solve the equilibrium, then shock it',
+   gen:function(){
+     var N=pick([100,200,400]), c=pick([10,20,40]), lam=pick([0.5,1,2]), p=pick([1,2,4]), g=pick([0.5,0.75]);
+     var shock=pick(['p','N']); var mult=pick([1.5,2]);
+     function solve(N,c,lam,p,g){var lw=(ln(p*g)+(g-1)*(ln(N)-lam*ln(c)))/(1+lam*(1-g));var w=exp(lw);var L=N*pow(w/c,lam);return {w:w,L:L,lw:lw};}
+     var e0=solve(N,c,lam,p,g); var N2=shock==='N'?N*mult:N, p2=shock==='p'?p*mult:p; var e1=solve(N2,c,lam,p2,g);
+     var dw=e1.w/e0.w-1, dL=e1.L/e0.L-1;
+     var shockTxt=shock==='p'?R`the output price rises to \(p=${p2}\)`:R`the number of workers rises to \(N=${N2}\)`;
+     return {q:R`<p>Supply: \(L^s=N(w/c)^{\lambda}\) with \(N=${N}\), \(c=${c}\), \(\lambda=${lam}\). Demand: a firm with \(y=L^{${g}}\) selling at \(p=${p}\).</p><ol type="a"><li>Find the equilibrium wage \(w^*\) and employment \(L^*\).</li><li>Now ${shockTxt}. Find the new \(w^*\) and \(L^*\).</li><li>By what percent did the wage change?</li></ol>`,
+       ans:[num('w0','(a) w*',e0.w),num('L0','(a) L*',e0.L),num('w1','(b) new w*',e1.w),num('L1','(b) new L*',e1.L),num('dw','(c) % change in w (e.g. 12.5 for +12.5%)',100*dw,'percent')],
+       sol:R`<ol><li>Write both curves in logs. Supply: \(\log L=\log N+\lambda(\log w-\log c)\). Demand: FOC \(p\gamma L^{\gamma-1}=w\Rightarrow\log w=\log(p\gamma)+(\gamma-1)\log L\).</li><li>Substitute supply into demand: \(\log w=\log(p\gamma)+(\gamma-1)\big[\log N-\lambda\log c\big]+(\gamma-1)\lambda\log w\).</li><li>Collect \(\log w\): \(\log w\,[1-\lambda(\gamma-1)]=\log(p\gamma)+(\gamma-1)(\log N-\lambda\log c)\). Note \(1-\lambda(\gamma-1)=1+\lambda(1-\gamma)=${f(1+lam*(1-g),3)}\).</li><li>Plug numbers: \(\log(p\gamma)=\log(${p}\cdot${g})=${f(ln(p*g),4)}\); \(\log N-\lambda\log c=${f(ln(N),4)}-${lam}\times${f(ln(c),4)}=${f(ln(N)-lam*ln(c),4)}\); times \((\gamma-1)=${f(g-1,2)}\) gives \(${f((g-1)*(ln(N)-lam*ln(c)),4)}\).</li><li>\(\log w^*=\frac{${f(ln(p*g),4)}+${f((g-1)*(ln(N)-lam*ln(c)),4)}}{${f(1+lam*(1-g),3)}}=${f(e0.lw,4)}\Rightarrow w^*=e^{${f(e0.lw,4)}}=${f(e0.w)}\).</li><li>\(L^*=N(w^*/c)^\lambda=${N}(${f(e0.w)}/${c})^{${lam}}=${f(e0.L)}\). (Check on demand: \(p\gamma L^{\gamma-1}=${f(p*g*pow(e0.L,g-1))}\approx w^*\).)</li><li>Shock: redo with ${shock==='p'?R`\(p=${p2}\)`:R`\(N=${N2}\)`}: \(\log w^*=${f(e1.lw,4)}\Rightarrow w^*=${f(e1.w)}\), \(L^*=${f(e1.L)}\).</li><li>\(\%\Delta w=${f(e1.w)}/${f(e0.w)}-1=${pct(dw)}\); \(\%\Delta L=${pct(dL)}\). <span class="why">${shock==='p'?R`Demand shifted out: both rise. The wage elasticity w.r.t. \(p\) is \(\frac{1}{1+\lambda(1-\gamma)}=${f(1/(1+lam*(1-g)),3)}\), so \(\log w\) rises by \(${f(ln(mult)/(1+lam*(1-g)),4)}\).`:R`Supply shifted out: wage falls, employment rises. The wage elasticity w.r.t. \(N\) is \(\frac{\gamma-1}{1+\lambda(1-\gamma)}=${f((g-1)/(1+lam*(1-g)),3)}\).`}</span></li></ol>`};
+   }},
+  {id:'elast',grp:'L2 Equilibrium',title:'Elasticity from paper-style numbers (Paycheck Plus / pipeline)',
+   gen:function(){
+     var kind=pick(['emp','mig']);
+     if(kind==='emp'){
+       var e0=pick([62.1,68.4,72.0,75.4,80.2]), d=pick([1.2,1.9,2.5,3.4,4.0]), E=pick([9500,10186,12000,14500]), B=pick([1000,1500,2000,2500]);
+       var dw=B/E, de=d/e0, el=de/dw;
+       return {q:R`<p>An RCT offers low-income workers an earnings bonus of up to ${money(B)} per year. Control-group average earnings are ${money(E)} and the control employment rate is ${e0}%. The program raises employment by ${d} percentage points.</p><ol type="a"><li>Approximate percent increase in the effective wage?</li><li>Percent increase in employment?</li><li>Implied extensive-margin labor supply elasticity?</li></ol>`,
+         ans:[num('dw','(a) % change in wage',100*dw,'percent'),num('de','(b) % change in employment',100*de,'percent'),num('el','(c) elasticity',el)],
+         sol:R`<ol><li>Wage boost ≈ bonus ÷ earnings \(=${B}/${E}=${f(dw,4)}=${pct(dw)}\).</li><li>Employment change in <em>percent</em>, not points: \(${d}/${e0}=${f(de,4)}=${pct(de)}\). <span class="why">Percentage points divided by the base rate gives the percent change.</span></li><li>Elasticity \(=\frac{\%\Delta L}{\%\Delta w}=\frac{${pct(de)}}{${pct(dw)}}=${f(el)}\). Compare Paycheck Plus ≈ 0.125: small, because the margin is unemployment→employment.</li></ol>`};
+     } else {
+       var L0=pick([8000,10000,12000]), L1=L0*pick([2.5,3,3.75,4]), w0=pick([4000,5000]), w1=w0*pick([1.5,1.75,2]);
+       var dL=L1/L0-1, dw2=w1/w0-1, el2=dL/dw2;
+       return {q:R`<p>A huge construction project enters a local labor market. Construction employment goes from ${L0.toLocaleString()} to ${L1.toLocaleString()} and monthly earnings from ${money(w0)} to ${money(w1)}.</p><ol type="a"><li>Percent change in employment?</li><li>Percent change in wages?</li><li>Implied labor supply elasticity? Which curve shifted, and which curve's elasticity are you measuring?</li></ol>`,
+         ans:[num('dL','(a) % change in employment',100*dL,'percent'),num('dw','(b) % change in wages',100*dw2,'percent'),num('el','(c) elasticity',el2),choice('which','Which curve shifted?',['Demand','Supply'],'Demand')],
+         sol:R`<ol><li>\((${L1}-${L0})/${L0}=${pct(dL)}\).</li><li>\((${w1}-${w0})/${w0}=${pct(dw2)}\).</li><li>Elasticity \(=${pct(dL)}/${pct(dw2)}=${f(el2,2)}\). A <strong>demand</strong> shock traces out the <strong>supply</strong> curve, so this is a supply elasticity. It is large because workers migrate in from other states; Paycheck Plus measured the employment-vs-unemployment margin and found ≈0.125.</li></ol>`};
+     }
+   }},
+  /* ---------- L3 ---------- */
+  {id:'auto',grp:'L3 Technology',title:'Automation: does the machine bind, and what happens?',
+   gen:function(){
+     var N=pick([1,1,2]), c=pick([1,2]), lam=pick([1,2]), g=pick([0.5,0.75]), A=pick([1,1,2]);
+     var lw=(ln(g)+g*ln(A)+(g-1)*(ln(N)-lam*ln(c)))/(1+lam*(1-g)); var w0=exp(lw), L0=N*pow(w0/c,lam), Y0=pow(A*L0,g);
+     var binds=Math.random()<0.75; var r=binds?Math.round(w0/A*pick([0.5,0.7,0.85])*100)/100:Math.round(w0/A*pick([1.2,1.5])*100)/100;
+     var bind=r*A<w0; var w1,L1,Y1,M;
+     if(bind){w1=r*A;L1=N*pow(w1/c,lam);Y1=pow(g/r,g/(1-g));M=pow(Y1,1/g)-A*L1;}else{w1=w0;L1=L0;Y1=Y0;M=0;}
+     return {q:R`<p>Supply \(L^s=${N}(w/${c})^{${lam}}\). Firm: \(y=(AL)^{${g}}\), \(A=${A}\), price 1.</p><ol type="a"><li>Find the initial equilibrium wage \(w^*\), employment \(L^*\) and output \(Y^*\).</li><li>A machine that is a perfect substitute for effective labor becomes available at \(r=${r}\) per unit: \(y=(AL+M)^{${g}}\). Write the new inverse demand curve. Does automation change the equilibrium?</li><li>Find the new wage, employment, output, and machines used.</li></ol>`,
+       ans:[num('w0','(a) w*',w0),num('L0','(a) L*',L0),num('Y0','(a) Y*',Y0),choice('bind','(b) Does it bind?',['Yes','No'],bind?'Yes':'No'),num('w1','(c) new wage',w1),num('L1','(c) new employment',L1),num('Y1','(c) new output',Y1),num('M','(c) machines M',M)],
+       sol:R`<ol><li>Demand: \(w=\gamma A^\gamma L^{\gamma-1}\). In logs with supply \(\log L=\log N+\lambda(\log w-\log c)\): \(\log w^*=\frac{\log\gamma+\gamma\log A+(\gamma-1)(\log N-\lambda\log c)}{1+\lambda(1-\gamma)}=${f(lw,4)}\), so \(w^*=${f(w0)}\), \(L^*=${N}(${f(w0)}/${c})^{${lam}}=${f(L0)}\), \(Y^*=(${A}\cdot${f(L0)})^{${g}}=${f(Y0)}\).</li><li>One machine replaces \(1/A\) workers at constant output, costing \(r-w/A\). Machines are used iff \(w&gt;rA\). New inverse demand: \(w^D(L)=\min\{rA,\ \gamma A^\gamma L^{\gamma-1}\}=\min\{${f(r*A)},\ \gamma A^\gamma L^{\gamma-1}\}\). It binds iff \(rA&lt;w^*\): \(${f(r*A)}\ ${bind?'&lt;':'&gt;'}\ ${f(w0)}\), so it <strong>${bind?'binds':'does not bind'}</strong>.</li>${bind?R`<li>Wage is capped: \(w^{**}=rA=${f(w1)}\). Employment from supply: \(L^{**}=${N}(${f(w1)}/${c})^{${lam}}=${f(L1)}\).</li><li>Output from price = marginal cost with machines: \(c(Y)=rY^{1/\gamma}\), \(1=\frac{r}{\gamma}Y^{1/\gamma-1}\Rightarrow Y=(\gamma/r)^{\gamma/(1-\gamma)}=(${g}/${r})^{${f(g/(1-g),3)}}=${f(Y1)}\).</li><li>Effective input \(AL+M=Y^{1/\gamma}=${f(pow(Y1,1/g))}\), so \(M=${f(pow(Y1,1/g))}-${A}\times${f(L1)}=${f(M)}\).</li><li><span class="why">Wage ↓ (${f(w0)}→${f(w1)}), employment ↓ (${f(L0)}→${f(L1)}), output ↑ (${f(Y0)}→${f(Y1)}), average productivity \(Y/L\) ↑ (${f(Y0/L0)}→${f(Y1/L1)}). The automation column.</span></li>`:R`<li>The cap \(rA=${f(r*A)}\) is above the market wage, so no machines are used (\(M=0\)) and nothing changes: \(w=${f(w0)}\), \(L=${f(L0)}\), \(Y=${f(Y0)}\). <span class="why">Automation only matters if machines are cheap enough: \(rA&lt;w_{\text{initial}}\).</span></li>`}</ol>`};
+   }},
+  {id:'cd',grp:'L3 Technology',title:'Cobb–Douglas: short-run vs long-run demand elasticity',
+   gen:function(){
+     var a=pick([0.3,0.4,0.5,0.6]), nu=pick([0.2,0.3,0.4]); if(a+nu>=1)nu=0.2;
+     var sr=1/(a-1), lr=(nu-1)/(1-a-nu);
+     return {q:R`<p>\(Y=AL^{${a}}K^{${nu}}\). Capital rents at \(r\), output sells at \(p\).</p><ol type="a"><li>Short-run (K fixed) labor demand elasticity?</li><li>Long-run (K optimal) labor demand elasticity?</li><li>Which is more elastic (larger in absolute value)?</li></ol>`,
+       ans:[num('sr','(a) SR elasticity',sr),num('lr','(b) LR elasticity',lr),choice('which','(c) More elastic',['Long run','Short run'],'Long run')],
+       sol:R`<ol><li>SR: \(w=pA\alpha L^{\alpha-1}K^\nu\Rightarrow\log L=\frac{1}{\alpha-1}\log w+\text{const}\). Elasticity \(\frac{1}{${a}-1}=${f(sr)}\).</li><li>LR: also \(r=pA\nu L^\alpha K^{\nu-1}\Rightarrow K=(r/pA\nu L^\alpha)^{1/(\nu-1)}\). Substitute into the labor FOC and solve: \(L\propto w^{\frac{\nu-1}{1-\alpha-\nu}}\). Elasticity \(\frac{${nu}-1}{1-${a}-${nu}}=\frac{${f(nu-1,2)}}{${f(1-a-nu,2)}}=${f(lr)}\).</li><li>Rewrite SR as \(\frac{\nu-1}{1-\alpha-\nu+\alpha\nu}\): same numerator, denominator bigger by \(\alpha\nu=${f(a*nu,3)}\), so SR is smaller in absolute value. <strong>Long run more elastic</strong>: \(|${f(lr)}|&gt;|${f(sr)}|\). <span class="why">More margins of adjustment in the long run. For perfect substitutes the ranking flips.</span></li></ol>`};
+   }},
+  {id:'ces',grp:'L3 Technology',title:'Skill-biased technical change (HW2 Q1 numbers)',
+   gen:function(){
+     var ratio=pick([1.2,1.5,2]), rho=pick([-0.5,0.25,0.5,0.75]), a=pick([0.5,1,2]);
+     var ex=rho/(1-a*(rho-1)); var W=pow(ratio,ex), Lr=pow(ratio,a*ex);
+     return {q:R`<p>\(Y=\big((A_eL_e)^\rho+(A_mL_m)^\rho\big)^{\nu/\rho}\) with \(\rho=${rho}\). Relative supply is \(L_e/L_m=(w_e/w_m)^{a}\) with \(a=${a}\). Initially \(A_e=A_m\). Then educated productivity rises so \(A_e/A_m=${ratio}\).</p><ol type="a"><li>New equilibrium wage premium \(w_e/w_m\)?</li><li>New relative employment \(L_e/L_m\)?</li><li>Did the premium rise or fall?</li></ol>`,
+       ans:[num('W','(a) w_e/w_m',W),num('Lr','(b) L_e/L_m',Lr),choice('dir','(c) Premium',['Rose','Fell'],W>1?'Rose':'Fell')],
+       sol:R`<ol><li>Demand ratio: \(\frac{w_e}{w_m}=\big(\frac{A_e}{A_m}\big)^\rho\big(\frac{L_e}{L_m}\big)^{\rho-1}\). Substitute supply \(\frac{L_e}{L_m}=(\frac{w_e}{w_m})^a\): \(\frac{w_e}{w_m}=(\frac{A_e}{A_m})^\rho(\frac{w_e}{w_m})^{a(\rho-1)}\).</li><li>Solve: \((\frac{w_e}{w_m})^{1-a(\rho-1)}=(\frac{A_e}{A_m})^\rho\Rightarrow\frac{w_e}{w_m}=(\frac{A_e}{A_m})^{\frac{\rho}{1-a(\rho-1)}}\). Exponent \(=\frac{${rho}}{1-${a}(${rho}-1)}=\frac{${rho}}{${f(1-a*(rho-1),3)}}=${f(ex,4)}\). So \(w_e/w_m=${ratio}^{${f(ex,4)}}=${f(W)}\).</li><li>\(L_e/L_m=(w_e/w_m)^a=${f(W)}^{${a}}=${f(Lr)}\).</li><li>The denominator is always positive, so the sign of the exponent is the sign of \(\rho=${rho}\): premium ${W>1?'rises':'falls'}. <span class="why">\(\rho&gt;0\): substitutes, SBTC raises the premium. \(\rho&lt;0\): complements, manual workers become relatively scarce and gain more.</span></li></ol>`};
+   }},
+  /* ---------- L4 ---------- */
+  {id:'npv',grp:'L4 Education',title:'Two-period schooling decision (NPV)',
+   gen:function(){
+     var y0=pick([20000,25000,30000,35000]), T=pick([3000,4000,5000,8000,10000]), r=pick([0.1,0.25,0.5,1.0]);
+     var npv0=y0+y0/(1+r); var be=(1+r)*(npv0+T); var y1=Math.round(be*pick([0.85,0.95,1.05,1.2])/1000)*1000; var npv1=-T+y1/(1+r);
+     return {q:R`<p>A worker lives two periods. Uneducated, she earns ${money(y0)} in each period. Educated, she pays tuition ${money(T)} in period 1 (earning nothing) and earns ${money(y1)} in period 2. The interest rate is \(r=${pct(r,0)}\).</p><ol type="a"><li>Present value of lifetime earnings without education?</li><li>With education?</li><li>Does she get educated?</li><li>What period-2 wage would make her exactly indifferent?</li></ol>`,
+       ans:[num('n0','(a) NPV without',npv0),num('n1','(b) NPV with',npv1),choice('go','(c) Educate?',['Yes','No'],npv1>npv0?'Yes':'No'),num('be','(d) Breakeven wage',be)],
+       sol:R`<ol><li>\(NPV_0=${money(y0)}+\frac{${money(y0)}}{1+${r}}=${money(y0)}+${money(y0/(1+r))}=${money(npv0)}\).</li><li>\(NPV_1=-${money(T)}+\frac{${money(y1)}}{${1+r}}=-${money(T)}+${money(y1/(1+r))}=${money(npv1)}\).</li><li>${npv1>npv0?R`\(NPV_1&gt;NPV_0\): <strong>yes</strong>.`:R`\(NPV_1&lt;NPV_0\): <strong>no</strong>.`} <span class="why">With no credit constraints, utility depends only on lifetime PV, so maximize PV. Costs of school: tuition plus foregone period-1 earnings of ${money(y0)}.</span></li><li>Indifferent when \(-T+\frac{y}{1+r}=NPV_0\Rightarrow y=(1+r)(NPV_0+T)=${1+r}\times(${money(npv0)}+${money(T)})=${money(be)}\). Higher \(r\) raises the bar.</li></ol>`};
+   }},
+  {id:'mrr',grp:'L4 Education',title:'Optimal schooling and ability bias',
+   gen:function(){
+     var r=pick([0.05,0.08,0.1]), beta=pick([2000,2500,4000]), a1=pick([10000,15000,20000]), a2=a1+pick([5000,10000,15000]);
+     if(1/r-a2/beta<=1){beta=4000;} if(1/r-a2/beta<=1){r=0.05;}
+     var S1=1/r-a1/beta, S2=1/r-a2/beta;
+     return {q:R`<p>Worker \(i\) earns \(y_i(S)=\alpha_i+\beta S\) per year after \(S\) years of school, lives forever, pays no tuition, and faces interest rate \(r=${r}\). \(\beta=${beta}\).</p><ol type="a"><li>Write the optimality condition and solve for \(S^*_i\) as a function of \(\alpha_i\).</li><li>Worker 1 has \(\alpha_1=${a1}\). Her \(S^*\)?</li><li>Worker 2 has \(\alpha_2=${a2}\). His \(S^*\)?</li><li>Who gets more schooling? Is the observed return to schooling biased up or down relative to the causal return?</li></ol>`,
+       ans:[num('S1','(b) S* for worker 1',S1),num('S2','(c) S* for worker 2',S2),choice('who','(d) More schooling',['Lower-ability worker 1','Higher-ability worker 2'],'Lower-ability worker 1'),choice('bias','(d) Observed return biased',['Down','Up'],'Down')],
+       sol:R`<ol><li>\(NPV(S)=\frac{y(S)}{(1+r)^S}\cdot\frac{1+r}{r}\). Maximize \(\log y(S)-S\log(1+r)\): FOC \(\frac{y'(S)}{y(S)}=\log(1+r)\approx r\). Marginal rate of return = interest rate.</li><li>Here \(\frac{y'}{y}=\frac{\beta}{\alpha_i+\beta S}=r\Rightarrow\alpha_i+\beta S=\beta/r\Rightarrow S^*_i=\frac1r-\frac{\alpha_i}{\beta}\).</li><li>Worker 1: \(\frac{1}{${r}}-\frac{${a1}}{${beta}}=${f(1/r,2)}-${f(a1/beta,2)}=${f(S1,2)}\) years.</li><li>Worker 2: \(${f(1/r,2)}-${f(a2/beta,2)}=${f(S2,2)}\) years.</li><li>Higher \(\alpha\) ⇒ <strong>less</strong> schooling: the dollar gain per year is \(\beta\) for everyone but high-ability workers forego more. High earners get little school, so a regression of earnings on schooling understates \(\beta\): observed return biased <strong>down</strong>. <span class="why">In the other model \(y=\alpha+\beta_iS\), high \(\beta_i\) get more school and the bias is up. Direction is theoretically ambiguous; that is why Angrist–Krueger needed an instrument.</span></li></ol>`};
+   }},
+  {id:'signal',grp:'L4 Education',title:'Signaling: which equilibria exist?',
+   gen:function(){
+     var yL=pick([40,50,60]), gap=pick([20,30,40,50]), yH=yL+gap; var cH=pick([10,15,20,25,30]); var cL=cH+pick([10,20,30,40]);
+     var sep=cH<gap&&gap<cL, pool=gap<2*cH, ban=sep&&gap<Math.min(cL,2*cH);
+     return {q:R`<p>Half of workers are high type (productivity \(y_H=${yH}\)), half low (\(y_L=${yL}\)). Firms pay expected productivity. School teaches nothing, costs \(c_H=${cH}\) for high types and \(c_L=${cL}\) for low types, and is observable.</p><ol type="a"><li>Does a separating equilibrium (only high types attend) exist?</li><li>Does a pooling equilibrium (nobody attends; a deviator is believed high-type) exist?</li><li>In the separating equilibrium, what does each type get? Would banning school be a Pareto improvement?</li></ol>`,
+       ans:[choice('sep','(a) Separating exists?',['Yes','No'],sep?'Yes':'No'),choice('pool','(b) Pooling exists?',['Yes','No'],pool?'Yes':'No'),num('pH','(c) High type payoff (separating)',yH-cH),num('pL','(c) Low type payoff (separating)',yL),choice('ban','(c) Ban is Pareto improvement?',['Yes','No'],ban?'Yes':'No')],
+       sol:R`<ol><li>Wage gain from the signal is \(y_H-y_L=${gap}\). Separating needs high types to attend (\(${gap}&gt;c_H=${cH}\): ${gap>cH?'✓':'✗'}) and low types not to mimic (\(${gap}&lt;c_L=${cL}\): ${gap<cL?'✓':'✗'}). Condition \(c_H&lt;y_H-y_L&lt;c_L\): <strong>${sep?'holds':'fails'}</strong>.</li><li>Pooling wage is \(\frac{y_H+y_L}{2}=${(yH+yL)/2}\). A high type deviating gets \(y_H-c_H=${yH-cH}\). No deviation iff \(${yH-cH}&lt;${(yH+yL)/2}\iff y_H-y_L&lt;2c_H=${2*cH}\): <strong>${pool?'holds':'fails'}</strong>. (Low type's condition is implied since \(c_L&gt;c_H\).)</li><li>Separating payoffs: high \(y_H-c_H=${yH-cH}\), low \(y_L=${yL}\). Under a ban everyone gets \(${(yH+yL)/2}\). Low types gain (\(${(yH+yL)/2}&gt;${yL}\)). High types gain iff \(${(yH+yL)/2}&gt;${yH-cH}\), i.e. \(y_H-y_L&lt;2c_H\): ${gap<2*cH?'✓':'✗'}. Pareto improvement iff separating exists and \(y_H-y_L&lt;\min\{c_L,2c_H\}=${Math.min(cL,2*cH)}\): <strong>${ban?'yes':'no'}</strong>. <span class="why">${sep&&pool?'Both equilibria exist: each high type only wants school if the others go.':''} Schooling here is pure social waste: it only redistributes.</span></li></ol>`};
+   }},
+  {id:'wald',grp:'L4 Education',title:'IV / Wald estimate (Angrist–Krueger style)',
+   gen:function(){
+     var s1=pick([12.5,12.69,13.1]), ds=pick([0.08,0.109,0.15,0.2]), s2=s1+ds; var beta=pick([0.07,0.09,0.10,0.12]); var y1=pick([5.85,5.89,6.0]); var y2=y1+beta*ds; var ols=beta-pick([0.02,0.03,0.015,-0.01]);
+     return {q:R`<p>Men born in Q1 have mean schooling ${f(s1,3)} years and mean log weekly wage ${f(y1,4)}. Men born in Q2–Q4 have mean schooling ${f(s2,3)} and mean log wage ${f(y2,4)}. OLS of log wage on schooling gives ${f(ols,3)}.</p><ol type="a"><li>First stage: effect of being born later on schooling?</li><li>Reduced form: effect on log wage?</li><li>Wald/IV estimate of the return to a year of schooling?</li><li>Is the IV estimate above or below OLS, and what does that say about ability bias?</li></ol>`,
+       ans:[num('fs','(a) First stage',ds),num('rf','(b) Reduced form',beta*ds),num('iv','(c) IV estimate',beta),choice('cmp','(d) IV vs OLS',beta>ols?['Above OLS','Below OLS']:['Below OLS','Above OLS'],beta>ols?'Above OLS':'Below OLS')],
+       sol:R`<ol><li>First stage \(\pi=${f(s2,3)}-${f(s1,3)}=${f(ds,3)}\) years.</li><li>Reduced form \(\delta=${f(y2,4)}-${f(y1,4)}=${f(beta*ds,4)}\).</li><li>\(\beta_{IV}=\delta/\pi=${f(beta*ds,4)}/${f(ds,3)}=${f(beta,3)}\): a ${pct(beta,1)} return per year. <span class="why">IV scales the reduced-form wage gap by how much schooling the instrument actually moved.</span></li><li>IV ${beta>ols?'exceeds':'is below'} OLS (${f(ols,3)}). ${beta>ols?'If ability bias inflated OLS, IV would be lower; it is not, so upward ability bias looks small. (A&K: 0.102 vs 0.071.)':'Consistent with some upward ability bias in OLS, or with the compliers (near-dropouts) having lower returns.'} Remember IV is a LATE for compliers: people whose schooling was moved by quarter of birth.</li></ol>`};
+   }},
+  /* ---------- L5 ---------- */
+  {id:'comp',grp:'L5 Compensating differentials',title:'Compensating differential: solve and shock',
+   gen:function(){
+     var AH=pick([1,2]), b=pick([0.5,1,1.5]), r=pick([0.5,1,2]), AG=AH+pick([1,1.5,2]);
+     function sol(AG,AH,b,r){var w=(AG*r+2*b*AH)/(r+2*b);var L=(w-AH)/r;return {w:w,L:L};}
+     var e=sol(AG,AH,b,r); if(e.L>1){AG=AH+1;e=sol(AG,AH,b,r);} if(e.L>1){r=2;e=sol(AG,AH,b,r);}
+     var r2=2*r; var e2=sol(AG,AH,b,r2);
+     return {q:R`<p>Workers \(i\in[0,1]\) have \(u_i=C-a_i r\), \(a_i\sim U[0,1]\). Healthy industry: \(y_H=${AH}L\). Gross industry: \(y_G=${AG}L_G-${b}L_G^2\), risk \(r_G=${r}\).</p><ol type="a"><li>Healthy wage \(w_H\)? Labor supply to G as a function of \(w_G\)? Inverse demand in G?</li><li>Equilibrium \(w_G^*\), \(L_G^*\), and the compensating differential.</li><li>Risk doubles to \(r_G=${r2}\). New \(w_G^*\), \(L_G^*\), differential. Which curve moved?</li></ol>`,
+       ans:[num('wH','(a) w_H',AH),num('wG','(b) w_G*',e.w),num('LG','(b) L_G*',e.L),num('cd','(b) differential',e.w-AH),num('wG2','(c) new w_G*',e2.w),num('LG2','(c) new L_G*',e2.L),num('cd2','(c) new differential',e2.w-AH),choice('curve','(c) Which curve moved?',['Supply (left)','Demand (up)'],'Supply (left)')],
+       sol:R`<ol><li>Constant returns in H pins \(w_H=A_H=${AH}\). Worker chooses G iff \(w_G-a_ir_G\ge w_H\iff a_i\le\frac{w_G-${AH}}{${r}}\). With \(a_i\sim U[0,1]\): \(L^s_G=\frac{w_G-${AH}}{${r}}\). Demand: \(w_G=y_G'=${AG}-${2*b}L_G\).</li><li>Substitute: \(w=${AG}-${2*b}\cdot\frac{w-${AH}}{${r}}\). Multiply by \(${r}\): \(${r}w=${AG*r}-${2*b}w+${2*b*AH}\Rightarrow w(${r}+${2*b})=${AG*r+2*b*AH}\Rightarrow w_G^*=${f(e.w)}\). Then \(L_G^*=(${f(e.w)}-${AH})/${r}=${f(e.L)}\). Differential \(=w_G^*-w_H=${f(e.w-AH)}\).</li><li>With \(r_G=${r2}\): supply \(L=\frac{w-${AH}}{${r2}}\) is flatter/shifted left (each worker needs more pay per unit of risk). \(w(${r2}+${2*b})=${AG*r2+2*b*AH}\Rightarrow w_G^*=${f(e2.w)}\), \(L_G^*=${f(e2.L)}\), differential \(${f(e2.w-AH)}\). <strong>Supply moved left</strong>; employment fell, wage and differential rose. <span class="why">The differential compensates the <em>marginal</em> worker, whose \(a_i=L_G^*\). Check: \(a_m r_G=${f(e2.L)}\times${r2}=${f(e2.L*r2)}\) = differential.</span></li></ol>`};
+   }},
+  {id:'vsl',grp:'L5 Compensating differentials',title:'Value of a statistical life',
+   gen:function(){
+     var kind=pick(['direct','osha']);
+     if(kind==='direct'){var dE=pick([500,1000,2000,3000]), risk=pick([2500,5000,10000,20000]); var vsl=dE*risk;
+       return {q:R`<p>Two jobs are identical except one pays ${money(dE)} more per year and carries an extra 1-in-${risk.toLocaleString()} annual risk of death.</p><ol type="a"><li>Implied value of a statistical life?</li></ol>`,
+         ans:[num('vsl','(a) VSL in dollars',vsl)],
+         sol:R`<ol><li>\(VSL=\frac{\Delta\text{earnings}}{\Delta P(\text{death})}=\frac{${money(dE)}}{1/${risk}}=${money(dE)}\times${risk}=${money(vsl)}\). <span class="why">Equivalently: ${risk.toLocaleString()} workers each accept ${money(dE)} and together expect one death, so the group accepts ${money(vsl)} per expected life.</span></li></ol>`};}
+     var dF=pick([1.0,1.3,1.5,2.0]), dw=pick([0.15,0.2,0.3,0.35]), hrs=2000;
+     var vsl2=dw*hrs/(dF/10000);
+     return {q:R`<p>Random OSHA inspections reduce fatalities by ${dF} per 10,000 production workers per year and reduce hourly wages by $${f(dw,2)}. Assume 2,000 hours per worker-year.</p><ol type="a"><li>Change in annual earnings per worker?</li><li>Change in annual death probability per worker?</li><li>Implied VSL?</li></ol>`,
+       ans:[num('dE','(a) Δ annual earnings ($)',dw*hrs),num('dp','(b) Δ death probability',dF/10000),num('vsl','(c) VSL ($)',vsl2)],
+       sol:R`<ol><li>\(${f(dw,2)}\times2000=${money(dw*hrs)}\) per year.</li><li>\(${dF}/10{,}000=${(dF/10000).toExponential(2)}\).</li><li>\(VSL=${money(dw*hrs)}/${(dF/10000)}=${money(vsl2)}\). <span class="why">Lee &amp; Taylor's range is about $6–9 million. Lower wages after inspections are the compensating differential disappearing as the job gets safer.</span></li></ol>`};
+   }},
+  {id:'sort',grp:'L5 Compensating differentials',title:'Productivity sorting (HW2 Q2 numbers)',
+   gen:function(){
+     var AG=pick([2,3,4]), AH=pick([1,1.5]), gam=pick([-1,-0.5,0.5,1]); var th=pick([1.5,2]), tl=pick([0.5,0.8]);
+     function T(t){return pow(t,gam)/gam*(pow(AG,gam)-pow(AH,gam));}
+     var Th=T(th), Tl=T(tl); var abar=pick([2,4,5,8,10]); while(abar<1.1*Math.max(Th,Tl))abar*=2;
+     var ph=Th/abar, pl=Tl/abar;
+     return {q:R`<p>A worker with productivity \(\theta\) earns \(\theta A_j\) in industry \(j\), with \(A_G=${AG}\), \(A_H=${AH}\). Utility is \(\frac{C^\gamma}{\gamma}-a_i\cdot1\{G\}\) with \(\gamma=${gam}\) and \(a_i\sim U[0,${abar}]\).</p><ol type="a"><li>Probability a worker with \(\theta=${th}\) works in G?</li><li>With \(\theta=${tl}\)?</li><li>Which type sorts into the gross industry? What does that do to a naive comparison of average wages across industries?</li></ol>`,
+       ans:[num('ph','(a) P(G | θ high)',ph),num('pl','(b) P(G | θ low)',pl),choice('who','(c) Gross industry attracts',['Low productivity','High productivity'],ph<pl?'Low productivity':'High productivity')],
+       sol:R`<ol><li>Choose G iff \(\frac{(\theta A_G)^\gamma}{\gamma}-a_i\ge\frac{(\theta A_H)^\gamma}{\gamma}\iff a_i\le\frac{\theta^\gamma}{\gamma}(A_G^\gamma-A_H^\gamma)\). With \(a_i\sim U[0,${abar}]\), the probability is that threshold divided by \(${abar}\).</li><li>\(A_G^\gamma-A_H^\gamma=${f(pow(AG,gam),4)}-${f(pow(AH,gam),4)}=${f(pow(AG,gam)-pow(AH,gam),4)}\). For \(\theta=${th}\): threshold \(\frac{${th}^{${gam}}}{${gam}}\times${f(pow(AG,gam)-pow(AH,gam),4)}=${f(Th)}\), so \(P=${f(Th)}/${abar}=${f(ph)}\).</li><li>For \(\theta=${tl}\): threshold \(${f(Tl)}\), \(P=${f(pl)}\).</li><li>Ratio \(=(\theta_h/\theta_l)^\gamma=${f(pow(th/tl,gam))}\), ${gam<0?'below 1, so <strong>low</strong>-productivity workers disproportionately take the gross job (\\(\\gamma<0\\): amenities are a normal good)':'above 1, so <strong>high</strong>-productivity workers take the gross job (\\(\\gamma>0\\))'}. Then \(\frac{E[w_H]}{E[w_G]}=\frac{A_H}{A_G}\cdot\frac{E[\theta|H]}{E[\theta|G]}\ne\frac{A_H}{A_G}\): the raw wage comparison mixes the true differential with who sorts where. <span class="why">This is why "better jobs pay more" in survey data does not refute the theory, and why Lavetti uses worker fixed effects.</span></li></ol>`};
+   }},
+  /* ---------- Designs ---------- */
+  {id:'did',grp:'Research designs',title:'Difference-in-differences from a 2×2 table',
+   gen:function(){
+     var c0=pick([10,12,15,20]), trend=pick([0.5,1,1.5,2]), gapT=pick([-3,-2,2,3]), eff=pick([-2,-1.5,-1,1,1.5,2]);
+     var t0=c0+gapT, c1=c0+trend, t1=t0+trend+eff;
+     return {q:R`<p>Log wages (×100) in border (treated) and inland (control) regions before and after a commuting policy:</p><div class="tbl"><table><tr><th></th><th>Before</th><th>After</th></tr><tr><td>Border</td><td>${f(t0,2)}</td><td>${f(t1,2)}</td></tr><tr><td>Inland</td><td>${f(c0,2)}</td><td>${f(c1,2)}</td></tr></table></div><ol type="a"><li>Naive before–after estimate for the treated region?</li><li>Naive treated–control comparison after the policy?</li><li>Difference-in-differences estimate?</li><li>What assumption makes (c) causal?</li></ol>`,
+       ans:[num('ba','(a) Before–after',t1-t0),num('cs','(b) Cross-section after',t1-c1),num('did','(c) DiD',eff),choice('as','(d) Key assumption',['Parallel trends','Random assignment','Exclusion restriction'],'Parallel trends')],
+       sol:R`<ol><li>\(${f(t1,2)}-${f(t0,2)}=${f(t1-t0,2)}\). Contaminated by the common trend of \(${f(trend,2)}\).</li><li>\(${f(t1,2)}-${f(c1,2)}=${f(t1-c1,2)}\). Contaminated by the pre-existing gap of \(${f(gapT,2)}\).</li><li>\((${f(t1,2)}-${f(t0,2)})-(${f(c1,2)}-${f(c0,2)})=${f(t1-t0,2)}-${f(trend,2)}=${f(eff,2)}\). Equivalently \((${f(t1,2)}-${f(c1,2)})-(${f(t0,2)}-${f(c0,2)})\). Same as \(\beta\) in \(Y_{it}=\alpha_i+\delta_t+\beta T_{it}+u_{it}\).</li><li><strong>Parallel trends</strong>: absent treatment, the border region would have changed by the same \(${f(trend,2)}\) as inland. Check with pre-period placebo coefficients in an event study.</li></ol>`};
+   }},
+  {id:'rd',grp:'Research designs',title:'Regression discontinuity (sharp and fuzzy)',
+   gen:function(){
+     var a=pick([50,60,70]), b=pick([0.5,1,1.5]), jump=pick([0,0,2,4,6]); var pL=pick([0.3,0.4,0.5]), pR=pick([0.85,0.9,1.0]);
+     var left=a, right=a+jump; var fuzzy=jump/(pR-pL);
+     return {q:R`<p>Earnings (in $1,000s) as a function of a last-chance exam score \(X\) (cutoff at 0): \(E[Y|X=x]=${a}+${b}x\) for \(x&lt;0\) and \(E[Y|X=x]=${a+jump}+${b}x\) for \(x\ge0\). The probability of receiving a diploma is ${pL} just below the cutoff and ${pR} just above.</p><ol type="a"><li>Limit of \(E[Y|X]\) from the left at the cutoff? From the right?</li><li>Sharp RD estimate of the effect of crossing the cutoff?</li><li>Fuzzy RD (IV) estimate of the effect of the diploma?</li><li>What must be continuous at the cutoff for this to be causal?</li></ol>`,
+       ans:[num('l','(a) Left limit',left),num('r','(a) Right limit',right),num('sharp','(b) Sharp RD estimate',jump),num('fuzzy','(c) Fuzzy RD estimate',fuzzy),choice('as','(d) Continuous at c',['E[ν | X] (unobservables)','The treatment D','The outcome Y'],'E[ν | X] (unobservables)')],
+       sol:R`<ol><li>Left: \(\lim_{x\to0^-}=${a}+${b}\cdot0=${a}\). Right: \(${a+jump}\). The slope term vanishes at \(x=0\) on both sides.</li><li>Jump \(=${a+jump}-${a}=${jump}\). From \(Y=\alpha+\beta D+\nu\): left limit is \(\alpha+E[\nu|X=c]\), right is \(\alpha+\beta+E[\nu|X=c]\), difference \(\beta\).</li><li>Crossing raises diploma probability by \(${pR}-${pL}=${f(pR-pL,2)}\), not to 1. Fuzzy RD = jump in outcome ÷ jump in treatment \(=${jump}/${f(pR-pL,2)}=${f(fuzzy)}\). <span class="why">This is IV with the cutoff indicator as instrument: reduced form over first stage.</span></li><li>\(E[\nu_i|X_i]\) must be continuous at \(c\): nothing else jumps there, i.e. students cannot precisely manipulate scores. Check: smooth density of \(X\) at \(c\), no jumps in covariates. ${jump===0?'Here the jump is 0: Clark & Martorell’s finding that the diploma has no signaling value.':''}</li></ol>`};
+   }},
+  {id:'iv',grp:'Research designs',title:'IV mechanics: reduced form ÷ first stage',
+   gen:function(){
+     var pi=pick([0.8,1.15,1.19,1.5,2.0]), beta=pick([-0.45,-0.39,-0.3,0.25]); var delta=pi*beta; var F=pick([12,32,38,45]);
+     return {q:R`<p>Robots: a one-unit increase in the instrument (European exposure) raises US exposure by ${f(pi,2)} (first-stage F = ${F}) and changes employment/population by ${f(delta,3)} percentage points (reduced form).</p><ol type="a"><li>IV estimate of the effect of one unit of US exposure on employment/population?</li><li>Is the instrument strong?</li><li>Which assumption would be violated if European industries adopted robots in response to shocks that also hit the same US industries?</li></ol>`,
+       ans:[num('b','(a) IV estimate',beta),choice('strong','(b) Strong instrument?',['Yes (F > 10)','No'],'Yes (F > 10)'),choice('viol','(c) Violated assumption',['As good as random / exclusion','Relevance','Monotonicity'],'As good as random / exclusion')],
+       sol:R`<ol><li>\(\beta_{IV}=\delta/\pi=${f(delta,3)}/${f(pi,2)}=${f(beta,3)}\) pp per robot per 1,000 workers. <span class="why">The reduced form is the effect of the instrument; divide by how much the instrument moves the treatment.</span></li><li>Rule of thumb F &gt; 10: ${F} is ${F>10?'strong':'weak'}. Relevance holds.</li><li>A common shock to the same industries on both continents would link \(Z\) to \(Y\) other than through US robots: a violation of as-good-as-random / exclusion. A&amp;R address it by controlling for Chinese import exposure and checking pre-trends.</li></ol>`};
+   }}
+  ];
+
+  var store={get:function(k,d){try{var v=localStorage.getItem(k);return v===null?d:JSON.parse(v);}catch(e){return d;}},set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
+  var streaks=store.get('e151-streaks',{});
+  var cur=null, inst=null, checked=false;
+  var list=document.getElementById('drill-list');
+  var grpSeen={};
+  DRILLS.forEach(function(d){
+    if(!grpSeen[d.grp]){grpSeen[d.grp]=1;var g=document.createElement('div');g.className='grp';g.textContent=d.grp;list.appendChild(g);}
+    var b=document.createElement('button');b.type='button';b.setAttribute('data-id',d.id);b.innerHTML='<span>'+d.title+'</span><span class="dot"></span>';
+    b.addEventListener('click',function(){load(d.id);});list.appendChild(b);
+  });
+  function paintList(){list.querySelectorAll('button').forEach(function(b){var id=b.getAttribute('data-id');b.setAttribute('aria-current',cur&&cur.id===id?'true':'false');b.classList.toggle('ready',(streaks[id]||0)>=3);});}
+  function typeset(el){if(window.MathJax&&MathJax.typesetPromise){MathJax.typesetPromise([el]).catch(function(){});}}
+  function load(id){
+    cur=DRILLS.filter(function(d){return d.id===id;})[0]||DRILLS[0];
+    inst=cur.gen(); checked=false;
+    document.getElementById('drill-topic').textContent=cur.grp;
+    document.getElementById('drill-title').textContent=cur.title;
+    document.getElementById('drill-q').innerHTML=inst.q;
+    var A=document.getElementById('drill-answers');A.innerHTML='';
+    inst.ans.forEach(function(a,i){
+      var lab=document.createElement('label');lab.setAttribute('data-i',i);
+      var t=document.createElement('span');t.textContent=a.label;lab.appendChild(t);
+      var inp;
+      if(a.t==='num'){inp=document.createElement('input');inp.type='text';inp.inputMode='decimal';inp.autocomplete='off';inp.placeholder=a.hint||'number';}
+      else{inp=document.createElement('select');var o0=document.createElement('option');o0.value='';o0.textContent='choose…';inp.appendChild(o0);a.opts.forEach(function(o){var op=document.createElement('option');op.value=o;op.textContent=o;inp.appendChild(op);});}
+      inp.id='drill-in-'+cur.id+'-'+i;lab.appendChild(inp);
+      var ex=document.createElement('span');ex.className='exp';lab.appendChild(ex);
+      A.appendChild(lab);
+    });
+    var fb=document.getElementById('drill-feedback');fb.hidden=true;fb.className='feedback';
+    var sol=document.getElementById('drill-sol');sol.hidden=true;sol.innerHTML='';
+    paintStreak();paintList();typeset(document.getElementById('drill-card'));
+    store.set('e151-drill',cur.id);
+  }
+  function paintStreak(){var s=streaks[cur.id]||0;var el=document.getElementById('drill-streak');el.textContent=s>=3?'✓ '+s+' in a row — ready':'Streak: '+s+' / 3';el.className='streak'+(s>=3?' ok':'');}
+  function parse(v){v=String(v).trim().replace(/[$,%\s]/g,'');if(v==='')return NaN;if(/^-?\d+\/\d+$/.test(v)){var p=v.split('/');return (+p[0])/(+p[1]);}return +v;}
+  function check(){
+    if(!inst)return;
+    var allOk=true, any=false;
+    inst.ans.forEach(function(a,i){
+      var lab=document.querySelector('#drill-answers label[data-i="'+i+'"]');var inp=lab.querySelector('input,select');var ex=lab.querySelector('.exp');
+      var ok;
+      if(a.t==='num'){var v=parse(inp.value);if(isNaN(v)){ok=false;}else{any=true;var tol=Math.max(0.02*Math.abs(a.val),0.01);ok=Math.abs(v-a.val)<=tol;}
+        ex.textContent=ok?'✓':'Answer: '+(Math.abs(a.val)>=1000?f(a.val,0):f(a.val,3))+(a.hint==='percent'?'%':'');}
+      else{ok=inp.value===a.val;if(inp.value)any=true;ex.textContent=ok?'✓':'Answer: '+a.val;}
+      lab.className=ok?'right':'wrong';if(!ok)allOk=false;
+    });
+    var fb=document.getElementById('drill-feedback');fb.hidden=false;
+    if(allOk&&!inst.scored){inst.scored=true;streaks[cur.id]=(streaks[cur.id]||0)+1;store.set('e151-streaks',streaks);}
+    else if(!allOk&&any&&!inst.scored&&!inst.missed){inst.missed=true;streaks[cur.id]=0;store.set('e151-streaks',streaks);}
+    fb.className='feedback '+(allOk?'ok':'bad');
+    fb.textContent=allOk?'All correct. Hit "New numbers" and do it again without looking.':'Not yet. Open the steps, find the line where yours diverged, then try new numbers.';
+    paintStreak();paintList();
+  }
+  function steps(){var sol=document.getElementById('drill-sol');sol.innerHTML='<span class="eyebrow">Worked steps</span>'+inst.sol;sol.hidden=false;typeset(sol);}
+  document.getElementById('drill-check').addEventListener('click',check);
+  document.getElementById('drill-steps').addEventListener('click',steps);
+  document.getElementById('drill-new').addEventListener('click',function(){load(cur.id);});
+  document.getElementById('drill-random').addEventListener('click',function(){var others=DRILLS.filter(function(d){return !cur||d.id!==cur.id;});load(pick(others).id);});
+  document.getElementById('drill-answers').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();check();}});
+  load(store.get('e151-drill',DRILLS[0].id));
+})();
+</script>
 <!-- ============ FLASHCARDS ============ -->
 <section class="panel" id="tab-cards" data-panel="cards" hidden>
 <h2>Flashcards</h2>
