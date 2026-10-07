@@ -1,0 +1,1178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Econ 151 Midterm 1</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sticky tab bar over one reading column (~68ch) with full-width tables/graphs where needed.
+   Subject: UC Berkeley labor economics, so Cal blue carries structure and a restrained gold marks "exam-critical". */
+:root{
+  --bg:#f7f7f3; --surface:#ffffff; --surface-2:#eef0ee; --line:#d6d9d6;
+  --fg:#1c2230; --muted:#5a6270; --accent:#1f4e79; --accent-fg:#ffffff;
+  --gold:#a8791a; --gold-bg:#fbf3df; --ok:#2f7a4a; --ok-bg:#e6f3ea; --warn:#9b3b2a; --warn-bg:#f8e8e4;
+  --code-bg:#eef0ee;
+  --font-ui:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15181e; --surface:#1d2129; --surface-2:#262b35; --line:#3a4150;
+    --fg:#e6e8ec; --muted:#a0a7b4; --accent:#7fb2e0; --accent-fg:#0f1620;
+    --gold:#e2b957; --gold-bg:#2d2715; --ok:#7fcf9a; --ok-bg:#1b2d22; --warn:#f0917c; --warn-bg:#36201b;
+    --code-bg:#262b35; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15181e; --surface:#1d2129; --surface-2:#262b35; --line:#3a4150;
+  --fg:#e6e8ec; --muted:#a0a7b4; --accent:#7fb2e0; --accent-fg:#0f1620;
+  --gold:#e2b957; --gold-bg:#2d2715; --ok:#7fcf9a; --ok-bg:#1b2d22; --warn:#f0917c; --warn-bg:#36201b;
+  --code-bg:#262b35; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:17px;line-height:1.55;margin:0}
+a{color:var(--accent)}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:16px;padding-block:0 64px}
+header.top{border-bottom:1px solid var(--line);background:var(--surface)}
+header.top .wrap{padding-block:18px 0;display:flex;flex-direction:column;gap:10px}
+.masthead{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px;font-family:var(--font-ui)}
+.masthead h1{font-size:1.25rem;font-weight:600;margin:0;letter-spacing:-0.01em}
+.masthead .meta{color:var(--muted);font-size:.9rem}
+.masthead .meta strong{color:var(--fg);font-weight:600}
+.progress{height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;width:100%}
+.progress>div{height:100%;background:var(--accent);width:0%;transition:width .3s}
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+nav.tabs .wrap{padding-block:0;display:flex;gap:2px;overflow-x:auto;scrollbar-width:thin}
+nav.tabs button{font-family:var(--font-ui);font-size:.9rem;font-weight:500;background:none;border:0;border-bottom:3px solid transparent;color:var(--muted);padding:10px 12px;cursor:pointer;white-space:nowrap}
+nav.tabs button:hover{color:var(--fg)}
+nav.tabs button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+nav.tabs button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+main .wrap{padding-block:28px 64px}
+section.panel>h2{font-family:var(--font-ui);font-size:1.7rem;font-weight:600;letter-spacing:-0.015em;margin:0 0 6px;text-wrap:balance}
+section.panel>p.lede{font-size:1.1rem;color:var(--muted);margin:0 0 24px;max-width:68ch}
+h3{font-family:var(--font-ui);font-size:1.2rem;font-weight:600;margin:36px 0 10px;letter-spacing:-0.01em;text-wrap:balance}
+h4{font-family:var(--font-ui);font-size:1rem;font-weight:600;margin:22px 0 6px}
+p,li{max-width:72ch}
+p{margin:0 0 12px}
+ul,ol{padding-left:1.3em;margin:0 0 12px}
+li{margin-bottom:4px}
+.eyebrow{font-family:var(--font-ui);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin:0 0 14px}
+.card h4{margin-top:0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:14px}
+.grid2>*{min-width:0;margin:0}
+.callout{border-left:4px solid var(--gold);background:var(--gold-bg);padding:10px 14px;border-radius:0 6px 6px 0;margin:14px 0}
+.callout .eyebrow{color:var(--gold)}
+.trap{border-left:4px solid var(--warn);background:var(--warn-bg);padding:10px 14px;border-radius:0 6px 6px 0;margin:14px 0}
+.trap .eyebrow{color:var(--warn)}
+.key{border-left:4px solid var(--accent);background:var(--surface-2);padding:10px 14px;border-radius:0 6px 6px 0;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-family:var(--font-ui);font-size:.92rem;font-variant-numeric:tabular-nums}
+.tbl{overflow-x:auto;margin:12px 0 18px;border:1px solid var(--line);border-radius:8px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--surface-2);font-weight:600}
+tr:last-child td{border-bottom:0}
+td.c,th.c{text-align:center}
+.up{color:var(--ok);font-weight:600}.dn{color:var(--warn);font-weight:600}.z{color:var(--muted);font-weight:600}
+details{border:1px solid var(--line);border-radius:8px;background:var(--surface);margin:0 0 12px}
+details>summary{cursor:pointer;padding:10px 14px;font-family:var(--font-ui);font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:10px}
+details>summary::-webkit-details-marker{display:none}
+details>summary::after{content:"Show";color:var(--accent);font-size:.85rem;flex-shrink:0}
+details[open]>summary::after{content:"Hide"}
+details>summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:8px}
+details>.body{padding:4px 14px 12px;border-top:1px solid var(--line)}
+.problem{margin-bottom:18px}
+.problem .q{background:var(--surface);border:1px solid var(--line);border-bottom:0;border-radius:8px 8px 0 0;padding:12px 14px}
+.problem .q+details{border-radius:0 0 8px 8px}
+.problem .q .eyebrow{display:block;margin-bottom:4px}
+.sched{display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:20px}
+.block{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.block .time{font-family:var(--font-mono);font-size:.85rem;color:var(--muted);white-space:nowrap;padding-top:3px}
+.block.break{background:var(--surface-2);border-style:dashed}
+.block label{display:flex;gap:10px;align-items:flex-start;cursor:pointer;font-family:var(--font-ui);font-size:.97rem}
+.block input{margin-top:5px;accent-color:var(--accent);flex-shrink:0;width:16px;height:16px}
+.block .what{font-weight:500}
+.block .how{color:var(--muted);font-size:.9rem;font-family:var(--font-body);margin-top:2px}
+.block.done .what{text-decoration:line-through;color:var(--muted)}
+.btn{font-family:var(--font-ui);font-size:.9rem;font-weight:500;background:var(--accent);color:var(--accent-fg);border:0;border-radius:6px;padding:8px 14px;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.btn:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.paper{border:1px solid var(--line);border-radius:8px;background:var(--surface);margin-bottom:16px;overflow:hidden}
+.paper .ph{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline;justify-content:space-between;padding:12px 16px;background:var(--surface-2);border-bottom:1px solid var(--line)}
+.paper .ph h4{margin:0;font-size:1.02rem}
+.paper .ph .tag{font-family:var(--font-ui);font-size:.78rem;font-weight:600;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:1px 9px;white-space:nowrap}
+.paper .pb{padding:12px 16px}
+.paper dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0}
+.paper dt{font-family:var(--font-ui);font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;padding-top:3px}
+.paper dd{margin:0;max-width:70ch}
+.paper dd p{margin-bottom:6px}
+.paper label.know{display:flex;gap:8px;align-items:center;font-family:var(--font-ui);font-size:.88rem;color:var(--muted);margin-top:8px;cursor:pointer}
+.paper label.know input{accent-color:var(--accent)}
+@media (max-width:560px){.paper dl{grid-template-columns:1fr}.paper dt{padding-top:6px}}
+figure{margin:16px 0;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px}
+figure svg{display:block;width:100%;height:auto;max-width:100%}
+figcaption{font-family:var(--font-ui);font-size:.85rem;color:var(--muted);padding:6px 4px 0}
+svg text{font-family:var(--font-ui);fill:var(--fg)}
+svg .ax{stroke:var(--fg);stroke-width:1.2;fill:none}
+svg .cur{stroke:var(--accent);stroke-width:2.2;fill:none}
+svg .cur2{stroke:var(--gold);stroke-width:2.2;fill:none}
+svg .cur3{stroke:var(--warn);stroke-width:2.2;fill:none;stroke-dasharray:6 4}
+svg .dash{stroke:var(--muted);stroke-width:1;stroke-dasharray:4 4;fill:none}
+svg .lbl{font-size:12px;fill:var(--muted)}
+svg .pt{fill:var(--fg)}
+.fc-wrap{display:flex;flex-direction:column;gap:12px;align-items:stretch}
+.fc-controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-family:var(--font-ui);font-size:.9rem;color:var(--muted)}
+.fc-controls select{font-family:var(--font-ui);font-size:.9rem;padding:6px 8px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--fg)}
+.fc{background:var(--surface);border:1px solid var(--line);border-radius:10px;min-height:220px;padding:22px 24px;cursor:pointer;display:flex;flex-direction:column;justify-content:center;gap:10px;position:relative}
+.fc .side{font-family:var(--font-ui);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);position:absolute;top:12px;left:16px}
+.fc .cat{font-family:var(--font-ui);font-size:.78rem;color:var(--accent);position:absolute;top:12px;right:16px}
+.fc .txt{font-size:1.15rem;line-height:1.45;max-width:70ch}
+.fc .txt.back{font-size:1.02rem}
+.fc:focus-visible{outline:2px solid var(--accent)}
+.cheat{columns:2;column-gap:28px}
+.cheat .card{break-inside:avoid;margin-bottom:14px}
+@media (max-width:720px){.cheat{columns:1}}
+.cheat p,.cheat li{font-size:.95rem}
+code,kbd{font-family:var(--font-mono);font-size:.88em;background:var(--code-bg);padding:1px 5px;border-radius:4px}
+.small{font-size:.9rem;color:var(--muted)}
+.fact-list li{margin-bottom:6px}
+mjx-container{overflow-x:auto;overflow-y:hidden;max-width:100%}
+mjx-container[display="true"]{margin:10px 0 !important}
+@media (prefers-reduced-motion: reduce){*{transition:none !important}}
+</style>
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:true},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
+
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="masthead">
+    <h1>Econ 151 · Midterm 1 study site</h1>
+    <div class="meta">Covers lectures 2–5 · Exam <strong>Thu Oct 8, 3:30pm</strong> · <span id="progress-text">0 of 0 blocks done</span></div>
+  </div>
+  <div class="progress" aria-hidden="true"><div id="progress-bar"></div></div>
+</div></header>
+<nav class="tabs" aria-label="Sections"><div class="wrap" role="tablist">
+    <button role="tab" data-tab="plan" aria-selected="true">Plan</button>
+    <button role="tab" data-tab="eqm">L2 Equilibrium</button>
+    <button role="tab" data-tab="tech">L3 Tech change</button>
+    <button role="tab" data-tab="edu">L4 Education</button>
+    <button role="tab" data-tab="comp">L5 Comp. diffs</button>
+    <button role="tab" data-tab="designs">Research designs</button>
+    <button role="tab" data-tab="papers">11 Papers</button>
+    <button role="tab" data-tab="psets">Problem sets</button>
+    <button role="tab" data-tab="practice">Practice exam</button>
+    <button role="tab" data-tab="cards">Flashcards</button>
+    <button role="tab" data-tab="cheat">Cheat sheet</button>
+</div></nav>
+<main><div class="wrap">
+<!-- ============ PLAN ============ -->
+<section class="panel" id="tab-plan" data-panel="plan">
+<h2>Your 1½-day plan</h2>
+<p class="lede">Wednesday is for learning and deriving. Thursday is for testing yourself and locking in the papers. Nothing new after noon Thursday. Tick blocks off as you go; the page remembers.</p>
+
+<div class="callout"><span class="eyebrow">What the exam actually tests</span>
+<p style="margin:4px 0 0">The study guide is unusually explicit. Five things: (1) everything in both problem sets, (2) the "facts" slides at the start of L3, L4, L5, (3) for each of 11 papers: setting, design + assumptions + plausibility, findings + which model they fit, (4) working the four models (equilibrium, tech change/automation, human capital/signaling, compensating differentials), (5) the four research designs (RCT, IV, RD, DiD). Every block below maps to one of these.</p></div>
+
+<h3>Wednesday, Oct 7 · 9:00am – 10:00pm</h3>
+<div class="sched" id="sched-wed">
+  <div class="block"><span class="time">9:00–9:30</span><label><input type="checkbox" data-block="w1"><span><span class="what">Orient.</span><div class="how">Read the Cheat sheet tab once, fast. Rate yourself 1–3 on each of the four models and the 11 papers. Note the weakest two; you'll give them extra time at 8:45pm.</div></span></label></div>
+  <div class="block"><span class="time">9:30–11:00</span><label><input type="checkbox" data-block="w2"><span><span class="what">L2 Equilibrium: the model, by hand.</span><div class="how">L2 tab. Derive the reservation wage, labor supply \(L^s = N\,P[w^r_i\le w]\), labor demand \(w = p\,y'(L)\), and the unearned-income comparative static. Then redo HW1 Q2 (the log-linear equilibrium) on paper without looking, and check against the Problem sets tab.</div></span></label></div>
+  <div class="block break"><span class="time">11:00–11:15</span><label><input type="checkbox" data-block="w3"><span><span class="what">Break</span></span></label></div>
+  <div class="block"><span class="time">11:15–12:45</span><label><input type="checkbox" data-block="w4"><span><span class="what">RCTs + the three L2 papers.</span><div class="how">Research designs tab (RCT section), then Papers: Paycheck Plus, OpenResearch, Dustmann–Schönberg–Stuhler. For each, write the three study-guide answers in your own words (setting / design &amp; assumptions / findings &amp; model). Compute the Paycheck Plus elasticity (0.125) and the Alaska pipeline elasticity (≈3.7) yourself and explain why they differ.</div></span></label></div>
+  <div class="block break"><span class="time">12:45–1:30</span><label><input type="checkbox" data-block="w5"><span><span class="what">Lunch</span></span></label></div>
+  <div class="block"><span class="time">1:30–3:00</span><label><input type="checkbox" data-block="w6"><span><span class="what">L3 Tech change: two models + HW1 Q1.</span><div class="how">L3 tab. Derive labor-augmenting change (\(A\uparrow\) shifts \(\gamma A^\gamma L^{\gamma-1}\) up) and automation (\(w^D=\min\{rA,\gamma A^\gamma L^{\gamma-1}\}\): a maximum wage). Fill in the ↑/↓ table from memory. Then HW1 Q1: do Cobb–Douglas and perfect substitutes fully; skim Leontief. Know the short-run vs long-run elasticity comparison for each.</div></span></label></div>
+  <div class="block break"><span class="time">3:00–3:15</span><label><input type="checkbox" data-block="w7"><span><span class="what">Break</span></span></label></div>
+  <div class="block"><span class="time">3:15–4:30</span><label><input type="checkbox" data-block="w8"><span><span class="what">IV + the three L3 papers.</span><div class="how">Research designs (IV: four assumptions, \(\beta=\delta/\pi\), LATE). Papers: Caunedo–Kala, Acemoglu–Restrepo, Gaggl–Wright (HW1 Q3). Practice applying the four IV assumptions to "European robots instrument US robots" out loud.</div></span></label></div>
+  <div class="block break"><span class="time">4:30–5:00</span><label><input type="checkbox" data-block="w9"><span><span class="what">Walk / real break</span></span></label></div>
+  <div class="block"><span class="time">5:00–6:30</span><label><input type="checkbox" data-block="w10"><span><span class="what">L4 Education: human capital, signaling, HW2 Q1.</span><div class="how">L4 tab. NPV decision, \(y'(S)/y(S)\approx r\), the two ability-bias models (\(\alpha_i\) vs \(\beta_i\)), separating/pooling conditions. Then HW2 Q1 (the CES skill-biased tech-change model): derive the wage-premium ratio and the equilibrium \(w_e/w_m = (A_e/A_m)^{\rho/(1-a(\rho-1))}\).</div></span></label></div>
+  <div class="block break"><span class="time">6:30–7:15</span><label><input type="checkbox" data-block="w11"><span><span class="what">Dinner</span></span></label></div>
+  <div class="block"><span class="time">7:15–8:30</span><label><input type="checkbox" data-block="w12"><span><span class="what">RD + the two L4 papers.</span><div class="how">Research designs (RD: continuity assumption, the limit derivation, fuzzy RD = IV). Papers: Angrist–Krueger (why IV ≥ OLS matters), Clark–Martorell (why a zero is the result). Be able to say what each would look like under human capital vs signaling vs selection.</div></span></label></div>
+  <div class="block break"><span class="time">8:30–8:45</span><label><input type="checkbox" data-block="w13"><span><span class="what">Break</span></span></label></div>
+  <div class="block"><span class="time">8:45–10:00</span><label><input type="checkbox" data-block="w14"><span><span class="what">L5 Comp. differentials + DiD + three papers; then weakest topic.</span><div class="how">L5 tab: the two-industry model, both comparative statics (\(A_G\uparrow\), \(r_G\uparrow\)), HW2 Q2 (why \(\gamma&lt;0\) fits the facts), VSL. DiD section. Papers: Lavetti, Lee–Taylor, Mas–Pallais. Last 20 minutes: flashcards on your two weakest items from 9am.</div></span></label></div>
+</div>
+
+<h3>Thursday, Oct 8 · 9:00am – 2:00pm (exam 3:30pm)</h3>
+<div class="sched" id="sched-thu">
+  <div class="block"><span class="time">9:00–10:30</span><label><input type="checkbox" data-block="t1"><span><span class="what">Timed practice exam, closed notes.</span><div class="how">Practice exam tab. Paper and pen, 90 minutes, solutions hidden. Skip and return rather than stall.</div></span></label></div>
+  <div class="block break"><span class="time">10:30–10:45</span><label><input type="checkbox" data-block="t2"><span><span class="what">Break</span></span></label></div>
+  <div class="block"><span class="time">10:45–11:45</span><label><input type="checkbox" data-block="t3"><span><span class="what">Grade and patch.</span><div class="how">Open the solutions. For anything you missed, re-derive it from the topic tab, then redo that question cold.</div></span></label></div>
+  <div class="block"><span class="time">11:45–12:30</span><label><input type="checkbox" data-block="t4"><span><span class="what">Papers rapid-fire.</span><div class="how">Flashcards tab, filter to Papers and Designs. Shuffle. Go until you get a full pass. Tick the "I can answer the 3 questions" box on each paper card.</div></span></label></div>
+  <div class="block break"><span class="time">12:30–1:15</span><label><input type="checkbox" data-block="t5"><span><span class="what">Lunch (eat properly)</span></span></label></div>
+  <div class="block"><span class="time">1:15–2:00</span><label><input type="checkbox" data-block="t6"><span><span class="what">Cheat sheet read-through and six graphs from memory.</span><div class="how">Draw: supply–demand shifts (demand shock, supply shock), automation kink, MRR = r, comp. differential (both shifts), RD jump, DiD. Then stop. Walk, eat something, arrive early.</div></span></label></div>
+</div>
+
+<h3>How to use the problem sets</h3>
+<p>The study guide says you should be "comfortable with all the material in both problem sets." The midterm will almost certainly reuse their structure: a model setup, "take logs and differentiate" for an elasticity, a comparative static with a sign condition, and one paper question. The Problem sets tab has every part restated as a question with the solution hidden, so you can attempt first. The Practice exam tab has fresh problems built the same way.</p>
+
+<div class="trap"><span class="eyebrow">Highest-value habits</span>
+<ul style="margin:6px 0 0">
+<li><strong>Always take logs before differentiating</strong> for elasticities. \(\partial \log L/\partial \log w\) is the elasticity. This saves you from product-rule messes.</li>
+<li><strong>State the sign condition.</strong> Nearly every comparative static in this course has a parameter condition (\(\rho&gt;0\), \(\gamma&lt;0\), \(v''&lt;0\), \(\nu&gt;\rho\), \(w&lt;rA\)). The condition is the answer.</li>
+<li><strong>For papers, lead with the identification strategy.</strong> Name the design, name the assumption, say whether you believe it and why, then the number, then which model.</li>
+</ul></div>
+</section>
+<!-- ============ L2 EQUILIBRIUM ============ -->
+<section class="panel" id="tab-eqm" data-panel="eqm" hidden>
+<h2>Lecture 2 · Competitive equilibrium</h2>
+<p class="lede">The simplest model in the course and the foundation for everything after: workers with reservation wages, a price-taking firm, and the wage that clears the market.</p>
+
+<h3>1. Labor supply (extensive margin)</h3>
+<p>A continuum of workers \(i\in[0,N]\). Each chooses employment \(e\in\{0,1\}\) and consumption \(C\):</p>
+\[ u_i(C,e)=v(C)-e\,c_i,\qquad C\le \pi + e\,w, \]
+<p>where \(\pi\) is non-labor income and \(c_i\) is \(i\)'s disutility of work. Worker \(i\) works iff \(v(\pi+w)-c_i\ge v(\pi)\). The <strong>reservation wage</strong> \(w^r_i\) solves</p>
+\[ v(\pi+w^r_i)-c_i=v(\pi). \]
+<p>The labor supply schedule is the number of workers whose reservation wage is below the going wage:</p>
+\[ L^s(w)=N\,P[w^r_i\le w]. \]
+<div class="key"><strong>Three things to be able to say about this supply curve.</strong>
+<ul style="margin:6px 0 0">
+<li>It can never slope down: a CDF is weakly increasing. By modelling only <em>whether</em> people work (extensive margin) we have ruled out a backward-bending supply curve.</li>
+<li>Assumptions: extensive margin only; homogeneous jobs; homogeneous workers. Whether they matter depends on the question.</li>
+<li>The <strong>unearned-income effect is ambiguous</strong>. Raise \(\pi\): both sides of \(v(\pi+w^r)-c_i=v(\pi)\) rise. If \(v''&lt;0\) (diminishing marginal utility), the left side rises by less, so \(w^r_i\) must <em>increase</em> and labor supply falls. If \(v''&gt;0\), the reverse. The model makes no prediction without a stance on \(v''\).</li>
+</ul></div>
+
+<h3>2. Labor demand</h3>
+<p>A representative price-taking firm with production \(y(L)\), output price \(p\) exogenous:</p>
+\[ L^D(w)=\arg\max_L\{p\,y(L)-wL\}\quad\Rightarrow\quad w=p\,y'(L^D(w)). \]
+<p>Wages equal the <strong>marginal revenue product of labor</strong>. The inverse demand curve is \(w^D(L)=p\,y'(L)\). We assume \(y''\le 0\), so demand does not slope up (otherwise the second-order condition fails and you would need imperfect competition to make sense of it).</p>
+<ul>
+<li>An increase in \(p\) shifts inverse demand up: \(w=p\cdot y'(L)\) with \(w\) fixed and \(p\) up requires \(y'(L)\) down, hence \(L\) up.</li>
+<li>Multiple firms: <strong>add demand curves horizontally</strong> (sum the \(L\)'s at each \(w\)).</li>
+<li>Ignoring capital is fine: reinterpret \(y(L)\) as a value-added production function with other inputs chosen optimally (HW1 Q1c).</li>
+<li>Partial equilibrium: \(p\) is exogenous. For non-tradeables, \(p\) might fall as output rises.</li>
+</ul>
+
+<h3>3. Equilibrium and shocks</h3>
+\[ L=N\,P[w^r_i\le w]\quad(\text{supply}),\qquad w=p\,y'(L)\quad(\text{demand}). \]
+<figure>
+<svg viewBox="0 0 640 330" role="img" aria-label="Labor supply and demand with a demand shock from a new industry">
+  <line class="ax" x1="60" y1="280" x2="610" y2="280"/><line class="ax" x1="60" y1="280" x2="60" y2="20"/>
+  <text x="330" y="312" text-anchor="middle" class="lbl">Employment L</text>
+  <text x="18" y="150" transform="rotate(-90 18 150)" text-anchor="middle" class="lbl">Wage w</text>
+  <path class="cur2" d="M80 260 C 180 240, 300 200, 420 60"/>
+  <text x="430" y="52" class="lbl">Labor supply</text>
+  <path class="cur" d="M90 60 C 160 150, 240 210, 400 250"/>
+  <text x="300" y="268" class="lbl">Industry 1 demand</text>
+  <path class="cur3" d="M140 50 C 240 140, 330 190, 540 240"/>
+  <text x="405" y="195" class="lbl" style="fill:var(--warn)">Combined demand (1 + 2)</text>
+  <circle class="pt" cx="247" cy="187" r="4"/><circle class="pt" cx="318" cy="150" r="4"/>
+  <line class="dash" x1="60" y1="187" x2="247" y2="187"/><line class="dash" x1="247" y1="187" x2="247" y2="280"/>
+  <line class="dash" x1="60" y1="150" x2="318" y2="150"/><line class="dash" x1="318" y1="150" x2="318" y2="280"/>
+  <text x="56" y="191" text-anchor="end" class="lbl">w₁*</text><text x="56" y="154" text-anchor="end" class="lbl">w₁₊₂*</text>
+  <text x="247" y="296" text-anchor="middle" class="lbl">L₁*</text><text x="318" y="296" text-anchor="middle" class="lbl">L₁₊₂*</text>
+</svg>
+<figcaption>Demand shock: a second industry enters, demand curves add horizontally, wages and employment both rise. The move along the supply curve identifies the <em>supply</em> elasticity.</figcaption>
+</figure>
+<div class="grid2">
+<div class="card"><h4>Demand shock (Trans-Alaska pipeline, 1974–77)</h4><p>Construction employment rose from ≈8,000 to ≈30,000 (+275%); monthly earnings from ≈$4,000 to ≈$7,000 (+75%). Implied supply elasticity ≈ 275/75 ≈ <strong>3.7</strong>. Large because the margin is <em>inter-state migration</em>, not employment vs unemployment. We used a demand shock to trace out supply.</p></div>
+<div class="card"><h4>Supply shock (Czech commuters, Dustmann–Schönberg–Stuhler)</h4><p>\(N\uparrow\) shifts supply right: \(w\downarrow\), \(L\uparrow\). Empirically a 1% supply shock cut native wages ≈0.1% and native employment ≈0.9% (mostly fewer natives flowing in). Note: commuters did not live in Germany, so there was no offsetting <em>demand</em> increase.</p></div>
+</div>
+<div class="callout"><span class="eyebrow">Immigration ≠ pure supply shock</span><p style="margin:4px 0 0">Immigrants also consume locally, shifting labor demand out. Quasi-experimental studies (Card 1990; Dustmann et al. 2016 JEP) generally find small wage effects. Draw both curves shifting right: wages can be unchanged while employment rises.</p></div>
+
+<h3>4. Why "just run OLS of employment on wages" fails</h3>
+<p>\(\log \text{emp}_c=\alpha+\beta\log w_c+u_c\) has two problems: <strong>omitted variable bias</strong> (rural areas are less productive but nicer places to be unemployed) and <strong>reverse causality / simultaneity</strong> (a market with high \(u_c\) has more employment, which lowers wages via decreasing returns, so you may be tracing demand, not supply). Hence RCTs and quasi-experiments.</p>
+
+<h3>5. The empirical answers</h3>
+<div class="tbl"><table>
+<tr><th>Question</th><th>Evidence</th><th>Number</th><th>Takeaway</th></tr>
+<tr><td>Does labor supply respond to wages?</td><td>Paycheck Plus RCT (Miller et al. 2018): EITC-like bonus up to $2,000 for low-income single adults in NYC</td><td>Wage ≈ +20% (2,000/10,186); employment +1.9pp on 75.4% ≈ +2.5%. Elasticity ≈ <strong>0.125</strong></td><td>Positive but small. Other extensive-margin estimates also small (Chetty et al. 2012).</td></tr>
+<tr><td>Does labor supply respond to unearned income?</td><td>OpenResearch Unconditional Income Study (Vivalt et al. 2026): $1,000/mo vs $50/mo RCT in TX and IL, ~25% income boost</td><td>Employment −2pp (survey), −7pp (UI data); hours −1.3/week; elasticity ≈ −0.1 to −0.3</td><td>Labor supply falls, so the data favour \(v''&lt;0\): the model alone did not predict this.</td></tr>
+<tr><td>Supply shock on wages/employment</td><td>Dustmann, Schönberg &amp; Stuhler (2017 QJE), Czech commuters to German border districts, DiD</td><td>1% supply shock → wages −0.13%, native employment −0.93%</td><td>Consistent with competitive model; the employment response works through reduced inflows.</td></tr>
+</table></div>
+
+<h3>6. The HW1 Q2 worked model (know this cold)</h3>
+<p>\(v(C)=\log C\), unearned income \(b\), disutility \(v_i\) with \(P[v_i&lt;x]=a\exp(\lambda x)\), firm \(y=L^\gamma\).</p>
+<ul>
+<li>Work iff \(\log w - v_i\ge\log b\); reservation wage \(w^r_i=b\,e^{v_i}\).</li>
+<li>\[L^s=N\,P[b e^{v_i}&lt;w]=Na\exp(\lambda(\log w-\log b))\] so \(\log L^s=\log(aN)+\lambda(\log w-\log b)\). <strong>Supply elasticity \(=\lambda\)</strong>.</li>
+<li>\[w=p\gamma L^{\gamma-1}\Rightarrow \log L^D=\frac{1}{\gamma-1}\log w-\frac{1}{\gamma-1}\log(p\gamma)\]. <strong>Demand elasticity \(=\frac{1}{\gamma-1}&lt;0\)</strong>.</li>
+<li>Equate and solve: \[\log w=\frac{\gamma-1}{\lambda(\gamma-1)-1}\big(\lambda\log b-\tfrac{1}{\gamma-1}\log p-\tfrac{1}{\gamma-1}\log\gamma-\log a-\log N\big)\].</li>
+</ul>
+<div class="tbl"><table>
+<tr><th>Shock (for \(\lambda&gt;0,\ \gamma\in(0,1)\))</th><th class="c">log wage</th><th class="c">log employment</th><th>Why</th></tr>
+<tr><td>\(\log b\uparrow\) (unearned income)</td><td class="c up">↑ \(\frac{1}{1-1/(\lambda(\gamma-1))}\)</td><td class="c dn">↓ \(\frac{1}{\gamma-1-1/\lambda}\)</td><td>Supply shifts in (reservation wages rise with \(b\)).</td></tr>
+<tr><td>\(\log p\uparrow\) (output price)</td><td class="c up">↑ \(\frac{1}{1+\lambda(1-\gamma)}\)</td><td class="c up">↑ \(\frac{\lambda}{1+\lambda(1-\gamma)}\)</td><td>Demand shifts out.</td></tr>
+<tr><td>\(\log N\uparrow\) (more workers)</td><td class="c dn">↓ \(\frac{1-\gamma}{-(\lambda(1-\gamma)+1)}\)</td><td class="c up">↑ \(\frac{1}{1+\lambda(1-\gamma)}\)</td><td>Supply shifts out.</td></tr>
+</table></div>
+<div class="trap"><span class="eyebrow">Traps</span>
+<ul style="margin:6px 0 0">
+<li>Do not say "higher unearned income lowers labor supply" as if the model implies it. It depends on \(v''\). With \(v=\log\) (HW1), \(v''&lt;0\), so yes; in general, no.</li>
+<li>The Paycheck Plus and Alaska elasticities measure different margins (unemployment→employment vs migration). Different elasticities are not a contradiction.</li>
+<li>"Elasticity" means \(\partial\log L/\partial\log w\). Compute it from a log-linear form, never from levels.</li>
+</ul></div>
+</section>
+<!-- ============ L3 TECH CHANGE ============ -->
+<section class="panel" id="tab-tech" data-panel="tech" hidden>
+<h2>Lecture 3 · Technological change</h2>
+<p class="lede">Two models with opposite predictions for wages, one decisive table, and the evidence that says which one fits which technology.</p>
+
+<h3>1. The facts slides (know the "general thrust")</h3>
+<ul class="fact-list">
+<li><strong>Productivity–pay divergence.</strong> Since ≈1973 US labor productivity (GDP ÷ hours) has roughly tripled (≈1,700 → ≈4,700 in 2026 $/week) while the median full-time wage barely moved (≈1,100 → ≈1,300). Before 1973 they rose together.</li>
+<li><strong>Falling labor share.</strong> Compensation of employees as a share of GDP fell from ≈0.64 (1970) to ≈0.57 (2023), with a bump around 2000.</li>
+<li><strong>Rising inequality.</strong> Real weekly earnings relative to 1961: 90th percentile ≈ +70%, 10th ≈ +40%, median ≈ +20%. By education: grad-school earnings ≈ +40%, bachelor's ≈ +15%, high school ≈ −10%, less than high school ≈ −15 to −20%, with the fan-out beginning around 1980.</li>
+<li><strong>Job polarization</strong> (Autor 2019): since 1970, employment shares of production, operators/laborers, and office/admin fell (production −25pp cumulative); professionals, technicians, managers and health/personal services rose.</li>
+</ul>
+
+<h3>2. Common setup</h3>
+<p>Labor supply \(L^s(w)\) (not microfounded), a price-taking firm, output price normalized to 1, and</p>
+\[ y(L)=(AL)^\gamma,\qquad \gamma\in(0,1), \]
+<p>where \(AL\) is "effective labor" and \(A\) is labor productivity. Inverse labor demand is the marginal product:</p>
+\[ w^D(L)=\frac{\partial}{\partial L}(AL)^\gamma=\gamma A^\gamma L^{\gamma-1}. \]
+
+<h3>3. Model 1 · Labor-augmenting technological change (\(A\uparrow\))</h3>
+<p>Raising \(A\) shifts the whole inverse demand curve \(\gamma A^\gamma L^{\gamma-1}\) up. Equilibrium wages and employment both rise. Average productivity:</p>
+\[ \frac{y}{L}=\frac{(AL)^\gamma}{L}=A^\gamma L^{\gamma-1}=\frac{w}{\gamma}, \]
+<p>so average productivity is proportional to the wage and rises with it.</p>
+
+<h3>4. Model 2 · Automation (labor-substituting change)</h3>
+<p>A machine \(M\) that is a perfect substitute for effective labor, each costing \(r\) with perfectly elastic supply:</p>
+\[ y(L,M)=(AL+M)^\gamma,\qquad \max_{L,M}\{(AL+M)^\gamma-wL-rM\}. \]
+<p>Split into cost minimization then output choice.</p>
+<ol>
+<li><strong>Cost minimization.</strong> Holding output fixed, one machine replaces \(1/A\) units of labor, changing cost by \(r-w/A\). So: if \(w&gt;rA\) the firm hires no workers; if \(w&lt;rA\) it uses no machines; at \(w=rA\) it is indifferent.</li>
+<li><strong>Output choice.</strong> With machines only, \(Y=M^\gamma\), \(c(Y)=rY^{1/\gamma}\), FOC \(1=\frac{r}{\gamma}Y^{1/\gamma-1}\Rightarrow Y=(\gamma/r)^{\gamma/(1-\gamma)}\). With labor only, \(c(Y)=\frac{w}{A}Y^{1/\gamma}\), \(Y=(A\gamma/w)^{\gamma/(1-\gamma)}\), and \(L=Y^{1/\gamma}/A\) rearranges to \(w=\gamma A^\gamma L^{\gamma-1}\) again.</li>
+</ol>
+<div class="key"><strong>Result.</strong> Inverse labor demand after automation is
+\[ w^D(L)=\min\{\,rA,\ \gamma A^\gamma L^{\gamma-1}\,\}. \]
+From the workers' side, automation looks like a <strong>maximum wage</strong> at \(rA\), binding whenever any machines are used. Wages and employment both fall.</div>
+<figure>
+<svg viewBox="0 0 640 330" role="img" aria-label="Automation flattens the labor demand curve at the wage rA, lowering wages and employment">
+  <line class="ax" x1="60" y1="280" x2="610" y2="280"/><line class="ax" x1="60" y1="280" x2="60" y2="20"/>
+  <text x="330" y="312" text-anchor="middle" class="lbl">Employment L</text>
+  <text x="18" y="150" transform="rotate(-90 18 150)" text-anchor="middle" class="lbl">Wage w</text>
+  <path class="cur2" d="M80 262 C 200 240, 330 190, 470 50"/><text x="478" y="44" class="lbl">Labor supply</text>
+  <path class="cur" d="M100 40 C 170 120, 260 180, 560 240"/><text x="420" y="225" class="lbl">γAᵞLᵞ⁻¹ (before)</text>
+  <path class="cur3" d="M60 165 L 240 165 C 320 180, 400 215, 560 240"/>
+  <text x="70" y="158" class="lbl" style="fill:var(--warn)">min{rA, γAᵞLᵞ⁻¹}</text>
+  <circle class="pt" cx="300" cy="140" r="4"/><circle class="pt" cx="262" cy="165" r="4"/>
+  <line class="dash" x1="60" y1="140" x2="300" y2="140"/><line class="dash" x1="300" y1="140" x2="300" y2="280"/>
+  <line class="dash" x1="262" y1="165" x2="262" y2="280"/>
+  <text x="56" y="144" text-anchor="end" class="lbl">w*</text><text x="56" y="172" text-anchor="end" class="lbl">rA = w**</text>
+  <text x="262" y="296" text-anchor="middle" class="lbl">L**</text><text x="300" y="296" text-anchor="middle" class="lbl">L*</text>
+</svg>
+<figcaption>Automation: the demand curve is capped at \(rA\). The equilibrium slides down the supply curve to lower wages and employment. Output rises because marginal cost fell.</figcaption>
+</figure>
+<p><strong>Output rises.</strong> Before: \[c'(Y)=\frac{1}{\gamma}\frac{w_{\text{initial}}}{A}Y^{1/\gamma-1}\]. After (with \(rA&lt;w_{\text{initial}}\) so machines are used): \(c'(Y)=\frac{1}{\gamma}rY^{1/\gamma-1}\), strictly lower at every \(Y\). Price = marginal cost, so \(Y\) must rise. Output up and employment down means average productivity rises here too.</p>
+
+<h3>5. The table</h3>
+<div class="tbl"><table>
+<tr><th></th><th class="c">Labor-augmenting</th><th class="c">Automation</th><th class="c">Caunedo &amp; Kala</th><th class="c">Acemoglu &amp; Restrepo</th></tr>
+<tr><td>Average productivity</td><td class="c up">↑</td><td class="c up">↑</td><td class="c up">↑</td><td class="c up">↑</td></tr>
+<tr><td>Marginal productivity</td><td class="c up">↑</td><td class="c dn">↓</td><td class="c z">?</td><td class="c z">?</td></tr>
+<tr><td>Wages</td><td class="c up">↑</td><td class="c dn">↓</td><td class="c z">≈0</td><td class="c dn">↓</td></tr>
+<tr><td>Employment</td><td class="c up">↑</td><td class="c dn">↓</td><td class="c dn">↓</td><td class="c dn">↓</td></tr>
+<tr><td>Output</td><td class="c up">↑</td><td class="c up">↑</td><td class="c z">≈0</td><td class="c up">↑</td></tr>
+</table></div>
+<p>Technology raises wages when it complements labor and lowers them when it substitutes for labor. Which one a given technology is must be settled empirically. Gaggl &amp; Wright shows the answer can differ by worker type within one technology (ICT: labor-augmenting for non-routine cognitive workers, automation-like for routine cognitive workers).</p>
+
+<h3>6. Why the empirics are hard, and the two main papers</h3>
+<ul>
+<li>Adopters may be more efficient in other ways (selection). Ideally study equilibrium effects, but firm-level responses holding others fixed still teach a lot.</li>
+<li><strong>Caunedo &amp; Kala (2022)</strong>: RCT of equipment-rental vouchers in Karnataka, India. Firm-level: labor use per acre falls (family male −16%, hired female −12%), wages ≈ unchanged, output ≈ unchanged. No wage effect because treated farms are small relative to the local labor market, so aggregate demand did not move. Partial equilibrium by design.</li>
+<li><strong>Acemoglu &amp; Restrepo (2020 JPE)</strong>: equilibrium effects across US commuting zones 1990–2007. Exposure = Σ (1970 industry employment share) × (European adjusted robot penetration in that industry). IV: European penetration instruments US penetration. One more robot per 1,000 workers → employment/population −0.39pp and wages −0.77% (IV estimates). Consistent with automation.</li>
+</ul>
+<p>Adjusted penetration for industry \(i\): \[\text{APR}_i=\frac{M_{i,t_1}-M_{i,t_0}}{L_{i,1990}}-g_i\frac{M_{i,t_0}}{L_{i,1990}}\]: robots per initial worker, net of robot growth that merely tracks output growth \(g_i\).</p>
+
+<h3>7. Extensions</h3>
+<ul>
+<li><strong>New jobs.</strong> Technology that creates a new industry is exactly the L2 demand shock: demand curves add horizontally, wages and employment rise.</li>
+<li><strong>Skill bias.</strong> With two labor types (HW2 Q1), \(A_e\uparrow\) raises the educated wage premium iff \(\rho&gt;0\) (sufficiently substitutable). See the L4 tab.</li>
+<li><strong>Long-run general equilibrium.</strong> With constant returns and every non-labor input perfectly elastically supplied, \(c'(y)\) is constant and equilibrium needs \(c'(y)=1\). A technology that lowers marginal cost must raise the price of some input, and the only input that can get more expensive is labor. So wages must rise "in the end".</li>
+</ul>
+
+<div class="trap"><span class="eyebrow">Traps</span>
+<ul style="margin:6px 0 0">
+<li>Both models raise <em>average</em> productivity and output. They differ on <em>marginal</em> productivity, wages, and employment. The productivity–pay divergence fact is consistent with automation, not with labor-augmenting change.</li>
+<li>Automation binds only if \(rA&lt;w_{\text{initial}}\). If machines are too expensive the kink is above the old equilibrium and nothing happens.</li>
+<li>Caunedo &amp; Kala's zero wage effect does not contradict automation. It is what partial equilibrium predicts.</li>
+</ul></div>
+</section>
+<!-- ============ L4 EDUCATION ============ -->
+<section class="panel" id="tab-edu" data-panel="edu" hidden>
+<h2>Lecture 4 · Education</h2>
+<p class="lede">Educated workers earn more. Three stories: human capital (school makes you productive), signaling (school proves you were already productive), selection (something else causes both). The evidence favors human capital, at least for high school.</p>
+
+<h3>1. The facts slides</h3>
+<ul class="fact-list">
+<li>Median real weekly earnings (2026 $) in 2024: grad school ≈ $2,100, bachelor's ≈ $1,650, associate's ≈ $1,200, high school ≈ $1,000, less than high school ≈ $800. The ordering has held since 1960; the <strong>gaps widened sharply after 1980</strong>, especially at the top (grad-school <em>mean</em> earnings jumped in the 1990s, more for men).</li>
+<li>Less-than-high-school earnings <em>fell</em> in real terms after 1990.</li>
+<li>Attainment (age 25+): bachelor's or higher rose from 4.6% (1940) to 32% (2014); less than high school fell from 75.9% to 11.7%.</li>
+<li>Puzzle these facts set up: the relative <em>supply</em> of educated workers rose a lot and their relative <em>wage</em> rose too. In HW2 Q1 that combination implies educated and manual labor are substitutes (\(\rho&gt;0\)) and skill-biased technical change drove demand.</li>
+</ul>
+
+<h3>2. Human capital theory</h3>
+<p>Trade-off: schooling raises future earnings but costs tuition \(H\) and foregone earnings. With no credit constraints, utility depends on education only through lifetime consumption, so the student picks the option with the higher <strong>net present value</strong>. Go to college iff</p>
+\[ \sum_{t=22}^{64}\frac{y_{COL}-y_{HS}}{(1+r)^{t-18}} \;&gt;\; \sum_{t=18}^{21}\frac{y_{HS}}{(1+r)^{t-18}}+\sum_{t=18}^{21}\frac{H}{(1+r)^{t-18}}. \]
+<p>Depends on the premium \(y_{COL}-y_{HS}\), the interest rate \(r\), and tuition \(H\).</p>
+<div class="card"><h4>Two-period example from lecture</h4><p>Uneducated earns $20,000 each period; educated earns $60,000 in period 2 only; tuition $4,000; \(r=100\%\). \(NPV_0=20{,}000+20{,}000/2=30{,}000\). \(NPV_1=-4{,}000+60{,}000/2=26{,}000\). Don't go.</p></div>
+<p><strong>Continuous schooling.</strong> Live forever, no tuition, earn \(y(S)\) after \(S\) years. Using \(\sum_{t\ge0}(1+r)^{-t}=\frac{1+r}{r}\):</p>
+\[ NPV(S)=\frac{y(S)}{(1+r)^S}\cdot\frac{1+r}{r}\quad\Rightarrow\quad \max_S\ \log y(S)-S\log(1+r)\quad\Rightarrow\quad \frac{y'(S)}{y(S)}=\log(1+r)\approx r. \]
+<div class="key"><strong>Marginal rate of return = interest rate.</strong> The left side is the proportional earnings gain from one more year (the MRR). At the optimum it equals the return on working today and saving. Picture: a downward-sloping MRR curve crossed by a flat line at \(r\).</div>
+<figure>
+<svg viewBox="0 0 640 300" role="img" aria-label="Marginal rate of return to schooling falls with schooling; optimal schooling where it equals the interest rate">
+  <line class="ax" x1="60" y1="250" x2="610" y2="250"/><line class="ax" x1="60" y1="250" x2="60" y2="20"/>
+  <text x="330" y="282" text-anchor="middle" class="lbl">Schooling S</text>
+  <text x="18" y="135" transform="rotate(-90 18 135)" text-anchor="middle" class="lbl">Return</text>
+  <path class="cur" d="M90 40 C 180 120, 300 170, 580 215"/><text x="420" y="188" class="lbl">MRR = y′(S)/y(S)</text>
+  <line class="cur2" x1="60" y1="150" x2="600" y2="150"/><text x="56" y="154" text-anchor="end" class="lbl">r</text>
+  <circle class="pt" cx="258" cy="150" r="4"/><line class="dash" x1="258" y1="150" x2="258" y2="250"/><text x="258" y="266" text-anchor="middle" class="lbl">S*</text>
+</svg>
+<figcaption>Optimal schooling equates the marginal rate of return to the interest rate. A lower \(r\) (or a higher MRR curve) means more schooling.</figcaption>
+</figure>
+
+<h3>3. Observed vs causal returns, and ability bias</h3>
+<p>The <strong>causal return</strong> is the earnings change if we induced someone to get more schooling. The <strong>observed return</strong> is the earnings gap across people with different schooling. People differ in schooling because of (a) different \(r\) or (b) different \(y(S)\). If only \(r\) differs, observed = causal. If \(y(S)\) differs, the observed return is contaminated: <strong>ability bias</strong>.</p>
+<div class="grid2">
+<div class="card"><h4>Model A: \(y_i(S)=\alpha_i+\beta S\)</h4><p>FOC \(r=\frac{\beta}{\alpha_i+\beta S}\Rightarrow S_i^*=\frac1r-\frac{\alpha_i}{\beta}\). <strong>Higher ability gets <em>less</em> schooling</strong> (the LeBron / Bill Gates case: the dollar gain is the same for everyone, but high-\(\alpha\) people forego more). Observed return biased <em>down</em>.</p></div>
+<div class="card"><h4>Model B: \(y_i(S)=\alpha+\beta_i S\)</h4><p>\(S_i^*=\frac1r-\frac{\alpha}{\beta_i}\). <strong>Higher \(\beta_i\) gets more schooling</strong>: they convert school into earnings better. Observed return biased <em>up</em> (the conventional story).</p></div>
+</div>
+<p>People likely vary in both, so the direction of ability bias is theoretically unclear. That is why we need a design.</p>
+
+<h3>4. Angrist &amp; Krueger (1991): IV with quarter of birth</h3>
+<p>School-entry laws: start school in the fall of the calendar year you turn 6. Compulsory schooling: stay until your 16th birthday. So a child born January 2, 1930 could drop out with ≈9.5 years; one born December 31, 1930 needed ≈10.5. Quarter of birth shifts schooling for would-be dropouts.</p>
+<ul>
+<li><strong>Relevance</strong>: Q1-born have ≈0.1 fewer years of schooling (visible saw-tooth in the data). ✓</li>
+<li><strong>As good as random</strong>: quarter of birth independent of ability and family background? Bound, Jaeger &amp; Baker (1995) point to small correlations with family income and health, plus weak-instrument problems. Questionable.</li>
+<li><strong>Exclusion</strong>: quarter of birth affects earnings only through schooling. Possible violations via age-at-school-entry effects.</li>
+<li><strong>Monotonicity</strong>: being born later never reduces schooling. Plausible.</li>
+</ul>
+<p><strong>Finding</strong>: Wald estimate of the return to a year of schooling = <strong>0.102</strong> vs OLS 0.071 (men born 1930–39: Δ log wage −0.0111 ÷ Δ schooling −0.1088). IV is slightly <em>above</em> OLS, so upward ability bias is not large. The estimate is a LATE for compliers (people on the dropout margin). Supports human capital over pure selection; cannot by itself rule out signaling.</p>
+
+<h3>5. Signaling</h3>
+<p>Two types, each half the population: \(H\) with productivity \(y_H\), \(L\) with \(y_L&lt;y_H\). Employers cannot see type and pay expected productivity; with no information everyone gets \(\frac12(y_H+y_L)\). School costs \(c_H\) for high types and \(c_L&gt;c_H\) for low types, teaches nothing, and is observable. Employer <em>beliefs</em> drive everything.</p>
+<div class="grid2">
+<div class="card"><h4>Separating equilibrium (only \(H\) goes)</h4><p>Schooled paid \(y_H\), unschooled \(y_L\). \(H\) goes iff \(y_H-y_L&gt;c_H\); \(L\) stays iff \(y_H-y_L&lt;c_L\). Exists iff
+\[ c_H&lt;y_H-y_L&lt;c_L. \]
+Beliefs are confirmed, so it is sustainable.</p></div>
+<div class="card"><h4>Pooling equilibrium (nobody goes)</h4><p>Need off-path beliefs: assume a schooled deviator is believed to be \(H\) and paid \(y_H\). Nobody deviates iff \(y_H-c_H&lt;\frac{y_H+y_L}{2}\), i.e.
+\[ y_H-y_L&lt;2c_H. \]
+(The \(L\) condition is implied since \(c_L&gt;c_H\).)</p></div>
+</div>
+<ul>
+<li><strong>Multiple equilibria</strong> if \(c_H&lt;y_H-y_L&lt;\max\{c_L,2c_H\}\): each high type only wants school if the other high types go.</li>
+<li><strong>Schooling is pure social waste</strong> here: it redistributes from \(L\) to \(H\) and burns \(c_H\). <strong>Banning school is a Pareto improvement</strong> iff \(c_H&lt;y_H-y_L&lt;\min\{c_L,2c_H\}\): low types prefer pooling, and high types would rather be paid the average than pay \(c_H\) but must attend to avoid the "low" label.</li>
+<li><strong>Policy contrast.</strong> Human capital: schooling is productive; subsidize if credit constraints or externalities. Signaling: schooling is wasteful; possibly discourage it. Hence the stakes of testing which is right.</li>
+</ul>
+
+<h3>6. Clark &amp; Martorell (2014): RD on the last-chance exam</h3>
+<p>Randomly assigning schooling cannot separate learning from credentials. You need to randomize the <em>credential</em> holding learning fixed. Texas students who repeatedly failed the exit exam take a last-chance exam; those barely passing get a diploma, those barely failing do not, with essentially identical learning.</p>
+<ul>
+<li><strong>Design</strong>: (fuzzy) regression discontinuity. Diploma receipt jumps from ≈0.4 to ≈0.9 at the cutoff, so passing is used as an IV for the diploma while controlling for flexible functions of the score.</li>
+<li><strong>Assumption</strong>: \(E[\nu_i\mid X_i]\) continuous at the cutoff: students cannot precisely manipulate scores. The density of scores is smooth at zero (no bunching), so this looks fine.</li>
+<li><strong>Finding</strong>: a diploma has <strong>no detectable effect on earnings</strong>: ≈ $100–180/year (1–2%), insignificant, PDV through year 11 ≈ +$600–1,700 (0.8–2%), not significant, with CIs that rule out a large signaling value.</li>
+<li><strong>Interpretation</strong>: signaling does not explain why high-school graduates earn more. Graduates do earn more than non-graduates with 12 years of school, so a diploma correlates with ability, but firms seem to infer productivity from other sources.</li>
+</ul>
+<div class="key"><strong>Putting it together.</strong> Angrist &amp; Krueger: large causal returns to years of schooling, so selection is not the whole story. Clark &amp; Martorell: the credential itself is worth ≈0, so signaling is not the story either. What remains is human capital, at least for high school.</div>
+
+<h3>7. HW2 Q1: skill-biased technical change (CES)</h3>
+<p>\(Y=\big((A_eL_e)^\rho+(A_mL_m)^\rho\big)^{\nu/\rho}\). Wages equal marginal products, and the ratio is</p>
+\[ \frac{w_e}{w_m}=\Big(\frac{A_e}{A_m}\Big)^{\rho}\Big(\frac{L_e}{L_m}\Big)^{\rho-1}. \]
+<ul>
+<li>\(A_e\uparrow\) raises the premium iff \(\rho&gt;0\) (sufficiently substitutable). If poor substitutes (\(\rho&lt;0\)), more productive educated workers make manual workers relatively scarce and raise \(w_m\) more.</li>
+<li>Supply: worker goes to school iff \(\log w_e-v_i&gt;\log w_m\) with logistic \(v_i\) (scale \(a\)): \(L_e/L_m=(w_e/w_m)^a\).</li>
+<li>Equilibrium: \[\frac{w_e}{w_m}=\big(\frac{A_e}{A_m}\big)^{\frac{\rho}{1-a(\rho-1)}}\], \[\frac{L_e}{L_m}=\big(\frac{A_e}{A_m}\big)^{\frac{a\rho}{1-a(\rho-1)}}\]. Denominator is positive (\(a&gt;0,\rho&lt;1\)), so both rise with \(A_e\) iff \(\rho&gt;0\). Recent decades saw both rise ⇒ \(\rho&gt;0\).</li>
+<li>Does SBTC raise manual wages? \(\partial\log w_m/\partial A_e\propto\nu-\rho\). With decreasing returns (\(\nu&lt;1\)) and near-perfect substitutes (\(\rho\approx1\)) it can <em>lower</em> \(w_m\).</li>
+</ul>
+
+<div class="trap"><span class="eyebrow">Traps</span>
+<ul style="margin:6px 0 0">
+<li>In Model A higher ability means <em>less</em> schooling. Students often assume ability bias is always upward. Say "direction is theoretically ambiguous" and give both models.</li>
+<li>Pooling requires specifying off-path beliefs. If you forget them, you cannot check whether deviating pays.</li>
+<li>Clark &amp; Martorell test <em>signaling value of the diploma</em>, not returns to years of school. A zero there and a positive A&amp;K estimate are complementary, not contradictory.</li>
+<li>IV identifies a LATE: the return for people whose schooling was moved by the instrument (near-dropouts), not the average student.</li>
+</ul></div>
+</section>
+<!-- ============ L5 COMPENSATING DIFFERENTIALS ============ -->
+<section class="panel" id="tab-comp" data-panel="comp" hidden>
+<h2>Lecture 5 · Compensating differentials</h2>
+<p class="lede">Adam Smith's claim: unpleasant jobs pay more. The raw data say the opposite. The model explains why, and three papers show the differential appears once you hold the worker fixed.</p>
+
+<h3>1. The facts slides</h3>
+<ul class="fact-list">
+<li><strong>Work got much safer.</strong> Deaths per 100,000 workers: ≈61 in 1913, ≈37 in 1933, ≈9 by 1990, ≈3.5 today.</li>
+<li><strong>Flexibility rose.</strong> Share able to vary start/end times: ≈12% (1985) → ≈28% (late 1990s–2004) → ≈55% (2017–18, ATUS).</li>
+<li><strong>Work from home</strong>: ≈7% in 1960, ≈2–3% in 1980, ≈5% in 2019, jumped to ≈18% in 2021 and settled ≈13% by 2024.</li>
+<li><strong>Paid leave</strong>: paid vacation access flat ≈75–82% since 1992; paid sick leave rose from ≈50% (1992) to ≈80% (2025).</li>
+<li><strong>Raw cross-section (RAND AWCS 2015): better jobs pay more.</strong> Tiring/painful positions ≥ half the time: $34/hr vs $52 without. Can choose work location: $46 vs $40. Can choose task order: $52 vs $33. Paid vacation: $52 vs $37. The theory "isn't looking so good" until you control for worker productivity (amenities are a normal good) and other job characteristics.</li>
+</ul>
+
+<h3>2. The model</h3>
+<p>Workers \(i\in[0,1]\) choose the healthy industry \(H\) or the gross industry \(G\); no unemployment option.</p>
+<ul>
+<li><strong>Demand.</strong> \(H\) has constant returns \(y_H(L)=A_HL\), so \(w_H^D=A_H\): the healthy wage is pinned down (exogenous). \(G\) has decreasing returns \(y_G(L)\), so \(w_G^D(L_G)=y_G'(L_G)\).</li>
+<li><strong>Supply.</strong> \(u_i(C,r)=v(C)-a_i r\) with \(C=w_j\), risk \(r=0\) in \(H\) and \(r=r_G&gt;0\) in \(G\), and \(a_i\ge0\) the disutility of risk. Choose \(G\) iff \(v(w_G)-r_Ga_i\ge v(A_H)\), i.e. \(a_i\le\frac{v(w_G)-v(A_H)}{r_G}\). So
+\[ L_G^s(w_G)=P\Big[a_i\le\frac{v(w_G)-v(A_H)}{r_G}\Big]. \]</li>
+</ul>
+<div class="key"><strong>The compensating differential</strong> is \(w_G^*-w_H^*\). It is the wage gap needed to compensate the <em>marginal</em> worker, so it is an equilibrium object, not a preference parameter.</div>
+<figure>
+<svg viewBox="0 0 640 330" role="img" aria-label="Gross-industry labor market: upward-sloping supply above the healthy wage, downward-sloping demand; the gap at equilibrium is the compensating differential">
+  <line class="ax" x1="60" y1="280" x2="610" y2="280"/><line class="ax" x1="60" y1="280" x2="60" y2="20"/>
+  <text x="330" y="312" text-anchor="middle" class="lbl">Employment in gross industry L_G</text>
+  <text x="18" y="150" transform="rotate(-90 18 150)" text-anchor="middle" class="lbl">Wage w</text>
+  <line class="cur2" x1="60" y1="230" x2="600" y2="230"/><text x="470" y="247" class="lbl">Healthy demand = A_H</text>
+  <path class="cur2" d="M60 230 C 150 215, 300 160, 460 50"/><text x="400" y="80" class="lbl">Supply to G</text>
+  <path class="cur" d="M90 50 C 160 130, 260 180, 560 215"/><text x="420" y="196" class="lbl">Demand in G = y_G′(L_G)</text>
+  <circle class="pt" cx="238" cy="156" r="4"/>
+  <line class="dash" x1="60" y1="156" x2="238" y2="156"/><line class="dash" x1="238" y1="156" x2="238" y2="280"/>
+  <text x="56" y="160" text-anchor="end" class="lbl">w_G*</text><text x="56" y="234" text-anchor="end" class="lbl">w_H*</text>
+  <text x="238" y="296" text-anchor="middle" class="lbl">L_G*</text>
+  <line x1="120" y1="158" x2="120" y2="228" style="stroke:var(--gold);stroke-width:2"/><line x1="112" y1="158" x2="128" y2="158" style="stroke:var(--gold);stroke-width:2"/><line x1="112" y1="228" x2="128" y2="228" style="stroke:var(--gold);stroke-width:2"/>
+  <text x="128" y="197" class="lbl" style="fill:var(--gold)">compensating differential</text>
+</svg>
+<figcaption>Supply to the gross industry starts at \(A_H\) (nobody takes risk for free) and rises. The differential is the vertical gap at equilibrium.</figcaption>
+</figure>
+
+<h3>3. Comparative statics (both increase the differential)</h3>
+<div class="grid2">
+<div class="card"><h4>\(A_G\uparrow\) with \(y_G=A_GL_G^\gamma\)</h4><p>\(y_G'=A_G\gamma L_G^{\gamma-1}\) shifts <strong>demand up</strong>. Move up the supply curve: \(L_G\uparrow\), \(w_G\uparrow\). The new marginal workers dislike risk more, so they need more compensation. Differential ↑.</p></div>
+<div class="card"><h4>\(r_G\uparrow\)</h4><p>For any \(w_G&gt;A_H\), \(\frac{v(w_G)-v(A_H)}{r_G}\) falls, so <strong>supply shifts left</strong>. Move up the demand curve: \(L_G\downarrow\), \(w_G\uparrow\). Differential ↑.</p></div>
+</div>
+
+<h3>4. Value of a statistical life</h3>
+\[ VSL=\frac{\text{change in earnings}}{\text{change in probability of death}}. \]
+<p>Used in cost–benefit analysis (pollution rules, health spending, road safety). The compensating differential is the wage change that compensates a marginal worker for a risk change, which is exactly the ratio above. Lee &amp; Taylor's estimates: roughly <strong>$6–9 million</strong> per statistical life.</p>
+
+<h3>5. Three tests</h3>
+<div class="tbl"><table>
+<tr><th>Paper</th><th>How it handles the productivity problem</th><th>Finding</th></tr>
+<tr><td><strong>Lavetti (2020)</strong>, Alaskan crab fishing (≈300 deaths per 100k in 2006; $20–30k for a 3–4 week season)</td><td>Panel of workers across seasons; worker fixed effects and vessel–worker "match" fixed effects absorb productivity if it is fixed over time; controls for wave height, temperature, injury costs</td><td>Fatality-rate coefficient on log wage ≈ 0.03–0.036, stable across specifications: riskier seasons pay more. A compensating differential exists within worker.</td></tr>
+<tr><td><strong>Lee &amp; Taylor (2019)</strong>, OSHA inspections</td><td>OSHA <em>randomly</em> selects plants for programmed inspections. Event-study / DiD around inspection; inspection as IV for the fatality rate</td><td>Inspections cut fatalities ≈1.3 per 10,000 workers and cut wages ≈$0.20–0.35/hr; inspected and non-inspected plants balanced beforehand; no pre-trends. IV: ↑ fatality rate by 1 per 10,000 → +$0.20/hr → VSL ≈ $6–9M.</td></tr>
+<tr><td><strong>Mas &amp; Pallais (2017)</strong>, alternative work arrangements</td><td>Skip the labor market entirely: randomize the wage gap between two otherwise identical real job offers (national call-center hiring) and in a survey (UAS); recover the full WTP distribution</td><td>Mean WTP: flexible schedule ≈ $0.48/hr (2.5% of wage); flexible hours ≈ −$0.22 (slightly negative); work from home ≈ $1.33 (8%); to <em>avoid employer discretion</em> over the schedule ≈ $3.41 (20%; 29% in UAS). Distributions are skewed: most workers value flexibility little, a minority a lot.</td></tr>
+</table></div>
+<div class="callout"><span class="eyebrow">Why Mas &amp; Pallais matters for the model</span><p style="margin:4px 0 0">The market differential compensates the <em>marginal</em> worker. If most applicants have near-zero WTP for flexibility, firms can fill flexible jobs without paying less, so the observed differential is ≈0 even though some workers value it highly. Also: revealed-preference estimates from job choice only ever recover the marginal worker's WTP; the experiment recovers the whole distribution. Maestas et al. (2023) extend this: large WTP to avoid heavy physical work, for PTO, for training; accounting for amenities narrows the gender gap but widens race, age and education gaps and overall inequality.</p></div>
+
+<h3>6. HW2 Q2: heterogeneous productivity and why \(\gamma&lt;0\)</h3>
+<p>Workers have productivity \(\theta_i\) and \(v(C)=C^\gamma/\gamma\). Utility in \(G\): \((\theta A_G)^\gamma/\gamma-a_i\); in \(H\): \((\theta A_H)^\gamma/\gamma\). With \(a_i\sim U[0,1]\):</p>
+\[ P[\text{works in }G\mid\theta]=\frac{\theta^\gamma}{\gamma}\big(A_G^\gamma-A_H^\gamma\big). \]
+<ul>
+<li>Increasing in \(\theta\) iff \(\gamma&gt;0\) (because \(A_G&gt;A_H\) makes \(A_G^\gamma-A_H^\gamma\) and \(\gamma\) share a sign).</li>
+<li>Ratio for high vs low types \(=(\theta_{high}/\theta_{low})^\gamma\), which is \(&lt;1\) iff \(\gamma&lt;0\): <strong>low-productivity workers sort into the gross industry</strong>.</li>
+<li>Then \[\frac{E[\text{earnings in }H]}{E[\text{earnings in }G]}=\frac{A_H}{A_G}\cdot\frac{E[\theta\mid H]}{E[\theta\mid G]}\ne\frac{A_H}{A_G}\]: the raw wage ratio mixes the causal differential with productivity sorting. This is exactly the bias the AWCS bar charts suffer from.</li>
+<li>Facts (amenities improving over time as incomes rise; higher-paid workers have better amenities) are both consistent with \(\gamma&lt;0\): amenities are a normal good.</li>
+<li>A change in the share of each type has no effect on these probabilities because each industry's \(A\) is fixed, i.e. we implicitly assumed constant returns in both industries.</li>
+</ul>
+
+<h3>7. Endogenous amenities</h3>
+<p>Firms choose vacation policies, safety, WFH. This does not change the core result: the differential still equals the marginal worker's WTP. But if less productive workers have stronger preferences for an amenity and productivity is hard to observe, offering it attracts an adversely selected pool, so firms may not offer an efficient bundle (Palmer 2025; Emanuel &amp; Harrington 2024).</p>
+
+<div class="trap"><span class="eyebrow">Traps</span>
+<ul style="margin:6px 0 0">
+<li>"Better jobs pay more in the data, so compensating differentials are wrong." No: productivity sorting (\(\gamma&lt;0\)) and correlated job characteristics bias the raw comparison. State the bias, then cite Lavetti / Lee–Taylor.</li>
+<li>The differential compensates the marginal worker, not the average worker. This is why Mas &amp; Pallais can find high WTP for some people and still small market differentials.</li>
+<li>In the Lee–Taylor IV, the exclusion restriction is that inspections move wages only via risk. They check that inspections don't move productivity or other outcomes much; mention this as the assumption to worry about.</li>
+</ul></div>
+</section>
+<!-- ============ RESEARCH DESIGNS ============ -->
+<section class="panel" id="tab-designs" data-panel="designs" hidden>
+<h2>Four research designs</h2>
+<p class="lede">For each: when it applies, what it estimates, the assumption that makes the number causal, and how to check it. The exam will ask you to apply these to a paper.</p>
+
+<div class="callout"><span class="eyebrow">The underlying problem</span><p style="margin:4px 0 0">We want the effect of a treatment on an outcome. For each person we see only the treated or the untreated outcome, never both. Naive comparisons (OLS of outcome on treatment) fail because of <strong>omitted variables</strong> (confounders drive both) and <strong>reverse causality</strong> (outcome drives treatment). Each design finds variation in treatment that is as good as random.</p></div>
+
+<div class="paper"><div class="ph"><h4>1. Randomized controlled trial</h4><span class="tag">Paycheck Plus · OpenResearch · Caunedo–Kala · Mas–Pallais · Lee–Taylor (random inspections)</span></div><div class="pb"><dl>
+<dt>Idea</dt><dd>Randomly assign treatment. Then treated and control groups are identical in expectation, so \[\text{ATE}\approx\bar Y_{\text{treated}}-\bar Y_{\text{control}}\].</dd>
+<dt>Estimates</dt><dd>The average treatment effect in the study population.</dd>
+<dt>Assumptions</dt><dd>Randomization actually worked (check covariate balance). No spillovers from treated to control units (SUTVA). If some assigned to treatment don't take it up, the raw comparison is an intention-to-treat effect.</dd>
+<dt>Limits</dt><dd>External validity: the effect for low-income single New Yorkers or Karnataka smallholders may not generalize. Partial equilibrium: if treated units are small relative to the market, you will not see wage effects (Caunedo &amp; Kala). Ethics and cost.</dd>
+</dl></div></div>
+
+<div class="paper"><div class="ph"><h4>2. Instrumental variables</h4><span class="tag">Acemoglu–Restrepo · Angrist–Krueger · fuzzy RD (Clark–Martorell) · Lee–Taylor second stage</span></div><div class="pb"><dl>
+<dt>Idea</dt><dd>Effect of \(X\) on \(Y\) is confounded by \(C\). Find an instrument \(Z\) that moves \(X\) and affects \(Y\) <em>only</em> through \(X\). Then
+\[ \beta_{IV}=\frac{\delta}{\pi}=\frac{\text{effect of }Z\text{ on }Y\ (\text{reduced form})}{\text{effect of }Z\text{ on }X\ (\text{first stage})}. \]</dd>
+<dt>Four assumptions</dt><dd><ol style="margin:0">
+<li><strong>Relevance</strong>: \(Z\) correlates with \(X\) (testable: first-stage F-stat; A&amp;R ≈ 35).</li>
+<li><strong>As good as random</strong>: no confounder links \(Z\) and \(Y\).</li>
+<li><strong>Exclusion</strong>: \(Z\) affects \(Y\) only via \(X\).</li>
+<li><strong>Monotonicity</strong>: \(Z\) never pushes \(X\) in opposite directions for different people.</li></ol></dd>
+<dt>Estimates</dt><dd>A <strong>local average treatment effect</strong> (LATE): the average effect among <em>compliers</em>, those whose \(X\) was moved by \(Z\). Angrist–Krueger's return is for near-dropouts, not for everyone.</dd>
+<dt>Worked example</dt><dd>A&amp;R: \(X\) = US robot exposure, \(Y\) = US employment/wages, \(C\) = e.g. population aging or local demand shocks, \(Z\) = European robot penetration mapped to US commuting zones through 1970 industry shares. Relevance: strong. As-good-as-random/exclusion: requires that whatever drives European adoption in an industry is not separately affecting US local labor markets (controls for Chinese import exposure, other industry trends; pre-trends flat 1970–90). Monotonicity: more European robots never reduce US robots. Reasonable.</dd>
+<dt>Worked example</dt><dd>A&amp;K: \(X\) = years of schooling, \(Y\) = log earnings, \(C\) = ability, \(Z\) = quarter of birth. Relevance weak-ish (0.1 year). Exclusion debatable (age at school entry). Result 0.102 vs OLS 0.071.</dd>
+</dl></div></div>
+
+<div class="paper"><div class="ph"><h4>3. Regression discontinuity</h4><span class="tag">Clark–Martorell (test cutoff) · Gaggl–Wright (50-employee cutoff)</span></div><div class="pb"><dl>
+<dt>Idea</dt><dd>Treatment switches on at a cutoff \(c\) of a running variable: \(D_i=1\{X_i\ge c\}\). People just above and just below are alike except for treatment.</dd>
+<dt>Setup</dt><dd>\(Y_i=\alpha+\beta D_i+\nu_i\). Problem: \(D_i\) may correlate with \(\nu_i\). <strong>Key assumption: \(E[\nu_i\mid X_i]\) is continuous at \(X_i=c\).</strong></dd>
+<dt>Derivation</dt><dd>\(\lim_{x\to c^-}E[Y\mid X=x]=\alpha+E[\nu\mid X=c]\) because \(D=0\) left of the cutoff; \(\lim_{x\to c^+}E[Y\mid X=x]=\alpha+\beta+E[\nu\mid X=c]\). Difference of limits \(=\beta\).</dd>
+<dt>Checks</dt><dd>No manipulation of the running variable: the <strong>density</strong> of \(X\) should be smooth at \(c\) (no bunching). Covariates should not jump at \(c\). Clark &amp; Martorell pass both; Gaggl &amp; Wright find no bunching at 50 employees and the policy was unanticipated.</dd>
+<dt>Fuzzy RD</dt><dd>When crossing \(c\) raises the probability of treatment but not to 1 (diploma receipt 0.4 → 0.9), use \(1\{X\ge c\}\) as an instrument for \(D\) while controlling flexibly for \(X\). It is IV with the cutoff as the instrument.</dd>
+<dt>Estimates</dt><dd>The effect <em>at the cutoff</em>: a local effect for marginal passers / firms near 50 employees.</dd>
+</dl></div></div>
+<figure>
+<svg viewBox="0 0 640 300" role="img" aria-label="Regression discontinuity: outcome jumps at the cutoff by beta">
+  <line class="ax" x1="60" y1="250" x2="610" y2="250"/><line class="ax" x1="60" y1="250" x2="60" y2="20"/>
+  <text x="330" y="282" text-anchor="middle" class="lbl">Running variable X (e.g. test score)</text>
+  <text x="18" y="135" transform="rotate(-90 18 135)" text-anchor="middle" class="lbl">Outcome Y</text>
+  <line class="dash" x1="330" y1="250" x2="330" y2="30"/><text x="330" y="266" text-anchor="middle" class="lbl">c</text>
+  <path class="cur" d="M80 210 L 330 170"/><path class="cur2" d="M330 110 L 590 70"/>
+  <g class="pt" style="opacity:.55"><circle cx="100" cy="214" r="2.5"/><circle cx="130" cy="200" r="2.5"/><circle cx="160" cy="205" r="2.5"/><circle cx="190" cy="190" r="2.5"/><circle cx="220" cy="195" r="2.5"/><circle cx="250" cy="178" r="2.5"/><circle cx="280" cy="185" r="2.5"/><circle cx="310" cy="170" r="2.5"/><circle cx="350" cy="112" r="2.5"/><circle cx="380" cy="100" r="2.5"/><circle cx="410" cy="106" r="2.5"/><circle cx="440" cy="92" r="2.5"/><circle cx="470" cy="96" r="2.5"/><circle cx="500" cy="82" r="2.5"/><circle cx="530" cy="86" r="2.5"/><circle cx="560" cy="72" r="2.5"/></g>
+  <circle cx="330" cy="170" r="4" style="fill:var(--surface);stroke:var(--accent);stroke-width:2"/><circle cx="330" cy="110" r="4" style="fill:var(--surface);stroke:var(--gold);stroke-width:2"/>
+  <line x1="345" y1="110" x2="345" y2="170" style="stroke:var(--warn);stroke-width:2"/><text x="352" y="144" class="lbl" style="fill:var(--warn)">β</text>
+  <text x="90" y="236" class="lbl">D = 0 (X &lt; c)</text><text x="440" y="236" class="lbl">D = 1 (X ≥ c)</text>
+</svg>
+<figcaption>The jump in the conditional mean at the cutoff is the causal effect, provided nothing else jumps there.</figcaption>
+</figure>
+
+<div class="paper"><div class="ph"><h4>4. Difference-in-differences</h4><span class="tag">Dustmann–Schönberg–Stuhler · Lee–Taylor event study · (Alaska pipeline, informally)</span></div><div class="pb"><dl>
+<dt>Idea</dt><dd>Treated and control units observed before and after treatment. The treated unit differs from the control, and its outcome might have changed anyway, but the <em>difference in the changes</em> is attributed to treatment:
+\[ \hat\beta=(Y^{1}_{T,1}-Y^{0}_{T,0})-(Y^{0}_{C,1}-Y^{0}_{C,0}). \]</dd>
+<dt>Key assumption</dt><dd><strong>Parallel trends</strong>: absent treatment, treated and control would have moved in parallel. Not directly testable, but <strong>pre-trends</strong> (placebo estimates for periods before treatment) should be flat.</dd>
+<dt>Regression form</dt><dd>Two-way fixed effects: \(Y_{it}=\alpha_i+\delta_t+\beta T_{it}+u_{it}\). \(\alpha_i\) absorbs anything constant within unit; \(\delta_t\) anything common to all units in a period. With 2 units × 2 periods this is exactly the DiD; with more it is close, and newer estimators (de Chaisemartin &amp; D'Haultfœuille 2020) average many 2×2 comparisons.</dd>
+<dt>Event study</dt><dd>Estimate \(\beta_h\) for each horizon \(h\) relative to treatment; normalize \(\beta_{-1}=0\); the pre-period \(\beta_h\) are placebo tests of parallel trends. Lee &amp; Taylor's wage plot: flat before inspection, drops ≈ $0.2–0.35 after.</dd>
+<dt>Worked example</dt><dd>DSS: border vs inland German districts, before/after 1991 commuting opening. Pre-trends flat. Threat: reunification shocks hitting border regions differently. Finding: 1% supply shock → wages −0.13%, native employment −0.93%.</dd>
+</dl></div></div>
+<figure>
+<svg viewBox="0 0 640 300" role="img" aria-label="Difference in differences: treated and control before and after, with counterfactual">
+  <line class="ax" x1="60" y1="250" x2="610" y2="250"/><line class="ax" x1="60" y1="250" x2="60" y2="20"/>
+  <text x="330" y="282" text-anchor="middle" class="lbl">Time</text><text x="18" y="135" transform="rotate(-90 18 135)" text-anchor="middle" class="lbl">Outcome Y</text>
+  <line class="dash" x1="330" y1="250" x2="330" y2="30"/><text x="330" y="266" text-anchor="middle" class="lbl">treatment</text>
+  <text x="180" y="266" text-anchor="middle" class="lbl">before (t=0)</text><text x="480" y="266" text-anchor="middle" class="lbl">after (t=1)</text>
+  <path class="cur2" d="M180 200 L 480 170"/><circle class="pt" cx="180" cy="200" r="4"/><circle class="pt" cx="480" cy="170" r="4"/><text x="100" y="204" class="lbl">Control</text>
+  <path class="cur" d="M180 140 L 480 60"/><circle class="pt" cx="180" cy="140" r="4"/><circle class="pt" cx="480" cy="60" r="4"/><text x="100" y="144" class="lbl">Treated</text>
+  <path class="cur3" d="M180 140 L 480 110"/><circle cx="480" cy="110" r="4" style="fill:var(--surface);stroke:var(--warn);stroke-width:2"/><text x="492" y="114" class="lbl">counterfactual</text>
+  <line x1="520" y1="60" x2="520" y2="110" style="stroke:var(--warn);stroke-width:2"/><text x="528" y="88" class="lbl" style="fill:var(--warn)">DiD</text>
+</svg>
+<figcaption>The control's change is used as the treated group's counterfactual change. The leftover is the effect.</figcaption>
+</figure>
+
+<h3>Which design for which paper</h3>
+<div class="tbl"><table>
+<tr><th>Paper</th><th>Design</th><th>Key assumption to discuss</th><th>Plausible?</th></tr>
+<tr><td>Paycheck Plus</td><td>RCT</td><td>Random assignment; partial take-up ⇒ ITT</td><td>Yes</td></tr>
+<tr><td>OpenResearch UBI</td><td>RCT</td><td>Random assignment; control got $50 (small treatment)</td><td>Yes</td></tr>
+<tr><td>Dustmann–Schönberg–Stuhler</td><td>DiD (border vs inland)</td><td>Parallel trends; pre-trends flat</td><td>Mostly; reunification shocks are the worry</td></tr>
+<tr><td>Caunedo–Kala</td><td>RCT (vouchers)</td><td>Random assignment; no GE wage effects by construction</td><td>Yes (for firm-level effects)</td></tr>
+<tr><td>Acemoglu–Restrepo</td><td>Shift-share IV</td><td>European adoption unrelated to US local shocks except via robots; no pre-trends</td><td>Reasonable; shift-share critiques exist</td></tr>
+<tr><td>Gaggl–Wright</td><td>RD at 50 employees</td><td>Continuity; no bunching; policy unanticipated</td><td>Yes</td></tr>
+<tr><td>Angrist–Krueger</td><td>IV (quarter of birth)</td><td>QOB as good as random; exclusion</td><td>Debated (Bound–Jaeger–Baker)</td></tr>
+<tr><td>Clark–Martorell</td><td>Fuzzy RD (last-chance exam)</td><td>Continuity; smooth density</td><td>Yes</td></tr>
+<tr><td>Lavetti</td><td>Panel fixed effects</td><td>Worker productivity fixed over time; risk variation exogenous conditional on controls</td><td>Reasonable</td></tr>
+<tr><td>Lee–Taylor</td><td>Random inspections → DiD/event study + IV</td><td>Random selection (balance ✓); parallel trends (✓); exclusion: inspections affect wages only via risk</td><td>Mostly; exclusion is the one to question</td></tr>
+<tr><td>Mas–Pallais</td><td>Randomized choice experiment</td><td>Choices are real/incentive compatible; attention</td><td>Yes (field) / weaker (survey)</td></tr>
+</table></div>
+</section>
+<!-- ============ PAPERS ============ -->
+<section class="panel" id="tab-papers" data-panel="papers" hidden>
+<h2>The 11 papers</h2>
+<p class="lede">Each card answers the study guide's three questions: setting; design, assumptions and plausibility; findings and which model they fit. You don't need titles or author names, only enough detail that it's clear which paper you mean.</p>
+
+<h3>Lecture 2 · Equilibrium</h3>
+
+<div class="paper" id="paper-a"><div class="ph"><h4>(a) Paycheck Plus — boosting the EITC for singles</h4><span class="tag">RCT</span></div><div class="pb"><dl>
+<dt>Setting</dt><dd>New York City, 2013–2016. ≈6,000 low-income single adults without dependent children (who get almost nothing from the federal EITC: max ≈$510). Offered an earnings bonus of up to $2,000/year with a 30% phase-in, flat region, and 17% phase-out ending at ≈$29,900.</dd>
+<dt>Design</dt><dd>Randomized controlled trial: 2,997 program, 2,971 control. Compare average outcomes. Assumptions: randomization balanced the groups; no spillovers. Partial take-up means this is an intention-to-treat effect. Plausible: it is a clean experiment.</dd>
+<dt>Findings</dt><dd>After-bonus earnings +$635/year (3-year average); employment ("any earnings") +1.9pp (75.4% → 77.3%); pre-bonus earnings essentially unchanged. The bonus raised the effective wage ≈20% (2,000/10,186) and employment ≈2.5% (1.9/75.4), so the extensive-margin <strong>labor supply elasticity ≈ 0.125</strong>. Small, like most estimates (Chetty et al. 2012).</dd>
+<dt>Model</dt><dd>Consistent with the L2 reservation-wage model: supply slopes up but is inelastic on the employment margin. Contrast the Alaska pipeline elasticity (≈3.7) which operates through migration.</dd>
+</dl><label class="know"><input type="checkbox" data-know="a"> I can answer the three questions for this paper</label></div></div>
+
+<div class="paper" id="paper-b"><div class="ph"><h4>(b) OpenResearch Unconditional Income Study</h4><span class="tag">RCT</span></div><div class="pb"><dl>
+<dt>Setting</dt><dd>Texas and Illinois, 2020–2023. Low-income adults (ages 21–40). Treatment: $1,000/month for three years regardless of work; control: $50/month (a small "treatment" to encourage survey response). Average control household income ≈$48k, so the transfer would raise income ≈25% absent behavioral change.</dd>
+<dt>Design</dt><dd>RCT. Outcomes from surveys and administrative UI records. Assumptions: random assignment, no spillovers. Plausible. Note the contrast with EITC-type studies: this changes <em>unearned</em> income, not the return to work.</dd>
+<dt>Findings</dt><dd>Employment −2pp (survey, control mean 74%), −7pp (UI data, control 61%), pooled −4pp; hours −1.3/week (control ≈30). Income elasticity of labor supply ≈ −0.1 to −0.3. Larger hours effect for those without a bachelor's degree. Partners also reduce work.</dd>
+<dt>Model</dt><dd>The L2 model made no prediction: the sign depends on \(v''\). The fall in labor supply tells us \(v''&lt;0\): higher \(\pi\) raises the reservation wage. "Leisure is a normal good."</dd>
+</dl><label class="know"><input type="checkbox" data-know="b"> I can answer the three questions for this paper</label></div></div>
+
+<div class="paper" id="paper-c"><div class="ph"><h4>(c) Labor supply shocks, native wages, and local employment adjustment (Czech commuters)</h4><span class="tag">DiD</span></div><div class="pb"><dl>
+<dt>Setting</dt><dd>Germany after the fall of the Iron Curtain. From 1991 Czech workers could <em>commute</em> to work in specific German districts along the border but could not live there. Czech employment share in border municipalities rose to ≈3% on average by 1993 (some places far higher), ≈0 inland.</dd>
+<dt>Design</dt><dd>Difference-in-differences: border districts (treated) vs inland districts (control), before vs after 1991, with intensity varying by distance to the border. Key assumption: parallel trends. Event-study pre-trends are flat. Threat: reunification-era shocks hitting the border region differently. Mostly plausible.</dd>
+<dt>Findings</dt><dd>A 1% labor supply shock lowered native wages ≈0.13% and native employment ≈0.93%. The employment fall is mostly reduced <em>inflows</em> of natives into the region rather than layoffs; effects larger for young and low-skilled.</dd>
+<dt>Model</dt><dd>Competitive model: supply shifts out along a demand curve, wages fall. The small wage / large employment response indicates elastic native supply via mobility. Because commuters did not consume locally, there was no offsetting demand shift, unlike ordinary immigration (Card 1990; DSS 2016 JEP: small wage effects).</dd>
+</dl><label class="know"><input type="checkbox" data-know="c"> I can answer the three questions for this paper</label></div></div>
+
+<h3>Lecture 3 · Technological change</h3>
+
+<div class="paper" id="paper-d"><div class="ph"><h4>(d) Mechanizing agriculture (Karnataka)</h4><span class="tag">RCT</span></div><div class="pb"><dl>
+<dt>Setting</dt><dd>Rural Karnataka, India. Smallholders (median 2 acres; rice, cotton, maize). Control farmers use ≈89 labor-days per acre, 66 of them hired. Mechanization is still ongoing here, unlike rich countries where it reshaped the whole occupational structure.</dd>
+<dt>Design</dt><dd>RCT: vouchers for renting equipment (cultivators, rotavators), worth ≈1/3 of typical mechanized hours, scaled by farm size; some got part as cash. Assumptions: random assignment (balanced); SUTVA. Because treated farms are small relative to the local labor market this estimates <em>firm-level</em>, partial-equilibrium effects by construction.</dd>
+<dt>Findings</dt><dd>Mechanization index rose ≈0.13–0.16 (highly significant). Labor use per acre fell: family male −16%, hired female −12%, hired male −5% (n.s.). Wages ≈ unchanged. Output and revenue per acre ≈ unchanged; profits possibly up.</dd>
+<dt>Model</dt><dd>Firm-level automation: machines substitute for labor, employment falls. No wage effect is expected in partial equilibrium (aggregate labor demand barely moved). Fills the "Caunedo &amp; Kala" column of the table: productivity ↑, wages ≈0, employment ↓, output ≈0.</dd>
+</dl><label class="know"><input type="checkbox" data-know="d"> I can answer the three questions for this paper</label></div></div>
+
+<div class="paper" id="paper-e"><div class="ph"><h4>(e) Robots and jobs: evidence from US labor markets</h4><span class="tag">Shift-share IV</span></div><div class="pb"><dl>
+<dt>Setting</dt><dd>US commuting zones, 1990–2007. Industrial robots (automatic, reprogrammable, multipurpose machines), concentrated in automotive, electronics, plastics, metals. Exposure map: Midwest manufacturing belt most exposed.</dd>
+<dt>Design</dt><dd>Two problems: US industry robot data only start 2004, and robot uptake is not random (could respond to demand or labor supply shocks; aging explains Germany/Japan). Solution: measure industry robot growth in <em>Europe</em> ("adjusted penetration" APR: robots per 1990 worker net of output growth), map to commuting zones via 1970 industry employment shares, and use as an <strong>instrument</strong> for US exposure. Assumptions: relevance (strong: first-stage F ≈ 35); as-good-as-random/exclusion (European industry adoption unrelated to US local shocks other than through US robots; controls for Chinese imports, routine jobs, demographics; no 1970–90 pre-trends); monotonicity. Reasonable.</dd>
+<dt>Findings</dt><dd>Industry level: more robots → lower labor share, higher value added per worker. Commuting zones: one more robot per 1,000 workers → employment-to-population −0.2 to −0.4pp (IV: −0.39), hourly wages −0.4 to −0.8% (IV: −0.77%). Concentrated in manufacturing, routine manual and blue-collar jobs, and workers without college; no effect for graduate degrees.</dd>
+<dt>Model</dt><dd>Equilibrium evidence for the <strong>automation</strong> model: wages ↓, employment ↓, output/productivity ↑. Opposite sign to labor-augmenting change.</dd>
+</dl><label class="know"><input type="checkbox" data-know="e"> I can answer the three questions for this paper</label></div></div>
+
+<div class="paper" id="paper-f"><div class="ph"><h4>(f) A short-run view of what computers do (UK ICT tax incentive)</h4><span class="tag">RD</span></div><div class="pb"><dl>
+<dt>Setting</dt><dd>United Kingdom, 2000–2004. A tax policy let firms with 50 or fewer employees immediately deduct ICT investment (computers, software).</dd>
+<dt>Design</dt><dd>Regression discontinuity comparing firms just below and just above the 50-employee cutoff. Assumptions: firms near the cutoff are otherwise similar (continuity); no manipulation (little bunching at 50); the policy was unanticipated; discontinuities appear during the policy window and not before or after. Compelling.</dd>
+<dt>Findings</dt><dd>Eligible firms sharply increased ICT investment. On average, employment/hours and wages <em>rose</em>. But gains accrued to <strong>non-routine cognitive</strong> workers; <strong>routine cognitive</strong> workers saw lower earnings and hours.</dd>
+<dt>Model</dt><dd>Average effects fit <strong>labor-augmenting</strong> change (ICT complements labor); routine-cognitive effects fit <strong>automation</strong>. Lesson: the same technology can be a complement for some workers and a substitute for others, so "which model" is an empirical, group-specific question. (This was HW1 Q3.)</dd>
+</dl><label class="know"><input type="checkbox" data-know="f"> I can answer the three questions for this paper</label></div></div>
+
+<h3>Lecture 4 · Education</h3>
+
+<div class="paper" id="paper-g"><div class="ph"><h4>(g) Does compulsory school attendance affect schooling and earnings?</h4><span class="tag">IV</span></div><div class="pb"><dl>
+<dt>Setting</dt><dd>US men born 1930–1939 (also 1920s and 1940s cohorts), 1980 Census. Interaction of school-entry laws (start in the fall of the year you turn 6) and compulsory attendance until age 16.</dd>
+<dt>Design</dt><dd>IV with quarter of birth as the instrument for years of schooling. Early-year births are older in their grade and can drop out with less schooling (≈9.5 vs 10.5 years in the stylized example). Relevance: Q1-born have ≈0.1 fewer years (clear saw-tooth). As good as random: debated; Bound, Jaeger &amp; Baker (1995) note correlations of QOB with family income and health and weak-instrument bias. Exclusion: QOB must affect earnings only via schooling (age-at-entry effects are a threat). Monotonicity: plausible.</dd>
+<dt>Findings</dt><dd>Q1-born earn less (log weekly wage −0.011) and have less schooling (−0.109 years). Wald/IV return to schooling = <strong>0.102</strong> per year vs OLS 0.071. IV ≥ OLS, so ability bias does not inflate the observed return much. LATE: the return for those on the dropout margin.</dd>
+<dt>Model</dt><dd>Large causal returns ⇒ <strong>selection</strong> is not the whole story; consistent with <strong>human capital</strong>. Cannot distinguish human capital from signaling on its own.</dd>
+</dl><label class="know"><input type="checkbox" data-know="g"> I can answer the three questions for this paper</label></div></div>
+
+<div class="paper" id="paper-h"><div class="ph"><h4>(h) The signaling value of a high school diploma</h4><span class="tag">Fuzzy RD</span></div><div class="pb"><dl>
+<dt>Setting</dt><dd>Texas. Students who failed the high-school exit exam repeatedly reach a "last-chance" exam that decides diploma receipt. Linked to administrative earnings for ≈11 years after.</dd>
+<dt>Design</dt><dd>Fuzzy regression discontinuity at the passing score. Diploma receipt jumps from ≈0.4 to ≈0.9 at the cutoff; passing is an instrument for the diploma, controlling for flexible functions of the score. Assumption: continuity (students can't precisely control their score). The score density is smooth at the cutoff and covariates are balanced. Plausible. The design randomizes the <em>credential</em> while holding learning fixed, which is exactly what a test of signaling requires.</dd>
+<dt>Findings</dt><dd>Diploma receipt has <strong>no effect on earnings</strong>: ≈ +$100–180/year (1–2%), insignificant; PDV through year 11 ≈ +$600–1,700 (0.8–2%), insignificant. Similar zeros by gender, race, and local mobility.</dd>
+<dt>Model</dt><dd>Rejects <strong>signaling</strong> for the high-school diploma. Graduates do earn more than non-graduates with the same years, so the diploma correlates with ability, but employers evidently learn productivity from other sources. With A&amp;K, the evidence weighs toward <strong>human capital</strong>.</dd>
+</dl><label class="know"><input type="checkbox" data-know="h"> I can answer the three questions for this paper</label></div></div>
+
+<h3>Lecture 5 · Compensating differentials</h3>
+
+<div class="paper" id="paper-i"><div class="ph"><h4>(i) Compensating wage differentials: lessons from the Deadliest Catch</h4><span class="tag">Panel fixed effects</span></div><div class="pb"><dl>
+<dt>Setting</dt><dd>Alaskan Bering Sea crab fishing, historically the most dangerous task in the most dangerous occupation (≈300 deaths per 100,000 workers in 2006; 80% drowning or hypothermia). Workers earn $20–30k for a 3–4 week season. Panel of workers and vessels across seasons with season-level fatality rates.</dd>
+<dt>Design</dt><dd>Regress log wages on the fatality rate with <strong>worker fixed effects</strong>, vessel effects, or worker–vessel "match" effects, so identification comes from the same worker facing different risk over time. Controls for wave height, temperature, injury rates and costs. Assumption: worker productivity is fixed over time (so the fixed effect absorbs it) and time variation in risk is unrelated to other unobserved pay determinants. Reasonable.</dd>
+<dt>Findings</dt><dd>Fatality-rate coefficient ≈ 0.029–0.036 on log wages across specifications (one more death per 1,000 FTE raises wages ≈3%). Riskier seasons pay more, within worker. Wave height also carries a premium.</dd>
+<dt>Model</dt><dd>Supports <strong>compensating differentials</strong> once worker productivity is held fixed, addressing the normal-good/productivity sorting bias from HW2 Q2.</dd>
+</dl><label class="know"><input type="checkbox" data-know="i"> I can answer the three questions for this paper</label></div></div>
+
+<div class="paper" id="paper-j"><div class="ph"><h4>(j) Randomized safety inspections and risk exposure on the job (VSL)</h4><span class="tag">Random assignment → DiD/event study + IV</span></div><div class="pb"><dl>
+<dt>Setting</dt><dd>US manufacturing plants in federal-OSHA states, 1987–1997, linked to Census of Manufactures data. OSHA randomly selects plants for "programmed" surprise inspections that last days and force correction of violations.</dd>
+<dt>Design</dt><dd>Random inspection is the treatment. Balance table: inspected and non-inspected plants identical on wages, size, productivity, turnover. Event study around inspection (flat pre-trends). Then IV: inspection → fatality rate (first stage) → wages (second stage). Assumptions: random selection (✓), parallel trends (✓), <em>exclusion</em>: inspections change wages only via risk. They check inspections' effects on productivity, capital, and other workers' wages; small effects, but this is the assumption to flag.</dd>
+<dt>Findings</dt><dd>Inspections cut fatalities by ≈1.3 per 10,000 production workers; plant wages fall ≈$0.20–0.35/hour afterward and stay down. Second stage: a 1 per 10,000 higher fatality rate raises wages ≈$0.20/hr. Implied <strong>VSL ≈ $6–9 million</strong> (e.g. $5.7M–$9.4M across specifications). No spillovers to related plants.</dd>
+<dt>Model</dt><dd><strong>Compensating differentials</strong>: a safer job pays less, so there is a trade-off at the margin, and \(VSL=\Delta\text{earnings}/\Delta P(\text{death})\).</dd>
+</dl><label class="know"><input type="checkbox" data-know="j"> I can answer the three questions for this paper</label></div></div>
+
+<div class="paper" id="paper-k"><div class="ph"><h4>(k) Valuing alternative work arrangements</h4><span class="tag">Randomized choice experiment</span></div><div class="pb"><dl>
+<dt>Setting</dt><dd>(1) ≈7,000 applicants to a real national phone-survey job: each saw two positions identical except for the arrangement and a randomized wage gap, and chose one (incentive-compatible: they were considered for the job they chose). (2) Understanding America Study: hypothetical pairs. Arrangements: flexible schedule, flexible number of hours, work from home, combined flexibility, and "employer discretion" (schedule varies week to week, set a week ahead).</dd>
+<dt>Design</dt><dd>Randomized wage premium → trace the share choosing each job at each premium → the full distribution of willingness to pay, corrected for inattention. Assumptions: real stakes (field) and attention. Avoids the equilibrium problem that market differentials only reveal the <em>marginal</em> worker and the sorting problem that comparable jobs are rare.</dd>
+<dt>Findings</dt><dd>Mean WTP per hour (baseline ≈$16–19): flexible schedule $0.48 (≈2.5% of wage); flexible hours −$0.22 (slightly negative); work from home $1.33 (≈8%); to avoid employer discretion $3.41 (≈20%; 29% in UAS). Distributions are skewed: medians near zero for flexibility, a minority with high WTP. Workers also pay to avoid 50-hour weeks. Maestas et al. (2023): large WTP for PTO, training, avoiding heavy physical work; amenity-adjusted wages narrow the gender gap, widen others.</dd>
+<dt>Model</dt><dd>Fits the <strong>compensating differentials</strong> framework and explains the small observed market differentials: the marginal applicant has near-zero WTP for flexibility, so firms need not pay for it, even though some workers value it highly. The one amenity with large average WTP (predictable schedules) is where a big differential should, and does, show up.</dd>
+</dl><label class="know"><input type="checkbox" data-know="k"> I can answer the three questions for this paper</label></div></div>
+
+<h3>One-line versions (for the night before)</h3>
+<div class="tbl"><table>
+<tr><th>Paper</th><th>In one breath</th></tr>
+<tr><td>Paycheck Plus</td><td>RCT EITC bonus for NYC singles; employment +1.9pp on a ≈20% wage boost; supply elasticity ≈0.125.</td></tr>
+<tr><td>OpenResearch</td><td>RCT $1,000/mo in TX/IL; employment −2 to −7pp, hours −1.3; unearned income lowers supply ⇒ \(v''&lt;0\).</td></tr>
+<tr><td>Czech commuters</td><td>DiD border vs inland; 1% supply shock → wages −0.13%, native employment −0.93% via lower inflows.</td></tr>
+<tr><td>Karnataka mechanization</td><td>RCT equipment vouchers; labor use ↓ (−12 to −16%), wages ≈0, output ≈0; firm-level automation.</td></tr>
+<tr><td>Robots</td><td>Shift-share IV with European robots; +1 robot/1,000 workers → emp/pop −0.39pp, wages −0.77%; automation in equilibrium.</td></tr>
+<tr><td>UK ICT</td><td>RD at 50 employees; ICT raised employment and wages on average (augmenting), hurt routine cognitive (automation).</td></tr>
+<tr><td>Quarter of birth</td><td>IV; return to schooling 0.10 vs OLS 0.07; ability bias small; LATE for near-dropouts; supports human capital.</td></tr>
+<tr><td>Last-chance exam</td><td>Fuzzy RD; diploma itself worth ≈0 (1–2%, n.s.); rejects signaling for high school.</td></tr>
+<tr><td>Crab fishing</td><td>Worker/match fixed effects; riskier seasons pay ≈3% more per death per 1,000; differential exists within worker.</td></tr>
+<tr><td>OSHA inspections</td><td>Random inspections → fatalities −1.3/10k, wages −$0.2–0.35/hr; VSL ≈ $6–9M.</td></tr>
+<tr><td>Work arrangements</td><td>Randomized job-offer choices; WTP small for flexibility (2.5%), moderate for WFH (8%), large to avoid employer discretion (20%); market differentials reflect the marginal worker.</td></tr>
+</table></div>
+</section>
+<!-- ============ PROBLEM SETS ============ -->
+<section class="panel" id="tab-psets" data-panel="psets" hidden>
+<h2>Problem sets, restated as questions</h2>
+<p class="lede">Every part of HW1 and HW2, reconstructed as a question with the answer-sheet solution hidden. Attempt on paper first. The midterm will reuse these moves.</p>
+
+<h3>Homework 1 · Q1: Labor demand with three production functions</h3>
+<p>For each production function, with output price \(p\), wage \(w\), rental rate \(r\): (i) short-run labor demand with \(K\) fixed; (ii) its elasticity; (iii) long-run labor demand with \(K\) chosen optimally; (iv) its elasticity vs the short run; (v) the effect of \(r\).</p>
+
+<div class="problem"><div class="q"><span class="eyebrow">HW1 Q1a · Leontief</span>\(Y=A\big(\min\{\alpha L,K\}\big)^\nu\)</div>
+<details><summary>Solution</summary><div class="body">
+<p><strong>(i)</strong> Never choose \(L&gt;K/\alpha\). For \(\alpha L&lt;K\), \(Y=A(\alpha L)^\nu\); FOC \(pA\nu\alpha^\nu L^{\nu-1}=w\) gives \(L=\big(\tfrac{w}{pA\nu\alpha^\nu}\big)^{1/(\nu-1)}\). So \[L^d_{SR}=\min\{K/\alpha,\ (pA\nu\alpha^\nu/w)^{1/(1-\nu)}\}\].</p>
+<p><strong>(ii)</strong> On the interior, \(\log L=\tfrac{1}{1-\nu}\log(pA\nu\alpha^\nu)-\tfrac{1}{1-\nu}\log w\): elasticity \(-\tfrac{1}{1-\nu}\) (downward-sloping for \(\nu&lt;1\)). At the kink \(L=K/\alpha\): elasticity 0.</p>
+<p><strong>(iii)</strong> Cost minimization sets \(\alpha L=K\). For output \(Y\): \(L=\tfrac1\alpha(Y/A)^{1/\nu}\), \(K=\alpha L\), so \(c(Y)=(\tfrac w\alpha+r)(Y/A)^{1/\nu}\). Set \(p=c'(Y)\) and solve: \[L^d_{LR}=\tfrac1\alpha\big(\tfrac{w+r\alpha}{\alpha p\nu A}\big)^{1/(\nu-1)}\].</p>
+<p><strong>(iv)</strong> \[\log L_{LR}=\log\tfrac1\alpha+\tfrac{1}{\nu-1}\log(w+r\alpha)-\tfrac{1}{\nu-1}\log(\alpha p\nu A)\]; elasticity \(\tfrac{1}{\nu-1}\cdot\tfrac{w}{w+r\alpha}\). Since \(\tfrac{w}{w+r\alpha}\in(0,1)\), long-run demand is <em>less</em> elastic than interior short-run demand (\(\tfrac{1}{\nu-1}\)), but more elastic than the kink case (0).</p>
+<p><strong>(v)</strong> Short run: capital is sunk, \(r\) irrelevant. Long run: \(\partial\log L/\partial r=\tfrac{1}{\nu-1}\tfrac{\alpha}{w+r\alpha}&lt;0\): dearer capital lowers labor demand (complements).</p>
+</div></details></div>
+
+<div class="problem"><div class="q"><span class="eyebrow">HW1 Q1a · Cobb–Douglas</span>\(Y=AL^\alpha K^\nu\)</div>
+<details><summary>Solution</summary><div class="body">
+<p><strong>(i)</strong> \[w=pA\alpha L^{\alpha-1}K^\nu\Rightarrow L^d_{SR}=\big(\tfrac{w}{pA\alpha K^\nu}\big)^{1/(\alpha-1)}\].</p>
+<p><strong>(ii)</strong> Elasticity \(\tfrac{1}{\alpha-1}=-\tfrac{1}{1-\alpha}\).</p>
+<p><strong>(iii)</strong> \[r=pA\nu L^\alpha K^{\nu-1}\Rightarrow K=\big(\tfrac{r}{pA\nu L^\alpha}\big)^{1/(\nu-1)}\]. Substitute: \[L^d_{LR}=\big(pA\alpha(\nu/\alpha r)^\nu\big)^{1/(1-\alpha-\nu)}\,w^{\frac{\nu-1}{1-\alpha-\nu}}\].</p>
+<p><strong>(iv)</strong> Elasticity \(\tfrac{\nu-1}{1-\alpha-\nu}\). Rewrite the short-run one as \(\tfrac{\nu-1}{1-\alpha-\nu+\alpha\nu}\): identical except for the extra \(\alpha\nu&gt;0\) in the denominator, so <strong>short-run demand is less elastic</strong> (Le Chatelier: more margins of adjustment in the long run).</p>
+<p><strong>(v)</strong> \(\log L_{LR}\) contains \(\tfrac{-\nu}{1-\alpha-\nu}\log r\), negative for \(\alpha,\nu\in(0,1)\) with \(\alpha+\nu&lt;1\): higher \(r\) lowers labor demand.</p>
+</div></details></div>
+
+<div class="problem"><div class="q"><span class="eyebrow">HW1 Q1a · Perfect substitutes</span>\(Y=A(\alpha L+K)^\nu\)</div>
+<details><summary>Solution</summary><div class="body">
+<p><strong>(i)</strong> \[w=pA\alpha\nu(\alpha L+K)^{\nu-1}\Rightarrow L^d_{SR}=\tfrac1\alpha\Big[\big(\tfrac{w}{pA\alpha\nu}\big)^{1/(\nu-1)}-K\Big]\].</p>
+<p><strong>(ii)</strong> Elasticity \[=\tfrac{1}{\alpha L^d_{SR}}\big(\tfrac{w}{pA\alpha\nu}\big)^{1/(\nu-1)}\tfrac{1}{\nu-1}\], negative for \(\nu&lt;1\).</p>
+<p><strong>(iii)</strong> \(\alpha\) units of labor replace one unit of capital, so use labor only iff \(w\le\alpha r\). Then \(Y=A(\alpha L)^\nu\) and \(L^D_{LR}=\big(\tfrac{w}{pA\nu\alpha^\nu}\big)^{1/(\nu-1)}\) if \(w&lt;\alpha r\), and \(0\) if \(w&gt;\alpha r\) (indeterminate at equality). This is the automation model's maximum wage in disguise.</p>
+<p><strong>(iv)</strong> For \(w&lt;\alpha r\) the long-run elasticity is \(\tfrac{1}{\nu-1}\). The short-run elasticity multiplies this by a factor \(&gt;1\), so <strong>short-run demand is more elastic</strong> here (the opposite of Cobb–Douglas).</p>
+<p><strong>(v)</strong> With no capital used, \(r\) has no marginal effect; but a fall in \(r\) below \(w/\alpha\) flips the firm into the zero-labor regime.</p>
+</div></details></div>
+
+<div class="problem"><div class="q"><span class="eyebrow">HW1 Q1b</span>Two Cobb–Douglas firms with productivities \(A_1,A_2\). What is aggregate long-run labor demand and its elasticity?</div>
+<details><summary>Solution</summary><div class="body"><p>Sum horizontally: \[L^d_{agg}=\Big[\big(pA_1\alpha(\tfrac{\nu}{\alpha r})^\nu\big)^{\frac{1}{1-\alpha-\nu}}+\big(pA_2\alpha(\tfrac{\nu}{\alpha r})^\nu\big)^{\frac{1}{1-\alpha-\nu}}\Big]w^{\frac{\nu-1}{1-\alpha-\nu}}\]. Taking logs, the elasticity is still \(\tfrac{\nu-1}{1-\alpha-\nu}\): the same for each firm and for the aggregate, because both are the same power of \(w\).</p></div></details></div>
+
+<div class="problem"><div class="q"><span class="eyebrow">HW1 Q1c</span>Was it misleading to ignore capital in lecture 2?</div>
+<details><summary>Solution</summary><div class="body"><p>Not really. Short run: define \(\tilde y(L)=y(L,\bar K)\). Long run: \(\tilde y(L)=y(L,K^*(L))-rK^*(L)\), a value-added production function with capital chosen optimally. Modelling capital explicitly matters only for learning how elasticities differ between short and long run.</p></div></details></div>
+
+<h3>Homework 1 · Q2: Equilibrium with log utility</h3>
+<div class="problem"><div class="q"><span class="eyebrow">HW1 Q2</span>Workers: \(u=\log C-e\,v_i\), \(C=b+ew\), \(P[v_i&lt;x]=a\exp(\lambda x)\), mass \(N\). Firm: \(y=L^\gamma\), price \(p\). (a) Reservation wage. (b) Labor supply and its elasticity. (c) Labor demand and its elasticity. (d) Equilibrium log wage and log employment. (e) Signs of the effects of \(b\), \(p\), \(N\) for \(\lambda&gt;0\), \(\gamma\in(0,1)\).</div>
+<details><summary>Solution</summary><div class="body">
+<p><strong>(a)</strong> Employed iff \(\log w-v_i\ge\log b\); \(w^r_i=b\,e^{v_i}\).</p>
+<p><strong>(b)</strong> \[L^s=N\,P[v_i&lt;\log w-\log b]=Na\exp(\lambda(\log w-\log b))\]; \(\log L^s=\log(aN)+\lambda(\log w-\log b)\); elasticity \(\lambda\).</p>
+<p><strong>(c)</strong> \[w=p\gamma L^{\gamma-1}\Rightarrow\log L^D=\tfrac{1}{\gamma-1}\log w-\tfrac{1}{\gamma-1}\log(p\gamma)\]; elasticity \(\tfrac{1}{\gamma-1}\).</p>
+<p><strong>(d)</strong> \[\log w=\tfrac{\gamma-1}{\lambda(\gamma-1)-1}\big(\lambda\log b-\tfrac{1}{\gamma-1}\log p-\tfrac{1}{\gamma-1}\log\gamma-\log a-\log N\big)\], and \[\log L=\tfrac{1}{\lambda(\gamma-1)-1}(\lambda\log b-\log a-\log N)-\tfrac{\lambda}{\lambda(\gamma-1)-1}(\log p+\log\gamma)\].</p>
+<p><strong>(e)</strong> \(b\uparrow\): wages ↑, employment ↓ (supply in). \(p\uparrow\): wages ↑, employment ↑ (demand out). \(N\uparrow\): wages ↓, employment ↑ (supply out). Coefficients in the L2 tab table.</p>
+</div></details></div>
+
+<h3>Homework 1 · Q3: What computers do (Gaggl &amp; Wright)</h3>
+<div class="problem"><div class="q"><span class="eyebrow">HW1 Q3</span>(a) Describe the research design and assess it. (b) Are the results more consistent with labor-augmenting change or automation?</div>
+<details><summary>Solution</summary><div class="body"><p><strong>(a)</strong> UK policy let firms with ≤50 employees immediately deduct ICT investment. RD comparing firms just below vs just above 50. Eligible firms sharply raised ICT investment, so discontinuities in wages/hours can be read as effects of ICT. Compelling: firms near the cutoff are similar, the policy was unanticipated, little bunching, and discontinuities appear only in the policy period.</p><p><strong>(b)</strong> Overall, labor-augmenting: ICT raised average employment/hours and wages, whereas automation predicts both fall. But ICT raised earnings and hours only for non-routine cognitive workers and reduced them for routine cognitive workers, so the automation model fits the latter group.</p></div></details></div>
+
+<h3>Homework 2 · Q1: Education and technological change (CES)</h3>
+<div class="problem"><div class="q"><span class="eyebrow">HW2 Q1</span>\(Y=\big((A_eL_e)^\rho+(A_mL_m)^\rho\big)^{\nu/\rho}\), \(\rho&lt;1\). (a) Wages of each type and the ratio. (b) When does \(A_e\uparrow\) raise the premium? (c) Worker \(i\) goes to school iff \(\log w_e-v_i&gt;\log w_m\), \(P[v_i&lt;x]=\frac{1}{1+e^{-ax}}\): relative supply. (d) Equilibrium \(w_e/w_m\) and \(L_e/L_m\). (e) Logs, signs, and what recent decades imply about \(\rho\). (f) Can SBTC lower manual wages?</div>
+<details><summary>Solution</summary><div class="body">
+<p><strong>(a)</strong> \[w_e=\nu\big((A_eL_e)^\rho+(A_mL_m)^\rho\big)^{\nu/\rho-1}A_e^\rho L_e^{\rho-1}\], similarly \(w_m\). Ratio: \[\tfrac{w_e}{w_m}=\big(\tfrac{A_e}{A_m}\big)^\rho\big(\tfrac{L_e}{L_m}\big)^{\rho-1}\].</p>
+<p><strong>(b)</strong> Iff \(\rho&gt;0\): sufficiently substitutable. With poor substitutes, more productive educated workers make manual workers relatively scarce and raise \(w_m\) more.</p>
+<p><strong>(c)</strong> \[P[\text{school}]=\frac{1}{1+\exp(-a(\log w_e-\log w_m))}\]; \[L^s_e/L^s_m=\exp(a(\log w_e-\log w_m))=(w_e/w_m)^a\].</p>
+<p><strong>(d)</strong> Substitute into (a): \[\tfrac{w_e}{w_m}=\big(\tfrac{A_e}{A_m}\big)^{\frac{\rho}{1-a(\rho-1)}}\], \[\tfrac{L_e}{L_m}=\big(\tfrac{A_e}{A_m}\big)^{\frac{a\rho}{1-a(\rho-1)}}\].</p>
+<p><strong>(e)</strong> \(\log(w_e/w_m)=\tfrac{\rho}{1-a(\rho-1)}\log(A_e/A_m)\), \(\log(L_e/L_m)=\tfrac{a\rho}{1-a(\rho-1)}\log(A_e/A_m)\). Denominator positive (\(a&gt;0,\rho&lt;1\)), so both rise with \(A_e\) iff \(\rho&gt;0\). Both the premium and relative supply of educated workers rose ⇒ \(\rho&gt;0\) (substitutes).</p>
+<p><strong>(f)</strong> \[\log w_m=\log\nu+(\nu/\rho-1)\log\big((A_eL_e)^\rho+(A_mL_m)^\rho\big)+\rho\log A_m+(\rho-1)\log L_m\]. With \(a\) small (quantities fixed), \(\partial\log w_m/\partial A_e\propto\nu-\rho\). SBTC lowers \(w_m\) if decreasing returns (\(\nu&lt;1\)) and near-perfect substitutes (\(\rho\approx1\)).</p>
+</div></details></div>
+
+<h3>Homework 2 · Q2: Compensating differentials with heterogeneous productivity</h3>
+<div class="problem"><div class="q"><span class="eyebrow">HW2 Q2</span>Worker with productivity \(\theta\) earns \(\theta A_j\) in industry \(j\), \(A_G&gt;A_H\), utility \(C^\gamma/\gamma-a_i\cdot 1\{G\}\), \(a_i\sim U[0,1]\). (a) Share working in \(G\) for a common \(\bar\theta\). (b) Effect of \(\bar\theta\). (c) Shares for high and low types. (d) Their ratio; when is it below 1? (e) Effect of changing the share of each type. (f) Why is the average wage ratio a biased estimate of the compensating differential? (g) Which sign of \(\gamma\) fits the facts from lecture?</div>
+<details><summary>Solution</summary><div class="body">
+<p><strong>(a)</strong> Choose \(G\) iff \[\tfrac{(\bar\theta A_G)^\gamma}{\gamma}-a_i\ge\tfrac{(\bar\theta A_H)^\gamma}{\gamma}\iff a_i\le\tfrac{\bar\theta^\gamma}{\gamma}(A_G^\gamma-A_H^\gamma)\]. Share \(=\tfrac{\bar\theta^\gamma}{\gamma}(A_G^\gamma-A_H^\gamma)\).</p>
+<p><strong>(b)</strong> Derivative \(\bar\theta^{\gamma-1}(A_G^\gamma-A_H^\gamma)\), positive iff \(\gamma&gt;0\) (since \(A_G&gt;A_H\)).</p>
+<p><strong>(c)</strong> Same formula with \(\theta_{high}\), \(\theta_{low}\).</p>
+<p><strong>(d)</strong> Ratio \(=(\theta_{high}/\theta_{low})^\gamma\), below 1 iff \(\gamma&lt;0\): low types disproportionately in the gross industry.</p>
+<p><strong>(e)</strong> No effect: each industry's \(A\) is fixed, i.e. constant returns to scale assumed.</p>
+<p><strong>(f)</strong> \[\tfrac{E[\text{earn}_H]}{E[\text{earn}_G]}=\tfrac{A_H}{A_G}\cdot\tfrac{E[\theta\mid H]}{E[\theta\mid G]}\ne\tfrac{A_H}{A_G}\]. Average wages mix the causal differential with productivity sorting.</p>
+<p><strong>(g)</strong> Amenities improving over time (as incomes rise) and higher-paid workers having better amenities are both consistent with \(\gamma&lt;0\): amenities are a normal good.</p>
+</div></details></div>
+</section>
+<!-- ============ PRACTICE EXAM ============ -->
+<section class="panel" id="tab-practice" data-panel="practice" hidden>
+<h2>Practice exam</h2>
+<p class="lede">Fresh problems in the problem-set style, plus research-design and paper questions in the study-guide style. Allow 90 minutes, closed notes, on paper. Solutions are hidden until you open them.</p>
+<div class="callout"><span class="eyebrow">Suggested timing</span><p style="margin:4px 0 0">Q1 25 min · Q2 20 min · Q3 15 min · Q4 10 min · Q5 15 min · Q6 5 min. If a derivation stalls for more than 3 minutes, write the setup and the FOC, state what you'd do, and move on.</p></div>
+
+<h3>Q1 · Equilibrium, then automation (25 min)</h3>
+<div class="problem"><div class="q"><span class="eyebrow">Setup</span>
+<p>A mass \(N\) of workers have reservation wages with CDF \(P[w^r_i\le w]=(w/c)^\lambda\) for \(w\in[0,c]\), \(\lambda&gt;0\). A price-taking firm produces \(y=(AL)^\gamma\), \(\gamma\in(0,1)\), and sells at price 1.</p>
+<ol type="a">
+<li>Write labor supply in logs. What is the labor supply elasticity?</li>
+<li>Derive inverse labor demand and labor demand in logs. What is the demand elasticity?</li>
+<li>Solve for the equilibrium log wage. Show how \(\log w^*\) and \(\log L^*\) respond to \(\log A\), and sign the responses.</li>
+<li>Set \(N=c=A=1\), \(\lambda=1\), \(\gamma=\tfrac12\). Compute \(w^*\), \(L^*\), and output \(Y^*\).</li>
+<li>Now a machine that perfectly substitutes for effective labor becomes available at cost \(r\) per unit: \(y=(AL+M)^\gamma\). Write the new inverse labor demand curve. For which \(r\) does automation change the equilibrium of part (d)?</li>
+<li>With \(r=\tfrac12\), find the new wage, employment, machines used, and output. Compare to (d) and relate to the "theory table".</li>
+</ol></div>
+<details><summary>Solution</summary><div class="body">
+<p><strong>(a)</strong> \[L^s=N(w/c)^\lambda\Rightarrow\log L^s=\log N+\lambda\log w-\lambda\log c\]. Elasticity \(\lambda\).</p>
+<p><strong>(b)</strong> \(w=\partial(AL)^\gamma/\partial L=\gamma A^\gamma L^{\gamma-1}\). So \(\log L^D=\tfrac{1}{\gamma-1}\big(\log w-\log\gamma-\gamma\log A\big)\). Elasticity \(\tfrac{1}{\gamma-1}&lt;0\).</p>
+<p><strong>(c)</strong> Equate: \[\log N+\lambda\log w-\lambda\log c=\tfrac{1}{\gamma-1}(\log w-\log\gamma-\gamma\log A)\]. Multiply by \((\gamma-1)\) and collect:
+\[ \log w^*=\frac{(1-\gamma)\log N+\lambda(\gamma-1)\log c-\gamma\log A-\log\gamma}{\lambda(\gamma-1)-1}. \]
+The denominator is negative, so \(\partial\log w^*/\partial\log A=\frac{\gamma}{1+\lambda(1-\gamma)}&gt;0\), and via supply \(\partial\log L^*/\partial\log A=\frac{\lambda\gamma}{1+\lambda(1-\gamma)}&gt;0\). Labor-augmenting change raises wages and employment; the more elastic supply (\(\lambda\)), the more of the gain shows up as employment.</p>
+<p><strong>(d)</strong> Supply \(L=w\); demand \(w=\tfrac12L^{-1/2}\). So \[w=\tfrac12w^{-1/2}\Rightarrow w^{3/2}=\tfrac12\Rightarrow w^*=2^{-2/3}\approx0.63\], \(L^*\approx0.63\), \(Y^*=(L^*)^{1/2}\approx0.79\).</p>
+<p><strong>(e)</strong> One machine replaces \(1/A\) workers at the same output, so the firm uses machines iff \(w&gt;rA\). Inverse demand becomes \(w^D(L)=\min\{rA,\ \gamma A^\gamma L^{\gamma-1}\}\): a maximum wage at \(rA\). It changes the equilibrium iff \(rA&lt;w^*\), i.e. \(r&lt;0.63\) here.</p>
+<p><strong>(f)</strong> \(r=\tfrac12&lt;0.63\), so the cap binds: \(w^{**}=rA=0.5\). Employment from supply: \(L^{**}=0.5\). Output from price = marginal cost with machines: \(Y=(\gamma/r)^{\gamma/(1-\gamma)}=(0.5/0.5)^{1}=1\). Effective input \(AL+M=Y^{1/\gamma}=1\Rightarrow M=0.5\). Compared with (d): wages ↓ (0.63→0.5), employment ↓ (0.63→0.5), output ↑ (0.79→1), average productivity \(Y/L\) ↑ (1.26→2). Exactly the automation column.</p>
+</div></details></div>
+
+<h3>Q2 · Education (20 min)</h3>
+<div class="problem"><div class="q"><span class="eyebrow">Parts</span>
+<ol type="a">
+<li>A worker lives two periods. Uneducated she earns $30,000 in each. Educated she pays $5,000 tuition in period 1 and earns \(y\) in period 2. The interest rate is 50%. For what \(y\) does she get educated? If \(y=90{,}000\), does she? What if the interest rate rises to 100%?</li>
+<li>Now continuous schooling, infinite life, no tuition, with \(y_i(S)=\alpha_i(1+S)^\beta\). Derive optimal \(S^*\). Does ability \(\alpha_i\) affect schooling? Is the observed return to schooling biased by ability here? Contrast with the lecture's \(y_i=\alpha_i+\beta S\).</li>
+<li>Signaling: \(y_H=100\), \(y_L=60\), \(c_H=25\), \(c_L=50\), types equally likely. Does a separating equilibrium exist? A pooling equilibrium (with the off-path belief that anyone schooled is high-type)? Would banning school be a Pareto improvement? Redo with \(c_H=15\).</li>
+</ol></div>
+<details><summary>Solution</summary><div class="body">
+<p><strong>(a)</strong> \(NPV_0=30{,}000+30{,}000/1.5=50{,}000\). \(NPV_1=-5{,}000+y/1.5\). Educate iff \(y/1.5&gt;55{,}000\iff y&gt;82{,}500\). With \(y=90{,}000\): \(NPV_1=55{,}000&gt;50{,}000\), yes. At \(r=100\%\): \(NPV_0=45{,}000\), \(NPV_1=-5{,}000+45{,}000=40{,}000\), no. Higher \(r\) makes future earnings worth less relative to foregone current earnings.</p>
+<p><strong>(b)</strong> \[\max_S\log y(S)-S\log(1+r)\Rightarrow\frac{y'}{y}=\frac{\beta}{1+S}=\log(1+r)\approx r\Rightarrow S^*=\beta/r-1\]. \(\alpha_i\) cancels: ability scales earnings proportionally at every \(S\), so the proportional return is unchanged and everyone picks the same \(S\). Because schooling does not depend on \(\alpha_i\), regressing \(\log y\) on \(\log(1+S)\) across people recovers \(\beta\): <strong>no ability bias</strong>. In the lecture's additive model, \(S_i^*=1/r-\alpha_i/\beta\): ability lowers schooling and biases the observed return downward. Lesson: ability bias requires ability to change the schooling <em>choice</em>.</p>
+<p><strong>(c)</strong> \(y_H-y_L=40\). Separating needs \(c_H&lt;40&lt;c_L\): \(25&lt;40&lt;50\) ✓ exists. Pooling needs \(40&lt;2c_H=50\) ✓ exists. Both exist (multiple equilibria). Ban: Pareto-improving iff \(40&lt;\min\{c_L,2c_H\}=50\) ✓: under separating \(H\) gets \(100-25=75\), \(L\) gets 60; under pooling both get 80. Everyone prefers the ban. With \(c_H=15\): separating ✓ (\(15&lt;40&lt;50\)); pooling needs \(40&lt;30\) ✗; ban not Pareto-improving since \(H\) gets \(85&gt;80\) by separating.</p>
+</div></details></div>
+
+<h3>Q3 · Compensating differentials (15 min)</h3>
+<div class="problem"><div class="q"><span class="eyebrow">Parts</span>
+<p>Workers \(i\in[0,1]\) with \(u_i=C-a_ir\), \(a_i\sim U[0,1]\). Healthy industry: \(y_H=A_HL\) with \(A_H=1\). Gross industry: \(y_G=A_GL_G-L_G^2\), risk \(r_G\).</p>
+<ol type="a">
+<li>Derive labor supply to \(G\) and inverse labor demand in \(G\).</li>
+<li>With \(A_G=3\), \(r_G=1\): find \(w_G^*\), \(L_G^*\), and the compensating differential.</li>
+<li>Double the risk to \(r_G=2\). Recompute. Which curve moved and which way?</li>
+<li>Back to \(r_G=1\) but \(A_G=3.5\). Recompute. Which curve moved?</li>
+<li>Interpret \(r_G\) as the annual probability of death. Show that the differential divided by \(r_G\) equals the marginal worker's \(a_i\), and explain why this is the VSL. If a job pays $2,000/year more and carries a 1-in-5,000 annual fatality risk, what VSL is implied?</li>
+<li>Why would comparing average wages of \(G\) and \(H\) workers in survey data be a biased estimate of this differential? Name one paper that addresses the problem and how.</li>
+</ol></div>
+<details><summary>Solution</summary><div class="body">
+<p><strong>(a)</strong> Choose \(G\) iff \(w_G-a_ir_G\ge A_H\iff a_i\le(w_G-A_H)/r_G\). \(L^s_G=(w_G-1)/r_G\) (for \(w_G\in[1,1+r_G]\)). Demand: \(w_G=y_G'=A_G-2L_G\).</p>
+<p><strong>(b)</strong> \(L=w-1\), \[w=3-2L\Rightarrow w=3-2(w-1)\Rightarrow w_G^*=5/3\approx1.67\], \(L_G^*=2/3\). Differential \(=2/3\).</p>
+<p><strong>(c)</strong> \(L=(w-1)/2\), \(w=3-(w-1)\Rightarrow w_G^*=2\), \(L_G^*=1/2\). Differential \(=1\) (↑ from 2/3). Supply shifted left (each worker needs more pay per unit risk), employment fell, wage rose.</p>
+<p><strong>(d)</strong> \(L=w-1\), \(w=3.5-2(w-1)\Rightarrow w_G^*=5.5/3\approx1.83\), \(L_G^*\approx0.83\). Differential \(\approx0.83\) (↑). Demand shifted up; more workers drawn in; the new marginal worker dislikes risk more.</p>
+<p><strong>(e)</strong> The marginal worker is indifferent: \(w_G-a_{m}r_G=A_H\Rightarrow a_m=(w_G-A_H)/r_G\): the differential per unit of death probability. That is the marginal worker's dollar value of a unit change in death probability, i.e. \(VSL=\Delta\text{earnings}/\Delta P(\text{death})\). \(2{,}000\times5{,}000=\$10\) million.</p>
+<p><strong>(f)</strong> Workers differ in productivity, and with \(\gamma&lt;0\) (amenities a normal good) less productive workers sort into \(G\), so \[E[w_H]/E[w_G]=(A_H/A_G)\cdot E[\theta\mid H]/E[\theta\mid G]\]: the raw ratio understates the differential. Lavetti uses worker and worker–vessel fixed effects (within-worker variation in risk). Lee &amp; Taylor use randomly assigned OSHA inspections that change a plant's risk. Mas &amp; Pallais sidestep the market and randomize the wage gap in job offers.</p>
+</div></details></div>
+
+<h3>Q4 · Name the design, state the assumption (10 min)</h3>
+<div class="problem"><div class="q"><span class="eyebrow">For each scenario: which design, what it estimates, the key assumption, one threat.</span>
+<ol type="a">
+<li>In 2010 Oregon raised its compulsory schooling age from 16 to 18. Washington did not. You have earnings for cohorts in both states before and after.</li>
+<li>Firms with annual revenue above $5 million must offer paid sick leave. You compare firms with revenue just above and just below $5 million.</li>
+<li>You instrument college attendance with distance from the childhood home to the nearest college.</li>
+<li>An oversubscribed charter school allocates seats by lottery. You compare lottery winners and losers; 70% of winners enroll.</li>
+</ol></div>
+<details><summary>Solution</summary><div class="body">
+<p><strong>(a)</strong> Difference-in-differences. Estimates the effect of the law on affected cohorts. Assumption: parallel trends (Oregon and Washington earnings would have moved together); check pre-trends. Threat: Oregon-specific shocks after 2010 (a local recession, other education reforms).</p>
+<p><strong>(b)</strong> Regression discontinuity with revenue as the running variable. Estimates the local effect at the $5M threshold. Assumption: continuity of potential outcomes at the cutoff. Threat: manipulation: firms shrink or misreport revenue to stay below $5M; check the density for bunching.</p>
+<p><strong>(c)</strong> Instrumental variables. Estimates a LATE for people whose attendance depends on distance. Assumptions: relevance (distance predicts attendance), as good as random, exclusion (distance affects earnings only via college), monotonicity. Threat: families near colleges live in urban, higher-wage labor markets, violating exclusion/as-good-as-random.</p>
+<p><strong>(d)</strong> RCT (lottery). Winner-vs-loser comparison is an intention-to-treat effect; dividing by the 70% take-up (lottery as instrument for enrollment) gives the LATE for compliers. Assumptions: the lottery was fair; no spillovers between winners and losers. Threat: differential attrition from the data.</p>
+</div></details></div>
+
+<h3>Q5 · Papers and models (15 min, answer two)</h3>
+<div class="problem"><div class="q"><span class="eyebrow">Prompts</span>
+<ol type="a">
+<li>Acemoglu &amp; Restrepo find that robots reduce wages and employment; Gaggl &amp; Wright find that computers raise them. Is this a contradiction? Use the two models of lecture 3.</li>
+<li>Clark &amp; Martorell find a high-school diploma is worth roughly nothing; Angrist &amp; Krueger find a year of schooling is worth about 10%. Reconcile these, and say what each tells you about human capital, signaling and selection.</li>
+<li>In the RAND survey, jobs with paid vacation pay $52/hour and jobs without pay $37. Explain, using the HW2 Q2 model and one empirical paper, why this does not refute compensating differentials.</li>
+</ol></div>
+<details><summary>Solution</summary><div class="body">
+<p><strong>(a)</strong> No. The theory says technology raises wages and employment when it complements labor (labor-augmenting: demand curve \(\gamma A^\gamma L^{\gamma-1}\) shifts up) and lowers them when it substitutes (automation: demand capped at \(rA\)). Which case applies is technology- and worker-specific. Robots are near-perfect substitutes for routine manual tasks, so A&amp;R's equilibrium IV estimates (−0.39pp employment, −0.77% wages per robot per 1,000 workers) fit automation. ICT complements non-routine cognitive work, so Gaggl &amp; Wright's RD finds higher hours and wages on average, while routine cognitive workers, whose tasks ICT substitutes, lose. Both papers are consistent with the same theory applied to different groups.</p>
+<p><strong>(b)</strong> They answer different questions. A&amp;K estimate the causal return to a <em>year of schooling</em> for near-dropouts using quarter-of-birth IV: ≈0.10, slightly above OLS, so selection/ability bias is not the main story and schooling has real returns. C&amp;M estimate the value of the <em>credential</em> holding learning fixed, via RD at the last-chance exam: ≈0, so employers do not pay for the diploma per se, rejecting signaling for high school. A real return to years with no return to the credential is exactly what human capital predicts and what pure signaling or pure selection would not.</p>
+<p><strong>(c)</strong> The raw gap compares different workers. In HW2 Q2 with \(\gamma&lt;0\), amenities are a normal good: low-productivity workers sort into the low-amenity ("gross") industry, so \[E[w_H]/E[w_G]=(A_H/A_G)\cdot E[\theta\mid H]/E[\theta\mid G]\] is biased toward "good jobs pay more". Jobs with paid vacation are also better in other unmeasured ways. Lavetti holds the worker fixed (worker and match fixed effects) and finds riskier seasons pay ≈3% more per extra death per 1,000; Lee &amp; Taylor use randomly assigned OSHA inspections and find safer plants pay ≈$0.20–0.35/hr less. Once productivity is controlled, the differential appears.</p>
+</div></details></div>
+
+<h3>Q6 · True or false, one line of justification each (5 min)</h3>
+<div class="problem"><div class="q"><span class="eyebrow">Statements</span>
+<ol>
+<li>In the lecture 2 model, an increase in unearned income reduces labor supply.</li>
+<li>In the automation model, introducing machines always lowers the equilibrium wage.</li>
+<li>Both labor-augmenting change and automation raise average labor productivity.</li>
+<li>A separating equilibrium in the signaling model requires \(c_L&gt;y_H-y_L\).</li>
+<li>IV estimates the average treatment effect for the whole population.</li>
+<li>The key RD assumption is that the running variable is randomly assigned.</li>
+<li>The compensating differential equals the average worker's willingness to pay for the amenity.</li>
+<li>With Cobb–Douglas production, labor demand is more elastic in the long run than the short run.</li>
+<li>In the competitive model, immigration must lower native wages.</li>
+<li>Paycheck Plus implies an extensive-margin labor supply elasticity close to 1.</li>
+</ol></div>
+<details><summary>Solution</summary><div class="body">
+<ol>
+<li><strong>False.</strong> Depends on \(v''\); only with \(v''&lt;0\) (as in log utility, and as the OpenResearch RCT suggests) does supply fall.</li>
+<li><strong>False.</strong> Only if \(rA&lt;w_{\text{initial}}\); otherwise the cap is slack and nothing changes.</li>
+<li><strong>True.</strong> Augmenting: \(y/L=w/\gamma\) rises with \(w\). Automation: output up, employment down.</li>
+<li><strong>True.</strong> Low types must not want to mimic: \(y_H-y_L&lt;c_L\). Also need \(c_H&lt;y_H-y_L\).</li>
+<li><strong>False.</strong> A local average treatment effect for compliers.</li>
+<li><strong>False.</strong> Continuity of \(E[\nu_i\mid X_i]\) at the cutoff; the running variable can be very non-random (test scores, firm size).</li>
+<li><strong>False.</strong> The marginal worker's. Mas &amp; Pallais show average and marginal WTP can differ a lot.</li>
+<li><strong>True.</strong> \(\big|\frac{\nu-1}{1-\alpha-\nu}\big|&gt;\big|\frac{1}{\alpha-1}\big|\) because the short-run denominator has the extra \(\alpha\nu\). (Opposite for perfect substitutes.)</li>
+<li><strong>False.</strong> Immigrants consume locally, shifting demand out; the Czech commuter case was a pure supply shock precisely because they did not live in Germany.</li>
+<li><strong>False.</strong> ≈2.5% employment ÷ ≈20% wage ≈ 0.125.</li>
+</ol>
+</div></details></div>
+</section>
+<!-- ============ FLASHCARDS ============ -->
+<section class="panel" id="tab-cards" data-panel="cards" hidden>
+<h2>Flashcards</h2>
+<p class="lede">Click or press space to flip. Arrow keys move. Filter by category and shuffle for the Thursday rapid-fire block.</p>
+<div class="fc-wrap">
+  <div class="fc-controls">
+    <label>Category <select id="fc-cat"><option value="all">All</option><option value="Models">Models</option><option value="Formulas">Formulas</option><option value="Papers">Papers</option><option value="Designs">Designs</option><option value="Facts">Facts</option></select></label>
+    <button class="btn ghost" id="fc-shuffle" type="button">Shuffle</button>
+    <span id="fc-count"></span>
+  </div>
+  <div class="fc" id="fc-card" tabindex="0" role="button" aria-label="Flashcard; activate to flip">
+    <span class="side" id="fc-side">Front</span><span class="cat" id="fc-catlbl"></span>
+    <div class="txt" id="fc-txt"></div>
+  </div>
+  <div class="fc-controls">
+    <button class="btn ghost" id="fc-prev" type="button">← Previous</button>
+    <button class="btn" id="fc-flip" type="button">Flip</button>
+    <button class="btn ghost" id="fc-next" type="button">Next →</button>
+  </div>
+</div>
+</section>
+
+<!-- ============ CHEAT SHEET ============ -->
+<section class="panel" id="tab-cheat" data-panel="cheat" hidden>
+<h2>Cheat sheet</h2>
+<p class="lede">Everything that fits on one page. Read it first thing Wednesday and last thing Thursday.</p>
+<div class="cheat">
+<div class="card"><h4>L2 · Equilibrium</h4>
+<p>\(u_i=v(C)-ec_i\), \(C\le\pi+ew\). Reservation wage: \(v(\pi+w^r_i)-c_i=v(\pi)\).</p>
+<p>Supply \(L^s=N\,P[w^r_i\le w]\) (never slopes down). Demand \(w=p\,y'(L)\) (MRPL). Add demand curves horizontally.</p>
+<p>\(\pi\uparrow\): \(w^r\uparrow\) and supply ↓ iff \(v''&lt;0\).</p>
+<p>\(p\uparrow\) → demand up → \(w\uparrow,L\uparrow\). \(N\uparrow\) → supply out → \(w\downarrow,L\uparrow\). New industry = demand out.</p>
+<p>HW1 Q2: \(\log L^s=\log(aN)+\lambda(\log w-\log b)\) (elasticity \(\lambda\)); \(\log L^D=\frac{1}{\gamma-1}(\log w-\log p\gamma)\) (elasticity \(\frac{1}{\gamma-1}\)).</p>
+<p>Elasticities: Paycheck Plus 0.125 (employment margin); Alaska pipeline ≈3.7 (migration); Czech 1% supply → \(w\) −0.13%, native \(L\) −0.93%.</p></div>
+
+<div class="card"><h4>L3 · Technology</h4>
+<p>\(y=(AL)^\gamma\): \(w^D=\gamma A^\gamma L^{\gamma-1}\); \(y/L=w/\gamma\).</p>
+<p><strong>Augmenting</strong> \(A\uparrow\): demand up; \(w\uparrow,L\uparrow,Y\uparrow\), avg &amp; marginal productivity ↑.</p>
+<p><strong>Automation</strong> \(y=(AL+M)^\gamma\), machines cost \(r\): use machines iff \(w&gt;rA\). \(w^D=\min\{rA,\gamma A^\gamma L^{\gamma-1}\}\) = maximum wage. If \(rA&lt;w_{init}\): \(w\downarrow,L\downarrow\), \(Y\uparrow\) (MC falls: \(c'=\frac r\gamma Y^{1/\gamma-1}\)), avg productivity ↑, marginal ↓.</p>
+<p>Output with machines: \(Y=(\gamma/r)^{\gamma/(1-\gamma)}\).</p>
+<p>APR\[_i=\frac{\Delta M_i}{L_{i,1990}}-g_i\frac{M_{i,t_0}}{L_{i,1990}}\]. Exposure\(_c=\sum_i\ell^{1970}_{ci}\,\)APR\(_i\).</p>
+<p>Long-run GE: CRS + elastic non-labor inputs ⇒ \(c'(y)=1\) ⇒ cheaper tech must raise \(w\).</p></div>
+
+<div class="card"><h4>HW1 Q1 · Elasticities</h4>
+<p>Cobb–Douglas \(AL^\alpha K^\nu\): SR \(\frac{1}{\alpha-1}\); LR \(\frac{\nu-1}{1-\alpha-\nu}\); LR more elastic. \(r\uparrow\) → LR demand ↓.</p>
+<p>Leontief \(A(\min\{\alpha L,K\})^\nu\): SR \(-\frac{1}{1-\nu}\) interior, 0 at kink; LR \(\frac{1}{\nu-1}\frac{w}{w+r\alpha}\).</p>
+<p>Perfect subs \(A(\alpha L+K)^\nu\): LR labor only iff \(w&lt;\alpha r\), elasticity \(\frac{1}{\nu-1}\); SR more elastic.</p>
+<p>Always: take logs, differentiate w.r.t. \(\log w\).</p></div>
+
+<div class="card"><h4>L4 · Education</h4>
+<p>Go to college iff PV of premium \(&gt;\) PV of foregone earnings + tuition. \(\sum_{t\ge0}(1+r)^{-t}=\frac{1+r}{r}\).</p>
+<p>Continuous: \[\max_S\log y(S)-S\log(1+r)\Rightarrow\frac{y'(S)}{y(S)}=\log(1+r)\approx r\]. MRR = interest rate.</p>
+<p>Ability bias: \(y=\alpha_i+\beta S\Rightarrow S^*=\frac1r-\frac{\alpha_i}{\beta}\) (ability ↓ schooling, bias down). \(y=\alpha+\beta_iS\Rightarrow S^*=\frac1r-\frac{\alpha}{\beta_i}\) (bias up). Direction ambiguous.</p>
+<p>Signaling: pay = expected productivity. Separating iff \(c_H&lt;y_H-y_L&lt;c_L\). Pooling (schooled believed H) iff \(y_H-y_L&lt;2c_H\). Ban Pareto-improves iff \(c_H&lt;y_H-y_L&lt;\min\{c_L,2c_H\}\). Schooling = social waste.</p>
+<p>HW2 Q1: \[\frac{w_e}{w_m}=(\frac{A_e}{A_m})^\rho(\frac{L_e}{L_m})^{\rho-1}\]; supply \(\frac{L_e}{L_m}=(\frac{w_e}{w_m})^a\); eqm exponent \(\frac{\rho}{1-a(\rho-1)}\). Both up iff \(\rho&gt;0\). \(\partial\log w_m/\partial A_e\propto\nu-\rho\).</p>
+<p>A&amp;K: 0.102 vs OLS 0.071. C&amp;M: diploma ≈0 (1–2%, n.s.).</p></div>
+
+<div class="card"><h4>L5 · Compensating differentials</h4>
+<p>\(w_H=A_H\) (CRS). Choose \(G\) iff \(v(w_G)-r_Ga_i\ge v(A_H)\); \(L^s_G=P[a_i\le\frac{v(w_G)-v(A_H)}{r_G}]\); \(w_G=y_G'(L_G)\).</p>
+<p>Differential \(w_G^*-w_H^*\) compensates the <em>marginal</em> worker. \(A_G\uparrow\) → demand up → differential ↑. \(r_G\uparrow\) → supply left → differential ↑.</p>
+<p>\(VSL=\frac{\Delta\text{earnings}}{\Delta P(\text{death})}\) ≈ $6–9M (Lee &amp; Taylor).</p>
+<p>HW2 Q2: \(P[G\mid\theta]=\frac{\theta^\gamma}{\gamma}(A_G^\gamma-A_H^\gamma)\); ratio \((\theta_{hi}/\theta_{lo})^\gamma&lt;1\) iff \(\gamma&lt;0\) → low types in gross jobs → raw wage ratio biased. Facts ⇒ \(\gamma&lt;0\) (amenities normal).</p>
+<p>Lavetti ≈3% per death/1,000 (worker FE). L&amp;T: inspections → fatalities −1.3/10k, wages −$0.2–0.35. M&amp;P WTP: flex 2.5%, WFH 8%, avoid discretion 20%.</p></div>
+
+<div class="card"><h4>Designs</h4>
+<p><strong>RCT</strong>: ATE ≈ mean(T) − mean(C). Random assignment, no spillovers, ITT if partial take-up.</p>
+<p><strong>IV</strong>: \(\beta=\delta/\pi\) = reduced form / first stage. Relevance, as-good-as-random, exclusion, monotonicity → LATE for compliers.</p>
+<p><strong>RD</strong>: \(D=1\{X\ge c\}\); \(E[\nu\mid X]\) continuous at \(c\); \(\beta=\lim_{c^+}E[Y|X]-\lim_{c^-}E[Y|X]\). Check density (no bunching). Fuzzy = IV with cutoff.</p>
+<p><strong>DiD</strong>: \((Y_{T,1}-Y_{T,0})-(Y_{C,1}-Y_{C,0})\); \(Y_{it}=\alpha_i+\delta_t+\beta T_{it}+u_{it}\); parallel trends; event study with \(\beta_{-1}=0\), pre-periods as placebos.</p></div>
+
+<div class="card"><h4>Facts</h4>
+<p>Productivity ≈ ×2.8 since 1960, median wage ≈ +20%; divergence from ≈1973. Labor share 0.64 → 0.57. 90/10 fan-out since 1980; grad +40%, BA +15%, HS −10%, &lt;HS −15 to −20% (real, vs 1961). Polarization: production/office ↓, professionals/managers/health services ↑.</p>
+<p>Education: BA+ 4.6% (1940) → 32% (2014); &lt;HS 76% → 12%. Premium rose after 1980 despite rising supply ⇒ \(\rho&gt;0\) + SBTC.</p>
+<p>Amenities: deaths/100k 61 (1913) → ≈3.5. Flex start/end 12% (1985) → 55% (2018). WFH ≈5% (2019) → 18% (2021) → 13%. Paid sick leave 50% → 80%. Raw data: better jobs pay more (painful $34 vs $52; no vacation $37 vs $52).</p></div>
+
+<div class="card"><h4>Papers in a line</h4>
+<ul style="margin:0">
+<li>Paycheck Plus: RCT, emp +1.9pp, ε≈0.125.</li>
+<li>OpenResearch: RCT $1k/mo, emp −2 to −7pp, \(v''&lt;0\).</li>
+<li>Czech commuters: DiD, 1% → w −0.13%, L −0.93%.</li>
+<li>Karnataka: RCT vouchers, labor ↓, w ≈0, Y ≈0.</li>
+<li>Robots: shift-share IV, −0.39pp emp, −0.77% w per robot/1k.</li>
+<li>UK ICT: RD at 50, augmenting on avg, automation for routine cognitive.</li>
+<li>QOB: IV, 0.10 vs 0.07, LATE, human capital.</li>
+<li>Last-chance exam: fuzzy RD, diploma ≈0, no signaling.</li>
+<li>Crab: worker FE, risk premium ≈3%.</li>
+<li>OSHA: random inspections, VSL $6–9M.</li>
+<li>Arrangements: randomized offers, WTP skewed; discretion 20%.</li>
+</ul></div>
+</div>
+</section>
+</div></main>
+
+<script>
+(function(){
+  var store={get:function(k,d){try{var v=localStorage.getItem(k);return v===null?d:JSON.parse(v);}catch(e){return d;}},set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
+
+  /* Tabs */
+  var tabs=Array.prototype.slice.call(document.querySelectorAll('nav.tabs button[data-tab]'));
+  var panels=Array.prototype.slice.call(document.querySelectorAll('section.panel[data-panel]'));
+  function show(name,push){
+    var found=false;
+    panels.forEach(function(p){var on=p.getAttribute('data-panel')===name;p.hidden=!on;if(on)found=true;});
+    if(!found){name='plan';panels.forEach(function(p){p.hidden=p.getAttribute('data-panel')!=='plan';});}
+    tabs.forEach(function(b){b.setAttribute('aria-selected',b.getAttribute('data-tab')===name?'true':'false');});
+    if(push){try{history.replaceState(null,'','#'+name);}catch(e){}}
+    store.set('e151-tab',name);
+    window.scrollTo(0,0);
+    typeset(document.getElementById('tab-'+name));
+  }
+  tabs.forEach(function(b){b.addEventListener('click',function(){show(b.getAttribute('data-tab'),true);});});
+  var initial=(location.hash||'').replace('#','');
+  if(!initial)initial=store.get('e151-tab','plan');
+  show(initial,false);
+  window.addEventListener('hashchange',function(){var h=(location.hash||'').replace('#','');if(h)show(h,false);});
+
+  function typeset(el){if(window.MathJax&&MathJax.typesetPromise&&el){MathJax.typesetPromise([el]).catch(function(){});}}
+
+  /* Checkboxes: schedule blocks and paper "know" boxes */
+  var blocks=Array.prototype.slice.call(document.querySelectorAll('input[data-block]'));
+  var knows=Array.prototype.slice.call(document.querySelectorAll('input[data-know]'));
+  var saved=store.get('e151-done',{});
+  function refresh(){
+    var n=0;blocks.forEach(function(c){if(c.checked)n++;c.closest('.block').classList.toggle('done',c.checked);});
+    var pct=blocks.length?Math.round(100*n/blocks.length):0;
+    document.getElementById('progress-bar').style.width=pct+'%';
+    var k=0;knows.forEach(function(c){if(c.checked)k++;});
+    document.getElementById('progress-text').textContent=n+' of '+blocks.length+' blocks done · '+k+' of '+knows.length+' papers ready';
+  }
+  blocks.concat(knows).forEach(function(c){
+    var key=c.getAttribute('data-block')?'b:'+c.getAttribute('data-block'):'k:'+c.getAttribute('data-know');
+    c.checked=!!saved[key];
+    c.addEventListener('change',function(){saved[key]=c.checked;store.set('e151-done',saved);refresh();});
+  });
+  refresh();
+
+  /* Flashcards */
+  var CARDS=[
+    {c:'Models',f:'Reservation wage: definition and equation.',b:'The minimum wage at which worker \\(i\\) is willing to work: \\(v(\\pi+w^r_i)-c_i=v(\\pi)\\). Labor supply is \\(L^s=N\\,P[w^r_i\\le w]\\).'},
+    {c:'Models',f:'Can the lecture-2 labor supply curve slope down?',b:'No. It is \\(N\\) times a CDF, which is weakly increasing. Modelling only the extensive margin rules out backward bending.'},
+    {c:'Models',f:'Effect of higher unearned income \\(\\pi\\) on labor supply in the L2 model?',b:'Ambiguous. If \\(v\'\'<0\\), \\(w^r_i\\) rises and supply falls; if \\(v\'\'>0\\), the opposite. OpenResearch suggests \\(v\'\'<0\\).'},
+    {c:'Models',f:'Labor demand FOC and the name of the resulting object.',b:'\\(p\\,y\'(L)=w\\): wages equal the marginal revenue product of labor. Inverse demand \\(w^D(L)=p\\,y\'(L)\\), non-increasing because \\(y\'\'\\le0\\).'},
+    {c:'Models',f:'How do you aggregate labor demand across firms?',b:'Add demand curves horizontally: sum quantities at each wage. In HW1 Q1b, the aggregate elasticity equals each firm\'s.'},
+    {c:'Models',f:'Why does immigration not necessarily lower wages, while Czech commuting did?',b:'Immigrants consume locally, shifting labor demand out as well as supply. Czech commuters could not live in Germany, so only supply moved.'},
+    {c:'Models',f:'Labor-augmenting technological change: definition and effects.',b:'An increase in \\(A\\) in \\(y=(AL)^\\gamma\\). Inverse demand \\(\\gamma A^\\gamma L^{\\gamma-1}\\) shifts up: wages, employment, output, average and marginal productivity all rise.'},
+    {c:'Models',f:'Automation model: inverse labor demand after machines arrive.',b:'\\(w^D(L)=\\min\\{rA,\\ \\gamma A^\\gamma L^{\\gamma-1}\\}\\). Machines used iff \\(w>rA\\). Acts like a maximum wage; wages and employment fall, output rises.'},
+    {c:'Models',f:'Why does automation raise output in the model?',b:'Marginal cost falls from \\(\\frac1\\gamma\\frac{w}{A}Y^{1/\\gamma-1}\\) to \\(\\frac1\\gamma rY^{1/\\gamma-1}\\) when \\(rA<w\\). With price fixed at 1, lower MC means higher output.'},
+    {c:'Models',f:'Which row of the theory table distinguishes the two tech-change models?',b:'Marginal productivity, wages, and employment: ↑ under augmenting, ↓ under automation. Average productivity and output rise in both.'},
+    {c:'Models',f:'Human capital: optimality condition for schooling.',b:'\\(\\frac{y\'(S)}{y(S)}=\\log(1+r)\\approx r\\). Marginal rate of return to schooling equals the interest rate.'},
+    {c:'Models',f:'Ability bias with \\(y_i=\\alpha_i+\\beta S\\): direction?',b:'\\(S^*_i=\\frac1r-\\frac{\\alpha_i}{\\beta}\\): higher ability gets less schooling (LeBron case), so the observed return is biased down. With \\(y=\\alpha+\\beta_iS\\) it is biased up. Direction ambiguous.'},
+    {c:'Models',f:'Separating equilibrium condition in the signaling model.',b:'\\(c_H<y_H-y_L<c_L\\): the wage gain exceeds the cost for high types and falls short of it for low types.'},
+    {c:'Models',f:'Pooling (no-school) equilibrium condition, with off-path belief that schooled = high type.',b:'\\(y_H-y_L<2c_H\\), i.e. \\(y_H-c_H<\\frac{y_H+y_L}{2}\\). The low-type condition is implied.'},
+    {c:'Models',f:'When is banning school a Pareto improvement?',b:'\\(c_H<y_H-y_L<\\min\\{c_L,2c_H\\}\\): a separating equilibrium exists, yet high types would rather be paid the average than pay \\(c_H\\).'},
+    {c:'Models',f:'Why is schooling "pure social waste" in the signaling model?',b:'It costs \\(c_H\\), adds nothing to productivity, and only redistributes from low to high types. Total surplus is higher without it.'},
+    {c:'Models',f:'Compensating differential: definition and whose preferences it reflects.',b:'\\(w_G^*-w_H^*\\), the wage gap that compensates the <em>marginal</em> worker for the disamenity. An equilibrium object, not the average WTP.'},
+    {c:'Models',f:'Effect of higher gross-industry productivity \\(A_G\\) on the compensating differential.',b:'Demand in \\(G\\) shifts up; employment and wage rise along the supply curve; the differential increases because new marginal workers dislike risk more.'},
+    {c:'Models',f:'Effect of higher risk \\(r_G\\) on the compensating differential.',b:'Supply to \\(G\\) shifts left (for any \\(w_G>A_H\\), \\(\\frac{v(w_G)-v(A_H)}{r_G}\\) falls); employment falls, wage rises, differential increases.'},
+    {c:'Models',f:'HW2 Q2: why does the raw wage ratio between industries mis-measure the differential?',b:'With \\(\\gamma<0\\) low-productivity workers sort into the gross industry, so \\[E[w_H]/E[w_G]=(A_H/A_G)\\cdot E[\\theta|H]/E[\\theta|G]\\].'},
+    {c:'Formulas',f:'Elasticity of labor demand with \\(y=L^\\gamma\\).',b:'\\(\\log L^D=\\frac{1}{\\gamma-1}(\\log w-\\log p\\gamma)\\), so elasticity \\(\\frac{1}{\\gamma-1}\\).'},
+    {c:'Formulas',f:'Cobb–Douglas \\(AL^\\alpha K^\\nu\\): short- and long-run labor demand elasticities.',b:'SR \\(\\frac{1}{\\alpha-1}\\); LR \\(\\frac{\\nu-1}{1-\\alpha-\\nu}\\). LR is more elastic (SR denominator has the extra \\(\\alpha\\nu\\)).'},
+    {c:'Formulas',f:'Perfect substitutes \\(A(\\alpha L+K)^\\nu\\): long-run labor demand.',b:'Zero if \\(w>\\alpha r\\); \\((w/pA\\nu\\alpha^\\nu)^{1/(\\nu-1)}\\) if \\(w<\\alpha r\\). Elasticity \\(\\frac{1}{\\nu-1}\\). SR demand is more elastic.'},
+    {c:'Formulas',f:'Average productivity under \\(y=(AL)^\\gamma\\) in terms of the wage.',b:'\\(y/L=A^\\gamma L^{\\gamma-1}=w/\\gamma\\).'},
+    {c:'Formulas',f:'Output when the firm uses only machines (automation model).',b:'\\(Y=(\\gamma/r)^{\\gamma/(1-\\gamma)}\\) from price = marginal cost with \\(c(Y)=rY^{1/\\gamma}\\).'},
+    {c:'Formulas',f:'HW2 Q1: relative wage and relative supply in equilibrium.',b:'\\[\\frac{w_e}{w_m}=(\\frac{A_e}{A_m})^{\\frac{\\rho}{1-a(\\rho-1)}}\\], \\[\\frac{L_e}{L_m}=(\\frac{A_e}{A_m})^{\\frac{a\\rho}{1-a(\\rho-1)}}\\]. Both rise with \\(A_e\\) iff \\(\\rho>0\\).'},
+    {c:'Formulas',f:'HW2 Q1: when does skill-biased change lower manual wages?',b:'\\(\\partial\\log w_m/\\partial A_e\\propto\\nu-\\rho\\). Negative with decreasing returns (\\(\\nu<1\\)) and near-perfect substitutes (\\(\\rho\\approx1\\)).'},
+    {c:'Formulas',f:'Infinite discount sum and the NPV of schooling.',b:'\\(\\sum_{t\\ge0}(1+r)^{-t}=\\frac{1+r}{r}\\); \\(NPV(S)=\\frac{y(S)}{(1+r)^S}\\cdot\\frac{1+r}{r}\\).'},
+    {c:'Formulas',f:'Value of a statistical life.',b:'\\[VSL=\\frac{\\Delta\\text{earnings}}{\\Delta P(\\text{death})}\\]. Lee &amp; Taylor: ≈$6–9 million.'},
+    {c:'Formulas',f:'IV estimator in words and symbols.',b:'\\(\\beta=\\delta/\\pi\\): the reduced-form effect of \\(Z\\) on \\(Y\\) divided by the first-stage effect of \\(Z\\) on \\(X\\).'},
+    {c:'Formulas',f:'Two-way fixed effects DiD regression.',b:'\\(Y_{it}=\\alpha_i+\\delta_t+\\beta T_{it}+u_{it}\\). Unit effects absorb constant differences; time effects absorb common shocks.'},
+    {c:'Designs',f:'Four IV assumptions.',b:'Relevance (\\(Z\\) moves \\(X\\)); as good as random (no confounder between \\(Z\\) and \\(Y\\)); exclusion (\\(Z\\) affects \\(Y\\) only via \\(X\\)); monotonicity (no defiers). Yields a LATE.'},
+    {c:'Designs',f:'Key RD assumption and how to check it.',b:'\\(E[\\nu_i|X_i]\\) is continuous at the cutoff. Check the density of \\(X\\) for bunching and covariates for jumps.'},
+    {c:'Designs',f:'Key DiD assumption and how to probe it.',b:'Parallel trends. Plot an event study normalized at \\(h=-1\\); pre-period coefficients should be ≈0.'},
+    {c:'Designs',f:'What does an RCT identify and what are its limits?',b:'The ATE in the study population. Limits: external validity, spillovers/SUTVA, partial take-up (ITT), partial equilibrium when units are small.'},
+    {c:'Designs',f:'What is a fuzzy RD?',b:'Crossing the cutoff raises treatment probability without making it 1. Use the cutoff indicator as an IV for treatment while controlling flexibly for the running variable (Clark &amp; Martorell: 0.4 → 0.9).'},
+    {c:'Designs',f:'Two problems with regressing employment on wages across markets.',b:'Omitted variables (rural areas less productive but nicer to be unemployed) and reverse causality / simultaneity (are we tracing supply or demand?).'},
+    {c:'Papers',f:'Paycheck Plus: setting, design, number.',b:'NYC low-income singles, EITC-like bonus up to $2,000; RCT (≈6,000). Employment +1.9pp, after-bonus earnings +$635. Elasticity ≈0.125.'},
+    {c:'Papers',f:'OpenResearch guaranteed income: finding and model implication.',b:'$1,000/mo vs $50 in TX/IL (RCT). Employment −2 to −7pp, hours −1.3/wk, elasticity −0.1 to −0.3. Implies \\(v\'\'<0\\).'},
+    {c:'Papers',f:'Dustmann–Schönberg–Stuhler: design and numbers.',b:'DiD, German border vs inland districts after 1991 Czech commuting. 1% supply shock → wages −0.13%, native employment −0.93% (reduced inflows).'},
+    {c:'Papers',f:'Caunedo &amp; Kala: why no wage effect?',b:'RCT of equipment vouchers in Karnataka. Treated farms are small relative to the local market, so aggregate demand barely moves. Labor use ↓ 12–16%, output ≈0.'},
+    {c:'Papers',f:'Acemoglu &amp; Restrepo: instrument and headline numbers.',b:'European industry robot penetration mapped via 1970 employment shares instruments US exposure. +1 robot per 1,000 workers → emp/pop −0.39pp, wages −0.77% (IV).'},
+    {c:'Papers',f:'Gaggl &amp; Wright: design and the twist in the results.',b:'RD at 50 employees for a UK ICT tax deduction. Average: hours and wages ↑ (augmenting). Routine cognitive workers: earnings and hours ↓ (automation).'},
+    {c:'Papers',f:'Angrist &amp; Krueger: why does IV ≥ OLS matter?',b:'Wald 0.102 vs OLS 0.071. If ability bias inflated OLS, IV should be lower. It isn\'t, so upward ability bias is small. LATE for near-dropouts.'},
+    {c:'Papers',f:'Clark &amp; Martorell: what is identified and what is found?',b:'Fuzzy RD at the last-chance exit exam: the causal effect of the diploma holding learning fixed. ≈0 (1–2%, insignificant). Rejects signaling for high school.'},
+    {c:'Papers',f:'Lavetti: how is productivity held fixed?',b:'Worker fixed effects and worker–vessel match fixed effects; identification from within-worker changes in seasonal fatality risk. ≈3% wage premium per extra death per 1,000.'},
+    {c:'Papers',f:'Lee &amp; Taylor: what is random, and what is the exclusion restriction?',b:'OSHA inspection assignment is random. Inspections cut fatalities ≈1.3/10k and wages ≈$0.2–0.35/hr. Exclusion: inspections affect wages only via risk. VSL ≈ $6–9M.'},
+    {c:'Papers',f:'Mas &amp; Pallais: WTP numbers and why market differentials are small.',b:'Flexible schedule ≈$0.48 (2.5%), WFH ≈$1.33 (8%), avoid employer discretion ≈$3.41 (20%). Skewed: most workers value flexibility little, so the marginal worker needs no premium.'},
+    {c:'Facts',f:'Productivity vs median wage since 1960.',b:'Productivity roughly ×2.8; median full-time wage ≈+20%. Divergence starts ≈1973. Labor share 0.64 → 0.57.'},
+    {c:'Facts',f:'Earnings by education since 1980.',b:'Fan-out: grad school ≈+40%, BA ≈+15%, HS ≈−10%, less than HS ≈−15 to −20% (real, relative to 1961). Attainment: BA+ 4.6% (1940) → 32% (2014).'},
+    {c:'Facts',f:'Three amenity trends.',b:'Workplace deaths 61/100k (1913) → ≈3.5. Flexible start/end 12% (1985) → 55% (2018). WFH ≈5% (2019) → 18% (2021) → 13%. Paid sick leave 50% → 80%.'},
+    {c:'Facts',f:'What do raw survey data say about amenities and pay?',b:'Better jobs pay more: painful positions $34 vs $52; can choose task order $52 vs $33; paid vacation $52 vs $37. Productivity sorting and correlated characteristics explain the reversal.'},
+    {c:'Facts',f:'Job polarization (Autor 2019).',b:'Since 1970 production, operator/laborer and office/admin shares fell; professionals, technicians, managers and health/personal services rose.'}
+  ];
+  var deck=CARDS.slice(),idx=0,back=false;
+  var elCard=document.getElementById('fc-card'),elTxt=document.getElementById('fc-txt'),elSide=document.getElementById('fc-side'),elCat=document.getElementById('fc-catlbl'),elCount=document.getElementById('fc-count'),sel=document.getElementById('fc-cat');
+  function render(){
+    if(!deck.length){elTxt.textContent='No cards in this category.';elCount.textContent='';return;}
+    var c=deck[idx];
+    elTxt.innerHTML=back?c.b:c.f;elTxt.className='txt'+(back?' back':'');
+    elSide.textContent=back?'Back':'Front';elCat.textContent=c.c;
+    elCount.textContent=(idx+1)+' / '+deck.length;
+    typeset(elCard);
+  }
+  function build(){var cat=sel.value;deck=CARDS.filter(function(c){return cat==='all'||c.c===cat;});idx=0;back=false;render();}
+  function flip(){back=!back;render();}
+  function next(){if(!deck.length)return;idx=(idx+1)%deck.length;back=false;render();}
+  function prev(){if(!deck.length)return;idx=(idx-1+deck.length)%deck.length;back=false;render();}
+  function shuffle(){for(var i=deck.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=deck[i];deck[i]=deck[j];deck[j]=t;}idx=0;back=false;render();}
+  sel.addEventListener('change',build);
+  document.getElementById('fc-shuffle').addEventListener('click',shuffle);
+  document.getElementById('fc-flip').addEventListener('click',flip);
+  document.getElementById('fc-next').addEventListener('click',next);
+  document.getElementById('fc-prev').addEventListener('click',prev);
+  elCard.addEventListener('click',flip);
+  elCard.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();flip();}else if(e.key==='ArrowRight'){next();}else if(e.key==='ArrowLeft'){prev();}});
+  build();
+})();
+</script>
+</body>
+</html>
