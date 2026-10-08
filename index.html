@@ -158,6 +158,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],proc
 </div></header>
 <nav class="tabs" aria-label="Sections"><div class="wrap" role="tablist">
     <button role="tab" data-tab="plan" aria-selected="true">Plan</button>
+    <button role="tab" data-tab="recipes">Recipes</button>
     <button role="tab" data-tab="drills">Drills</button>
     <button role="tab" data-tab="eqm">L2 Equilibrium</button>
     <button role="tab" data-tab="tech">L3 Tech change</button>
@@ -968,6 +969,88 @@ The denominator is negative, so \(\partial\log w^*/\partial\log A=\frac{\gamma}{
 <li><strong>False.</strong> ≈2.5% employment ÷ ≈20% wage ≈ 0.125.</li>
 </ol>
 </div></details></div>
+</section>
+<!-- ============ RECIPES ============ -->
+<section class="panel" id="tab-recipes" data-panel="recipes" hidden>
+<h2>Recipes</h2>
+<p class="lede">The exact lines to write, in order, for each problem type. No theory. Follow mechanically.</p>
+
+<div class="callout"><span class="eyebrow">The master move (70% of problems)</span>
+<ol style="margin:6px 0 0">
+<li>Write profit: \(\pi=p\,y(L)-wL\).</li>
+<li>Derivative w.r.t. \(L\), set to 0: \(w=p\,y'(L)\).</li>
+<li>Solve for \(L\): that is \(L^D(w)\).</li>
+<li>Take logs of both sides.</li>
+<li><strong>The coefficient on \(\log w\) is the elasticity.</strong></li>
+</ol>
+<p style="margin:8px 0 0">For \(y=(AL)^\gamma\): \(w=\gamma A^\gamma L^{\gamma-1}\Rightarrow L^D=\big(\frac{w}{p\gamma A^\gamma}\big)^{1/(\gamma-1)}\Rightarrow\) elasticity \(=\frac{1}{\gamma-1}\).</p></div>
+
+<div class="grid2">
+<div class="card"><h4>Equilibrium (HW1 Q2 type)</h4><ol>
+<li>Supply in logs: \(\log L=\log N+\lambda(\log w-\log c)\). Elasticity \(=\lambda\).</li>
+<li>Demand in logs: \(\log w=\log(p\gamma)+(\gamma-1)\log L\).</li>
+<li>Substitute 1 into 2. Collect \(\log w\) on the left.</li>
+<li>Divide: \(\log w^*=\dfrac{\text{stuff}}{1+\lambda(1-\gamma)}\).</li>
+<li>Plug into supply for \(\log L^*\).</li>
+<li>Shock: read the sign of the changed parameter in the formula. \(p\uparrow\): \(w\uparrow,L\uparrow\). \(N\uparrow\): \(w\downarrow,L\uparrow\). benefit \(b\uparrow\): \(w\uparrow,L\downarrow\).</li></ol></div>
+
+<div class="card"><h4>Automation (L3)</h4><ol>
+<li>Write \(w^D=\min\{rA,\ \gamma A^\gamma L^{\gamma-1}\}\).</li>
+<li>Is \(rA&lt;\) old \(w^*\)? Yes → binds. No → "machines too expensive, nothing changes."</li>
+<li>If binds: wage \(=rA\). \(L\) from supply at \(w=rA\). Output \(Y=(\gamma/r)^{\gamma/(1-\gamma)}\). \(M=Y^{1/\gamma}-AL\).</li>
+<li>Sentence: "Wages ↓, employment ↓, output ↑, average productivity ↑, marginal productivity ↓." Labor-augmenting (\(A\uparrow\)): all ↑.</li></ol></div>
+
+<div class="card"><h4>Cobb–Douglas \(Y=AL^\alpha K^\nu\)</h4><p>SR elasticity \(=\frac{1}{\alpha-1}\). LR elasticity \(=\frac{\nu-1}{1-\alpha-\nu}\). Write "long run more elastic." \(r\uparrow\) lowers LR labor demand. Leontief interior SR \(=-\frac{1}{1-\nu}\); perfect substitutes: labor only iff \(w&lt;\alpha r\), SR more elastic.</p></div>
+
+<div class="card"><h4>Skill-biased change (HW2 Q1)</h4><ol>
+<li>\(\frac{w_e}{w_m}=\big(\frac{A_e}{A_m}\big)^\rho\big(\frac{L_e}{L_m}\big)^{\rho-1}\).</li>
+<li>Supply: \(\frac{L_e}{L_m}=\big(\frac{w_e}{w_m}\big)^a\).</li>
+<li>Substitute, solve: \(\frac{w_e}{w_m}=\big(\frac{A_e}{A_m}\big)^{\frac{\rho}{1-a(\rho-1)}}\).</li>
+<li>Sentence: "Premium rises with \(A_e\) iff \(\rho&gt;0\) (substitutes). Both premium and relative supply rose ⇒ \(\rho&gt;0\)." Manual wage falls iff \(\nu&lt;\rho\).</li></ol></div>
+
+<div class="card"><h4>Human capital</h4><ul>
+<li>Two-period: \(NPV_0=y_0+\frac{y_0}{1+r}\); \(NPV_1=-T+\frac{y_1}{1+r}\). Bigger wins.</li>
+<li>Continuous: write \(\frac{y'(S)}{y(S)}=r\). For \(y=\alpha_i+\beta S\): \(S^*=\frac1r-\frac{\alpha_i}{\beta}\).</li>
+<li>Sentence: "Higher \(\alpha\) → less schooling → observed return biased <strong>down</strong>. If \(\beta_i\) varies, biased up. Direction ambiguous."</li></ul></div>
+
+<div class="card"><h4>Signaling</h4><p>gap \(=y_H-y_L\).</p><ul>
+<li>Separating exists iff \(c_H&lt;\text{gap}&lt;c_L\).</li>
+<li>Pooling exists iff \(\text{gap}&lt;2c_H\).</li>
+<li>Ban is Pareto improvement iff \(c_H&lt;\text{gap}&lt;\min\{c_L,2c_H\}\).</li>
+<li>Payoffs: separating H \(=y_H-c_H\), L \(=y_L\). Pooling both \(=\frac{y_H+y_L}{2}\).</li></ul></div>
+
+<div class="card"><h4>Compensating differentials (HW2 Q2 type)</h4><ol>
+<li>\(w_H=A_H\) (constant returns pins it).</li>
+<li>Supply to G: \(a_i\le\frac{w_G-A_H}{r_G}\) → \(L^s=\) that (if \(a\sim U[0,1]\)).</li>
+<li>Demand: \(w_G=y_G'(L)\). Set equal, solve.</li>
+<li><strong>Differential \(=w_G^*-A_H\).</strong></li>
+<li>Shocks: "\(A_G\uparrow\) → demand up → differential ↑." "\(r_G\uparrow\) → supply left → differential ↑." Always ↑.</li>
+<li>\(VSL=\Delta\text{earnings}/\Delta P(\text{death})\).</li>
+<li>Sorting: \((\theta_h/\theta_l)^\gamma&lt;1\) iff \(\gamma&lt;0\) → low types in gross jobs → raw wage comparison biased.</li></ol></div>
+
+<div class="card"><h4>Designs: write these four lines</h4><ul>
+<li><strong>RCT:</strong> "Random assignment ⇒ groups identical in expectation ⇒ ATE = mean(T) − mean(C). Threats: spillovers, external validity."</li>
+<li><strong>IV:</strong> \(\beta=\delta/\pi\) (reduced form ÷ first stage). "Relevance, as good as random, exclusion, monotonicity. Identifies a LATE for compliers."</li>
+<li><strong>RD:</strong> "Compare just above vs just below cutoff. Assumption: \(E[\nu|X]\) continuous at \(c\) (no manipulation; check density). Fuzzy = jump in Y ÷ jump in treatment."</li>
+<li><strong>DiD:</strong> \((T_{after}-T_{before})-(C_{after}-C_{before})\). "Parallel trends; check pre-trends."</li></ul></div>
+</div>
+
+<h3>Papers: one line each</h3>
+<div class="key"><strong>Answer template:</strong> "Setting: ___. Design: ___, which requires ___; plausible because ___. Found ___. Consistent with the ___ model."</div>
+<div class="tbl"><table>
+<tr><th>Paper</th><th>Design</th><th>Number</th><th>Model</th></tr>
+<tr><td>Paycheck Plus</td><td>RCT, EITC bonus for NYC singles</td><td>emp +1.9pp on ≈20% wage boost → ε ≈ 0.125</td><td>Supply slopes up, inelastic</td></tr>
+<tr><td>OpenResearch</td><td>RCT $1k/mo TX/IL</td><td>employment −2 to −7pp</td><td>Unearned income ↓ supply ⇒ \(v''&lt;0\)</td></tr>
+<tr><td>Czech commuters</td><td>DiD border vs inland</td><td>1% supply → wages −0.13%, native emp −0.93%</td><td>Competitive model</td></tr>
+<tr><td>Karnataka</td><td>RCT equipment vouchers</td><td>labor ↓, wages ≈0, output ≈0</td><td>Firm-level automation, no GE</td></tr>
+<tr><td>Robots</td><td>IV with European robots</td><td>+1/1000 → emp/pop −0.39pp, wages −0.77%</td><td>Automation</td></tr>
+<tr><td>UK ICT</td><td>RD at 50 employees</td><td>avg wages/hours ↑; routine cognitive ↓</td><td>Augmenting on avg, automation for routine</td></tr>
+<tr><td>Quarter of birth</td><td>IV</td><td>return 0.10 vs OLS 0.07</td><td>Ability bias small; human capital</td></tr>
+<tr><td>Last-chance exam</td><td>Fuzzy RD</td><td>diploma ≈ 0</td><td>Rejects signaling</td></tr>
+<tr><td>Crab fishing</td><td>Worker fixed effects</td><td>≈3% more per death/1,000</td><td>Differential within worker</td></tr>
+<tr><td>OSHA</td><td>Random inspections → DiD + IV</td><td>fatalities −1.3/10k, wages −$0.2–0.35/hr; VSL $6–9M</td><td>Compensating differentials</td></tr>
+<tr><td>Work arrangements</td><td>Randomized job offers</td><td>WTP flex 2.5%, WFH 8%, avoid discretion 20%</td><td>Marginal worker sets differential</td></tr>
+</table></div>
 </section>
 <!-- ============ DRILLS ============ -->
 <section class="panel" id="tab-drills" data-panel="drills" hidden>
