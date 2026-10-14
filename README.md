@@ -2,7 +2,7 @@
 
 Two single-page study sites, one per course. Open the `index.html` in a browser. Math renders via MathJax from a CDN, so an internet connection is needed. Checkboxes, drill streaks and the current tab persist in the browser.
 
-## `econ155a/index.html` · Econ 155A (Cities and Public Policy), Midterm 1
+## `index.html` · Econ 155A (Cities and Public Policy), Midterm 1 — the live site
 
 Covers lectures 1–15: why cities exist, agglomeration, city size, urban growth, place-based policy, bid rent and land use, housing and housing policy, real estate, Rosen-Roback, durable housing and subprime, zoning, neighborhood choice and segregation.
 
@@ -16,6 +16,6 @@ Tabs:
 - **Problem sets** – HW1 and HW2 restated with full solutions.
 - **Flashcards** and **Cheat sheet**.
 
-## `index.html` · Econ 151 (Labor Economics), Midterm 1
+## `econ151/index.html` · Econ 151 (Labor Economics), Midterm 1
 
 Covers lectures 2–5: competitive equilibrium, technological change, education, compensating differentials. Plan, Recipes, Drills, lecture tabs, research designs, 11 papers, problem sets, practice exam, flashcards, cheat sheet.
