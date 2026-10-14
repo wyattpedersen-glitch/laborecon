@@ -1,17 +1,21 @@
-# Econ 151 · Midterm 1 study site
+# Study sites
 
-A single-page study site for UC Berkeley Econ 151 (Labor Economics), Midterm 1, covering lectures 2–5:
-competitive equilibrium, technological change, education, and compensating differentials.
+Two single-page study sites, one per course. Open the `index.html` in a browser. Math renders via MathJax from a CDN, so an internet connection is needed. Checkboxes, drill streaks and the current tab persist in the browser.
 
-Open `index.html` in a browser. Math renders via MathJax from a CDN, so an internet connection is needed.
+## `econ155a/index.html` · Econ 155A (Cities and Public Policy), Midterm 1
+
+Covers lectures 1–15: why cities exist, agglomeration, city size, urban growth, place-based policy, bid rent and land use, housing and housing policy, real estate, Rosen-Roback, durable housing and subprime, zoning, neighborhood choice and segregation.
 
 Tabs:
 
-- **Plan** – hour-by-hour schedule for the 1½ study days, drill-first, with checkboxes that persist in the browser.
-- **Drills** – 17 problem generators (equilibrium, automation, Cobb–Douglas, CES, NPV, ability bias, signaling, Wald/IV, compensating differentials, VSL, sorting, DiD, RD) with random numbers, answer checking, worked steps, and streak tracking.
-- **L2–L5** – each lecture's facts, model, derivations, comparative statics, graphs, and common traps.
-- **Research designs** – RCT, IV, RD, DiD: what each estimates, key assumptions, how to check them.
-- **11 Papers** – setting / design + assumptions / findings + model, in the study guide's format.
-- **Problem sets** – HW1 and HW2 restated as questions with hidden solutions.
-- **Practice exam** – fresh problems in the same style, with hidden solutions.
+- **Plan** – triage by exam tier, then an hour-by-hour evening-and-morning schedule with persistent checkboxes.
+- **Practice exam** – the 2026 practice midterm (8 T/F, 3 short answers) with model answers and redrawn graphs: pollution tax, streetcar, three-panel vouchers, MTO.
+- **Drills** – 22 generators with random numbers, answer checking, worked steps and streaks: core-periphery, HW1 log transport cost, Ellison-Glaeser, labor pooling, two-city equilibrium, rank-size, urban labor market shifts, HW2 tax, wage subsidy welfare, bid-rent slope, HW2 bid rent, density gradient, hedonic VSL, HMID, vouchers, rent control, mortgage constant, Roback signs, Glaeser-Gyourko shocks, minimum lot size, dissimilarity, lot size and integration.
+- **L1–3, L4–5, L6–7, L8–9, L10–12, L13–15** – each lecture group's facts, models, derivations, graphs and traps.
+- **Papers** – the 30 papers on the review sheet in its Question / Approach / Findings format, plus a table of everything else cited in lecture.
+- **Problem sets** – HW1 and HW2 restated with full solutions.
 - **Flashcards** and **Cheat sheet**.
+
+## `index.html` · Econ 151 (Labor Economics), Midterm 1
+
+Covers lectures 2–5: competitive equilibrium, technological change, education, compensating differentials. Plan, Recipes, Drills, lecture tabs, research designs, 11 papers, problem sets, practice exam, flashcards, cheat sheet.
