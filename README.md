@@ -8,13 +8,15 @@ Covers lectures 1–15: why cities exist, agglomeration, city size, urban growth
 
 Tabs:
 
-- **Plan** – triage by exam tier, then an hour-by-hour evening-and-morning schedule with persistent checkboxes.
-- **Practice exam** – the 2026 practice midterm (8 T/F, 3 short answers) with model answers and redrawn graphs: pollution tax, streetcar, three-panel vouchers, MTO.
-- **Drills** – 22 generators with random numbers, answer checking, worked steps and streaks: core-periphery, HW1 log transport cost, Ellison-Glaeser, labor pooling, two-city equilibrium, rank-size, urban labor market shifts, HW2 tax, wage subsidy welfare, bid-rent slope, HW2 bid rent, density gradient, hedonic VSL, HMID, vouchers, rent control, mortgage constant, Roback signs, Glaeser-Gyourko shocks, minimum lot size, dissimilarity, lot size and integration.
-- **L1–3, L4–5, L6–7, L8–9, L10–12, L13–15** – each lecture group's facts, models, derivations, graphs and traps.
-- **Papers** – the 30 papers on the review sheet in its Question / Approach / Findings format, plus a table of everything else cited in lecture.
+- **Learn** – the default view: nine guided lessons for a from-zero learner, in the order that scores, each with the idea in plain words, the one graph, the attached papers, and say-it-back questions; ends with the 30 must-know sentences.
+- **Plan** – an evening-and-morning schedule that follows the lessons, with persistent checkboxes.
+- **Practice exam** – the 2026 practice midterm (8 T/F, 3 short answers) with model answers and redrawn graphs.
+- **Drills** – 22 generators with random numbers, answer checking, worked steps and streaks, split into Core (graph-story choices and directly askable numbers) and Optional (HW-style algebra).
+- **Lectures** – for each lecture group, a short "what is realistically testable" list, with the full notes folded underneath as reference only.
+- **Papers** – the 30 review-sheet papers in Question / Approach / Findings format, plus a one-line table of everything else cited in lecture.
 - **Problem sets** – HW1 and HW2 restated with full solutions.
-- **Flashcards** and **Cheat sheet**.
+- **Flashcards** – 62 cards rated Missed / Got it; ratings persist and reorder the deck so misses come back first.
+- **Cheat sheet** – the testable core only.
 
 ## `econ151/index.html` · Econ 151 (Labor Economics), Midterm 1
 
