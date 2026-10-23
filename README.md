@@ -21,3 +21,7 @@ Tabs:
 ## `econ151/index.html` · Econ 151 (Labor Economics), Midterm 1
 
 Covers lectures 2–5: competitive equilibrium, technological change, education, compensating differentials. Plan, Recipes, Drills, lecture tabs, research designs, 11 papers, problem sets, practice exam, flashcards, cheat sheet.
+
+## `econ151/midterm2.html` · Econ 151 (Labor Economics), Midterm 2
+
+Covers lectures 6–8: employer market power, wage-setting (posting vs bargaining), and regulation (minimum wages, noncompetes, pay transparency). Plan, Attack plans with mnemonics, 15 randomized Drills, lecture tabs, 12 papers with go-to picks by research design, research designs, HW3 worked solutions, the official practice question plus a full practice exam, flashcards, cheat sheet.
